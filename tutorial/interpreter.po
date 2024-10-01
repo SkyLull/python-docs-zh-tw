@@ -6,9 +6,9 @@
 # Liang-Bo Wang <me@liang2.tw>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 17:39+0800\n"
+"POT-Creation-Date: 2024-09-23 07:52+0800\n"
 "PO-Revision-Date: 2021-05-18 16:28+0800\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -29,14 +29,20 @@ msgid "Invoking the Interpreter"
 msgstr "啟動直譯器"
 
 #: ../../tutorial/interpreter.rst:13
+#, fuzzy
 msgid ""
-"The Python interpreter is usually installed as :file:`/usr/local/bin/"
-"python3.12` on those machines where it is available; putting :file:`/usr/"
-"local/bin` in your Unix shell's search path makes it possible to start it by "
-"typing the command:"
+"The Python interpreter is usually installed as |"
+"usr_local_bin_python_x_dot_y_literal| on those machines where it is "
+"available; putting :file:`/usr/local/bin` in your Unix shell's search path "
+"makes it possible to start it by typing the command:"
 msgstr ""
 "Python 直譯器一般安裝在 :file:`/usr/local/bin/python3.12` 路徑下；將 :file:`/"
 "usr/local/bin` 加入Unix shell 的搜索路徑，輸入以下指令就可以啟動 Python："
+
+#: ../../tutorial/interpreter.rst:17
+#, fuzzy
+msgid "python3.13"
+msgstr "python3.12"
 
 #: ../../tutorial/interpreter.rst:21
 msgid ""
@@ -50,12 +56,13 @@ msgstr ""
 "python` 是個很常見的另類存放路徑。）"
 
 #: ../../tutorial/interpreter.rst:26
+#, fuzzy
 msgid ""
 "On Windows machines where you have installed Python from the :ref:`Microsoft "
-"Store <windows-store>`, the :file:`python3.12` command will be available. If "
-"you have the :ref:`py.exe launcher <launcher>` installed, you can use the :"
-"file:`py` command. See :ref:`setting-envvars` for other ways to launch "
-"Python."
+"Store <windows-store>`, the |python_x_dot_y_literal| command will be "
+"available. If you have the :ref:`py.exe launcher <launcher>` installed, you "
+"can use the :file:`py` command. See :ref:`setting-envvars` for other ways to "
+"launch Python."
 msgstr ""
 "Windows 系統中，從 :ref:`Microsoft Store <windows-store>` 安裝 Python 後，就"
 "可以使用 :file:`python3.12` 命令了。如果安裝了 :ref:`py.exe launcher "
@@ -184,6 +191,23 @@ msgstr ""
 "（``...``）。進入直譯器時，首先顯示歡迎訊息、版本訊息、版權聲明，然後才是提示"
 "符： ::"
 
+#: ../../tutorial/interpreter.rst:98
+#, fuzzy
+msgid ""
+"$ python3.13\n"
+"Python 3.13 (default, April 4 2023, 09:25:04)\n"
+"[GCC 10.2.0] on linux\n"
+"Type \"help\", \"copyright\", \"credits\" or \"license\" for more "
+"information.\n"
+">>>"
+msgstr ""
+"$ python3.12\n"
+"Python 3.12 (default, April 4 2022, 09:25:04)\n"
+"[GCC 10.2.0] on linux\n"
+"Type \"help\", \"copyright\", \"credits\" or \"license\" for more "
+"information.\n"
+">>>"
+
 #: ../../tutorial/interpreter.rst:108
 msgid ""
 "Continuation lines are needed when entering a multi-line construct. As an "
@@ -191,6 +215,15 @@ msgid ""
 msgstr ""
 "接續多行的情況出現在需要多行才能建立完整指令時。舉例來說，像是 :keyword:`if` "
 "敘述： ::"
+
+#: ../../tutorial/interpreter.rst:111
+msgid ""
+">>> the_world_is_flat = True\n"
+">>> if the_world_is_flat:\n"
+"...     print(\"Be careful not to fall off!\")\n"
+"...\n"
+"Be careful not to fall off!"
+msgstr ""
 
 #: ../../tutorial/interpreter.rst:118
 msgid "For more on interactive mode, see :ref:`tut-interac`."
@@ -217,7 +250,7 @@ msgstr ""
 "預設 Python 原始碼檔案的字元編碼使用 UTF-8。在這個編碼中，世界上多數語言的文"
 "字可以同時被使用在字串內容、識別名 (identifier) 及註解中 --- 雖然在標準函式庫"
 "中只使用 ASCII 字元作為識別名，這也是個任何 portable 程式碼需遵守的慣例。如果"
-"要正確地顯示所有字元，您的編輯器需要能夠認識檔案為 UTF-8，並且需要能顯示檔案"
+"要正確地顯示所有字元，你的編輯器需要能夠認識檔案為 UTF-8，並且需要能顯示檔案"
 "中所有字元的字型。"
 
 #: ../../tutorial/interpreter.rst:140
@@ -227,6 +260,10 @@ msgid ""
 msgstr ""
 "如果不使用預設編碼，則要聲明檔案的編碼，檔案的\\ *第一*\\ 行要寫成特殊註解。"
 "語法如下： ::"
+
+#: ../../tutorial/interpreter.rst:143
+msgid "# -*- coding: encoding -*-"
+msgstr "# -*- coding: encoding -*-"
 
 #: ../../tutorial/interpreter.rst:145
 msgid "where *encoding* is one of the valid :mod:`codecs` supported by Python."
@@ -238,6 +275,10 @@ msgid ""
 "line of your source code file should be::"
 msgstr "比如，聲明使用 Windows-1252 編碼，源碼檔案要寫成： ::"
 
+#: ../../tutorial/interpreter.rst:150
+msgid "# -*- coding: cp1252 -*-"
+msgstr ""
+
 #: ../../tutorial/interpreter.rst:152
 msgid ""
 "One exception to the *first line* rule is when the source code starts with "
@@ -246,6 +287,14 @@ msgid ""
 msgstr ""
 "*第一行*\\ 的規則也有一種例外情況，在源碼以 :ref:`UNIX \"shebang\" line <tut-"
 "scripts>` 行開頭時。此時，編碼聲明要寫在檔案的第二行。例如： ::"
+
+#: ../../tutorial/interpreter.rst:156
+msgid ""
+"#!/usr/bin/env python3\n"
+"# -*- coding: cp1252 -*-"
+msgstr ""
+"#!/usr/bin/env python3\n"
+"# -*- coding: cp1252 -*-"
 
 #: ../../tutorial/interpreter.rst:160
 msgid "Footnotes"

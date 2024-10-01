@@ -6,9 +6,9 @@
 # Leon H., 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-11 00:04+0000\n"
+"POT-Creation-Date: 2024-09-23 07:52+0800\n"
 "PO-Revision-Date: 2018-05-23 14:07+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../../c-api/slice.rst:57
 msgid "Return ``0`` on success and ``-1`` on error with an exception set."
-msgstr ""
+msgstr "成功時回傳 ``0`` ，在失敗時回傳 ``-1`` 並設定例外。"
 
 #: ../../c-api/slice.rst:60
 msgid ""
@@ -92,8 +92,24 @@ msgid ""
 "`PySlice_AdjustIndices` where ::"
 msgstr ""
 
+#: ../../c-api/slice.rst:64
+msgid ""
+"if (PySlice_GetIndicesEx(slice, length, &start, &stop, &step, &slicelength) "
+"< 0) {\n"
+"    // return error\n"
+"}"
+msgstr ""
+
 #: ../../c-api/slice.rst:68
 msgid "is replaced by ::"
+msgstr ""
+
+#: ../../c-api/slice.rst:70
+msgid ""
+"if (PySlice_Unpack(slice, &start, &stop, &step) < 0) {\n"
+"    // return error\n"
+"}\n"
+"slicelength = PySlice_AdjustIndices(length, &start, &stop, step);"
 msgstr ""
 
 #: ../../c-api/slice.rst:79
@@ -123,7 +139,7 @@ msgstr ""
 
 #: ../../c-api/slice.rst:100
 msgid "Return ``-1`` with an exception set on error, ``0`` on success."
-msgstr ""
+msgstr "成功時回傳 ``0``，在失敗時回傳 ``-1`` 並設定例外。"
 
 #: ../../c-api/slice.rst:107
 msgid ""
@@ -145,10 +161,9 @@ msgstr ""
 #: ../../c-api/slice.rst:123
 msgid ""
 "The Python ``Ellipsis`` object.  This object has no methods.  Like :c:data:"
-"`Py_None`, it is an `immortal <https://peps.python.org/pep-0683/>`_. "
-"singleton object."
+"`Py_None`, it is an :term:`immortal` singleton object."
 msgstr ""
 
-#: ../../c-api/slice.rst:127
+#: ../../c-api/slice.rst:126
 msgid ":c:data:`Py_Ellipsis` is immortal."
 msgstr ":c:data:`Py_Ellipsis` 為不滅的 (immortal)。"

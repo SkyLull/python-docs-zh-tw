@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 00:03+0000\n"
+"POT-Creation-Date: 2024-09-23 07:52+0800\n"
 "PO-Revision-Date: 2018-05-23 16:15+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -374,6 +374,10 @@ msgid ""
 "by colons::"
 msgstr ""
 
+#: ../../library/warnings.rst:196
+msgid "action:message:category:module:line"
+msgstr "action:message:category:module:line"
+
 #: ../../library/warnings.rst:198
 msgid ""
 "The meaning of each of these fields is as described in :ref:`warning-"
@@ -389,6 +393,19 @@ msgid ""
 "Commonly used warning filters apply to either all warnings, warnings in a "
 "particular category, or warnings raised by particular modules or packages. "
 "Some examples::"
+msgstr ""
+
+#: ../../library/warnings.rst:209
+msgid ""
+"default                      # Show all warnings (even those ignored by "
+"default)\n"
+"ignore                       # Ignore all warnings\n"
+"error                        # Convert all warnings to errors\n"
+"error::ResourceWarning       # Treat ResourceWarning messages as errors\n"
+"default::DeprecationWarning  # Show DeprecationWarning messages\n"
+"ignore,default:::mymodule    # Only report warnings triggered by "
+"\"mymodule\"\n"
+"error:::mymodule             # Convert warnings to errors in \"mymodule\""
 msgstr ""
 
 #: ../../library/warnings.rst:221
@@ -407,6 +424,20 @@ msgid ""
 "In regular release builds, the default warning filter has the following "
 "entries (in order of precedence)::"
 msgstr ""
+
+#: ../../library/warnings.rst:230
+msgid ""
+"default::DeprecationWarning:__main__\n"
+"ignore::DeprecationWarning\n"
+"ignore::PendingDeprecationWarning\n"
+"ignore::ImportWarning\n"
+"ignore::ResourceWarning"
+msgstr ""
+"default::DeprecationWarning:__main__\n"
+"ignore::DeprecationWarning\n"
+"ignore::PendingDeprecationWarning\n"
+"ignore::ImportWarning\n"
+"ignore::ResourceWarning"
 
 #: ../../library/warnings.rst:236
 msgid ""
@@ -447,11 +478,35 @@ msgid ""
 "disabled::"
 msgstr ""
 
+#: ../../library/warnings.rst:263
+msgid ""
+"import sys\n"
+"\n"
+"if not sys.warnoptions:\n"
+"    import warnings\n"
+"    warnings.simplefilter(\"ignore\")"
+msgstr ""
+"import sys\n"
+"\n"
+"if not sys.warnoptions:\n"
+"    import warnings\n"
+"    warnings.simplefilter(\"ignore\")"
+
 #: ../../library/warnings.rst:269
 msgid ""
 "Developers of test runners for Python code are advised to instead ensure "
 "that *all* warnings are displayed by default for the code under test, using "
 "code like::"
+msgstr ""
+
+#: ../../library/warnings.rst:273
+msgid ""
+"import sys\n"
+"\n"
+"if not sys.warnoptions:\n"
+"    import os, warnings\n"
+"    warnings.simplefilter(\"default\") # Change the filter in this process\n"
+"    os.environ[\"PYTHONWARNINGS\"] = \"default\" # Also affect subprocesses"
 msgstr ""
 
 #: ../../library/warnings.rst:280
@@ -461,6 +516,16 @@ msgid ""
 "messages are made visible by default, using code like the following (where "
 "``user_ns`` is the module used to execute code entered interactively)::"
 msgstr ""
+
+#: ../../library/warnings.rst:285
+msgid ""
+"import warnings\n"
+"warnings.filterwarnings(\"default\", category=DeprecationWarning,\n"
+"                                   module=user_ns.get(\"__name__\"))"
+msgstr ""
+"import warnings\n"
+"warnings.filterwarnings(\"default\", category=DeprecationWarning,\n"
+"                                   module=user_ns.get(\"__name__\"))"
 
 #: ../../library/warnings.rst:293
 msgid "Temporarily Suppressing Warnings"
@@ -473,6 +538,26 @@ msgid ""
 "have been explicitly configured via the command line), then it is possible "
 "to suppress the warning using the :class:`catch_warnings` context manager::"
 msgstr ""
+
+#: ../../library/warnings.rst:300
+msgid ""
+"import warnings\n"
+"\n"
+"def fxn():\n"
+"    warnings.warn(\"deprecated\", DeprecationWarning)\n"
+"\n"
+"with warnings.catch_warnings():\n"
+"    warnings.simplefilter(\"ignore\")\n"
+"    fxn()"
+msgstr ""
+"import warnings\n"
+"\n"
+"def fxn():\n"
+"    warnings.warn(\"deprecated\", DeprecationWarning)\n"
+"\n"
+"with warnings.catch_warnings():\n"
+"    warnings.simplefilter(\"ignore\")\n"
+"    fxn()"
 
 #: ../../library/warnings.rst:309
 msgid ""
@@ -494,6 +579,24 @@ msgid ""
 "manager. With it you can temporarily mutate the warnings filter to "
 "facilitate your testing. For instance, do the following to capture all "
 "raised warnings to check::"
+msgstr ""
+
+#: ../../library/warnings.rst:328
+msgid ""
+"import warnings\n"
+"\n"
+"def fxn():\n"
+"    warnings.warn(\"deprecated\", DeprecationWarning)\n"
+"\n"
+"with warnings.catch_warnings(record=True) as w:\n"
+"    # Cause all warnings to always be triggered.\n"
+"    warnings.simplefilter(\"always\")\n"
+"    # Trigger a warning.\n"
+"    fxn()\n"
+"    # Verify some things\n"
+"    assert len(w) == 1\n"
+"    assert issubclass(w[-1].category, DeprecationWarning)\n"
+"    assert \"deprecated\" in str(w[-1].message)"
 msgstr ""
 
 #: ../../library/warnings.rst:343
@@ -582,6 +685,14 @@ msgid ""
 "functions written in Python, like this::"
 msgstr ""
 
+#: ../../library/warnings.rst:410
+msgid ""
+"def deprecated_api(message):\n"
+"    warnings.warn(message, DeprecationWarning, stacklevel=2)"
+msgstr ""
+"def deprecated_api(message):\n"
+"    warnings.warn(message, DeprecationWarning, stacklevel=2)"
+
 #: ../../library/warnings.rst:413
 msgid ""
 "This makes the warning refer to ``deprecated_api``'s caller, rather than to "
@@ -599,6 +710,23 @@ msgid ""
 "prefixes are supplied, stacklevel is implicitly overridden to be ``max(2, "
 "stacklevel)``. To cause a warning to be attributed to the caller from "
 "outside of the current package you might write::"
+msgstr ""
+
+#: ../../library/warnings.rst:426
+msgid ""
+"# example/lower.py\n"
+"_warn_skips = (os.path.dirname(__file__),)\n"
+"\n"
+"def one_way(r_luxury_yacht=None, t_wobbler_mangrove=None):\n"
+"    if r_luxury_yacht:\n"
+"        warnings.warn(\"Please migrate to t_wobbler_mangrove=.\",\n"
+"                      skip_file_prefixes=_warn_skips)\n"
+"\n"
+"# example/higher.py\n"
+"from . import lower\n"
+"\n"
+"def another_way(**kw):\n"
+"    lower.one_way(**kw)"
 msgstr ""
 
 #: ../../library/warnings.rst:440
@@ -694,11 +822,72 @@ msgid ""
 "options and calls to :func:`simplefilter`."
 msgstr ""
 
-#: ../../library/warnings.rst:526
+#: ../../library/warnings.rst:527
+msgid "Decorator to indicate that a class, function or overload is deprecated."
+msgstr ""
+
+#: ../../library/warnings.rst:529
+msgid ""
+"When this decorator is applied to an object, deprecation warnings may be "
+"emitted at runtime when the object is used. :term:`static type checkers "
+"<static type checker>` will also generate a diagnostic on usage of the "
+"deprecated object."
+msgstr ""
+
+#: ../../library/warnings.rst:534
+msgid "Usage::"
+msgstr ""
+
+#: ../../library/warnings.rst:536
+msgid ""
+"from warnings import deprecated\n"
+"from typing import overload\n"
+"\n"
+"@deprecated(\"Use B instead\")\n"
+"class A:\n"
+"    pass\n"
+"\n"
+"@deprecated(\"Use g instead\")\n"
+"def f():\n"
+"    pass\n"
+"\n"
+"@overload\n"
+"@deprecated(\"int support is deprecated\")\n"
+"def g(x: int) -> int: ...\n"
+"@overload\n"
+"def g(x: str) -> int: ..."
+msgstr ""
+
+#: ../../library/warnings.rst:553
+msgid ""
+"The warning specified by *category* will be emitted at runtime on use of "
+"deprecated objects. For functions, that happens on calls; for classes, on "
+"instantiation and on creation of subclasses. If the *category* is ``None``, "
+"no warning is emitted at runtime. The *stacklevel* determines where the "
+"warning is emitted. If it is ``1`` (the default), the warning is emitted at "
+"the direct caller of the deprecated object; if it is higher, it is emitted "
+"further up the stack. Static type checker behavior is not affected by the "
+"*category* and *stacklevel* arguments."
+msgstr ""
+
+#: ../../library/warnings.rst:564
+msgid ""
+"The deprecation message passed to the decorator is saved in the "
+"``__deprecated__`` attribute on the decorated object. If applied to an "
+"overload, the decorator must be after the :func:`@overload <typing."
+"overload>` decorator for the attribute to exist on the overload as returned "
+"by :func:`typing.get_overloads`."
+msgstr ""
+
+#: ../../library/warnings.rst:571
+msgid "See :pep:`702`."
+msgstr ""
+
+#: ../../library/warnings.rst:576
 msgid "Available Context Managers"
 msgstr ""
 
-#: ../../library/warnings.rst:530
+#: ../../library/warnings.rst:580
 msgid ""
 "A context manager that copies and, upon exit, restores the warnings filter "
 "and the :func:`showwarning` function. If the *record* argument is :const:"
@@ -709,21 +898,21 @@ msgid ""
 "has attributes with the same names as the arguments to :func:`showwarning`."
 msgstr ""
 
-#: ../../library/warnings.rst:539
+#: ../../library/warnings.rst:589
 msgid ""
 "The *module* argument takes a module that will be used instead of the module "
 "returned when you import :mod:`warnings` whose filter will be protected. "
 "This argument exists primarily for testing the :mod:`warnings` module itself."
 msgstr ""
 
-#: ../../library/warnings.rst:544
+#: ../../library/warnings.rst:594
 msgid ""
 "If the *action* argument is not ``None``, the remaining arguments are passed "
 "to :func:`simplefilter` as if it were called immediately on entering the "
 "context."
 msgstr ""
 
-#: ../../library/warnings.rst:550
+#: ../../library/warnings.rst:600
 msgid ""
 "The :class:`catch_warnings` manager works by replacing and then later "
 "restoring the module's :func:`showwarning` function and internal list of "
@@ -731,7 +920,7 @@ msgid ""
 "state and therefore is not thread-safe."
 msgstr ""
 
-#: ../../library/warnings.rst:558
+#: ../../library/warnings.rst:608
 msgid "Added the *action*, *category*, *lineno*, and *append* parameters."
 msgstr "新增 *action*、*category*、*lineno* 和 *append* 參數。"
 

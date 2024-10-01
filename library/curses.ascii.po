@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 00:03+0000\n"
 "PO-Revision-Date: 2018-05-23 14:42+0000\n"
@@ -35,11 +35,11 @@ msgstr ""
 
 #: ../../library/curses.ascii.rst:19
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: ../../library/curses.ascii.rst:19
 msgid "Meaning"
-msgstr ""
+msgstr "含義"
 
 #: ../../library/curses.ascii.rst:23
 msgid "Start of heading, console interrupt"

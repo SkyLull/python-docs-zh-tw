@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 00:03+0000\n"
+"POT-Creation-Date: 2024-09-03 11:11+0800\n"
 "PO-Revision-Date: 2024-03-14 09:26+0800\n"
 "Last-Translator: Enkai Huang <enkaihuang2021@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -65,11 +65,27 @@ msgstr ""
 "``complex(-2.0, -0.0)`` 被視為位於分枝切割 *下方* 處理，因此給出的結果在負虛"
 "軸上： ::"
 
+#: ../../library/cmath.rst:31
+msgid ""
+">>> cmath.sqrt(complex(-2.0, -0.0))\n"
+"-1.4142135623730951j"
+msgstr ""
+">>> cmath.sqrt(complex(-2.0, -0.0))\n"
+"-1.4142135623730951j"
+
 #: ../../library/cmath.rst:34
 msgid ""
 "But an argument of ``complex(-2.0, 0.0)`` is treated as though it lies above "
 "the branch cut::"
 msgstr "但是引數 ``complex(-2.0, 0.0)`` 會被當成位於分枝切割上方處理： ::"
+
+#: ../../library/cmath.rst:37
+msgid ""
+">>> cmath.sqrt(complex(-2.0, 0.0))\n"
+"1.4142135623730951j"
+msgstr ""
+">>> cmath.sqrt(complex(-2.0, 0.0))\n"
+"1.4142135623730951j"
 
 #: ../../library/cmath.rst:42
 msgid "Conversions to and from polar coordinates"
@@ -115,6 +131,18 @@ msgstr ""
 "於 ``math.atan2(x.imag, x.real)``。結果將位於 [-\\ *π*, *π*] 的範圍內，且此操"
 "作的分枝切割將位於負實軸上。結果的符號會與 ``x.imag`` 的符號相同，即使 ``x."
 "imag`` 為零： ::"
+
+#: ../../library/cmath.rst:66
+msgid ""
+">>> phase(complex(-1.0, 0.0))\n"
+"3.141592653589793\n"
+">>> phase(complex(-1.0, -0.0))\n"
+"-3.141592653589793"
+msgstr ""
+">>> phase(complex(-1.0, 0.0))\n"
+"3.141592653589793\n"
+">>> phase(complex(-1.0, -0.0))\n"
+"-3.141592653589793"
 
 #: ../../library/cmath.rst:74
 msgid ""
@@ -396,7 +424,7 @@ msgid ""
 "following:"
 msgstr ""
 "關於分枝切割的註釋：它們是沿著給定的不連續函式的曲線。它們是許多複變函數的必"
-"要特徵。假設您需要使用複變函數進行計算，您將會了解分枝切割的概念。請參閱幾乎"
+"要特徵。假設你需要使用複變函數進行計算，你將會了解分枝切割的概念。請參閱幾乎"
 "所有關於複變函數的（不是太初級的）書籍以獲得啟發。對於如何正確地基於數值目的"
 "選擇分枝切割的相關訊息，以下內容應該是一個很好的參考："
 

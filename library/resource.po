@@ -1,13 +1,12 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 00:03+0000\n"
+"POT-Creation-Date: 2024-09-23 07:52+0800\n"
 "PO-Revision-Date: 2018-05-23 16:09+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -29,7 +28,8 @@ msgid ""
 msgstr ""
 
 #: ../../library/resource.rst:16
-msgid ":ref:`Availability <availability>`: Unix, not Emscripten, not WASI."
+#, fuzzy
+msgid ":ref:`Availability <availability>`: Unix, not WASI."
 msgstr ":ref:`適用 <availability>`：Unix、非 Emscripten、非 WASI。"
 
 #: ../../library/resource.rst:18
@@ -320,6 +320,21 @@ msgstr ""
 msgid "A simple example::"
 msgstr "一個簡單範例： ::"
 
+#: ../../library/resource.rst:287
+msgid ""
+"from resource import *\n"
+"import time\n"
+"\n"
+"# a non CPU-bound task\n"
+"time.sleep(3)\n"
+"print(getrusage(RUSAGE_SELF))\n"
+"\n"
+"# a CPU-bound task\n"
+"for i in range(10 ** 8):\n"
+"   _ = 1 + 1\n"
+"print(getrusage(RUSAGE_SELF))"
+msgstr ""
+
 #: ../../library/resource.rst:299
 msgid ""
 "The fields of the return value each describe how a particular system "
@@ -338,7 +353,7 @@ msgstr ""
 #: ../../library/resource.rst:307
 msgid ""
 "The fields :attr:`ru_utime` and :attr:`ru_stime` of the return value are "
-"floating point values representing the amount of time spent executing in "
+"floating-point values representing the amount of time spent executing in "
 "user mode and the amount of time spent executing in system mode, "
 "respectively. The remaining values are integers. Consult the :manpage:"
 "`getrusage(2)` man page for detailed information about these values. A brief "

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Python package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 00:03+0000\n"
+"POT-Creation-Date: 2024-09-24 07:20+0000\n"
 "PO-Revision-Date: 2018-07-15 18:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -229,10 +229,38 @@ msgid ""
 "following syntax valid::"
 msgstr ""
 
+#: ../../whatsnew/3.7.rst:158
+msgid ""
+"class C:\n"
+"    @classmethod\n"
+"    def from_string(cls, source: str) -> C:\n"
+"        ...\n"
+"\n"
+"    def validate_b(self, obj: B) -> bool:\n"
+"        ...\n"
+"\n"
+"class B:\n"
+"    ..."
+msgstr ""
+"class C:\n"
+"    @classmethod\n"
+"    def from_string(cls, source: str) -> C:\n"
+"        ...\n"
+"\n"
+"    def validate_b(self, obj: B) -> bool:\n"
+"        ...\n"
+"\n"
+"class B:\n"
+"    ..."
+
 #: ../../whatsnew/3.7.rst:169
 msgid ""
 "Since this change breaks compatibility, the new behavior needs to be enabled "
 "on a per-module basis in Python 3.7 using a :mod:`__future__` import::"
+msgstr ""
+
+#: ../../whatsnew/3.7.rst:172
+msgid "from __future__ import annotations"
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:174
@@ -467,7 +495,7 @@ msgstr ""
 #: ../../whatsnew/3.7.rst:341
 msgid ""
 "The resolution of clocks in modern systems can exceed the limited precision "
-"of a floating point number returned by the :func:`time.time` function and "
+"of a floating-point number returned by the :func:`time.time` function and "
 "its variants.  To avoid loss of precision, :pep:`564` adds six new "
 "\"nanosecond\" variants of the existing timer functions to the :mod:`time` "
 "module:"
@@ -503,9 +531,9 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:356
 msgid ""
-"`Measurements <https://peps.python.org/pep-0564/#annex-clocks-resolution-in-"
-"python>`_ show that on Linux and Windows the resolution of :func:`time."
-"time_ns` is approximately 3 times better than that of :func:`time.time`."
+":pep:`Measurements <0564#annex-clocks-resolution-in-python>` show that on "
+"Linux and Windows the resolution of :func:`time.time_ns` is approximately 3 "
+"times better than that of :func:`time.time`."
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:362
@@ -815,6 +843,18 @@ msgstr ""
 msgid "Example::"
 msgstr "範例： ::"
 
+#: ../../whatsnew/3.7.rst:582
+msgid ""
+"@dataclass\n"
+"class Point:\n"
+"    x: float\n"
+"    y: float\n"
+"    z: float = 0.0\n"
+"\n"
+"p = Point(1.5, 2.5)\n"
+"print(p)   # produces \"Point(x=1.5, y=2.5, z=0.0)\""
+msgstr ""
+
 #: ../../whatsnew/3.7.rst:593
 msgid ":pep:`557` -- Data Classes"
 msgstr ""
@@ -833,7 +873,7 @@ msgid ""
 "new ABC for access to, opening, and reading *resources* inside packages. "
 "Resources are roughly similar to files inside packages, but they needn't be "
 "actual files on the physical file system.  Module loaders can provide a :"
-"meth:`get_resource_reader()` function which returns a :class:`importlib.abc."
+"meth:`get_resource_reader` function which returns a :class:`importlib.abc."
 "ResourceReader` instance to support this new API.  Built-in file path "
 "loaders and zip file loaders both support this."
 msgstr ""
@@ -980,6 +1020,16 @@ msgid ""
 "<asyncio.Server.is_serving>` method returns ``True`` if the server is "
 "serving.  :class:`~asyncio.Server` objects are now asynchronous context "
 "managers::"
+msgstr ""
+
+#: ../../whatsnew/3.7.rst:716
+msgid ""
+"srv = await loop.create_server(...)\n"
+"\n"
+"async with srv:\n"
+"    # some code\n"
+"\n"
+"# At this point, srv is closed and no longer accepts new connections."
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:723
@@ -1169,14 +1219,14 @@ msgstr "crypt"
 
 #: ../../whatsnew/3.7.rst:851
 msgid ""
-"The :mod:`crypt` module now supports the Blowfish hashing method. "
+"The :mod:`!crypt` module now supports the Blowfish hashing method. "
 "(Contributed by Serhiy Storchaka in :issue:`31664`.)"
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:854
 msgid ""
-"The :func:`~crypt.mksalt` function now allows specifying the number of "
-"rounds for hashing.  (Contributed by Serhiy Storchaka in :issue:`31702`.)"
+"The :func:`!mksalt` function now allows specifying the number of rounds for "
+"hashing.  (Contributed by Serhiy Storchaka in :issue:`31702`.)"
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:859
@@ -1578,9 +1628,8 @@ msgstr "msilib"
 
 #: ../../whatsnew/3.7.rst:1136
 msgid ""
-"The new :meth:`Database.Close() <msilib.Database.Close>` method can be used "
-"to close the :abbr:`MSI` database. (Contributed by Berker Peksag in :issue:"
-"`20486`.)"
+"The new :meth:`!Database.Close` method can be used to close the :abbr:`MSI` "
+"database. (Contributed by Berker Peksag in :issue:`20486`.)"
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:1142
@@ -2171,7 +2220,7 @@ msgstr "uu"
 
 #: ../../whatsnew/3.7.rst:1554
 msgid ""
-"The :func:`uu.encode` function now accepts an optional *backtick* keyword "
+"The :func:`!uu.encode` function now accepts an optional *backtick* keyword "
 "argument.  When it's true, zeros are represented by ``'`'`` instead of "
 "spaces.  (Contributed by Xiang Zhang in :issue:`30103`.)"
 msgstr ""
@@ -2490,7 +2539,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:1758
 msgid "Build Changes"
-msgstr ""
+msgstr "建置變更"
 
 #: ../../whatsnew/3.7.rst:1760
 msgid ""
@@ -2786,8 +2835,8 @@ msgstr "aifc"
 
 #: ../../whatsnew/3.7.rst:1956
 msgid ""
-":func:`aifc.openfp` has been deprecated and will be removed in Python 3.9. "
-"Use :func:`aifc.open` instead. (Contributed by Brian Curtin in :issue:"
+":func:`!aifc.openfp` has been deprecated and will be removed in Python 3.9. "
+"Use :func:`!aifc.open` instead. (Contributed by Brian Curtin in :issue:"
 "`31985`.)"
 msgstr ""
 
@@ -2847,9 +2896,9 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2019
 msgid ""
-"Methods :meth:`!MetaPathFinder.find_module()` (replaced by :meth:"
+"Methods :meth:`!MetaPathFinder.find_module` (replaced by :meth:"
 "`MetaPathFinder.find_spec() <importlib.abc.MetaPathFinder.find_spec>`) and :"
-"meth:`!PathEntryFinder.find_loader()` (replaced by :meth:`PathEntryFinder."
+"meth:`!PathEntryFinder.find_loader` (replaced by :meth:`PathEntryFinder."
 "find_spec() <importlib.abc.PathEntryFinder.find_spec>`) both deprecated in "
 "Python 3.4 now emit :exc:`DeprecationWarning`. (Contributed by Matthias "
 "Bussonnier in :issue:`29576`.)"
@@ -2908,8 +2957,8 @@ msgstr "sunau"
 
 #: ../../whatsnew/3.7.rst:2077
 msgid ""
-":func:`sunau.openfp` has been deprecated and will be removed in Python 3.9. "
-"Use :func:`sunau.open` instead. (Contributed by Brian Curtin in :issue:"
+":func:`!sunau.openfp` has been deprecated and will be removed in Python 3.9. "
+"Use :func:`!sunau.open` instead. (Contributed by Brian Curtin in :issue:"
 "`31985`.)"
 msgstr ""
 
@@ -3171,6 +3220,18 @@ msgid ""
 "following syntax::"
 msgstr ""
 
+#: ../../whatsnew/3.7.rst:2255
+msgid ""
+"f(1 for x in [1],)\n"
+"\n"
+"class C(1 for x in [1]):\n"
+"    pass"
+msgstr ""
+"f(1 for x in [1],)\n"
+"\n"
+"class C(1 for x in [1]):\n"
+"    pass"
+
 #: ../../whatsnew/3.7.rst:2260
 msgid ""
 "Python 3.7 now correctly raises a :exc:`SyntaxError`, as a generator "
@@ -3259,7 +3320,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2320
 msgid ""
-":func:`~cgi.parse_multipart` now accepts the *encoding* and *errors* "
+":func:`!cgi.parse_multipart` now accepts the *encoding* and *errors* "
 "arguments and returns the same results as :class:`!FieldStorage`: for non-"
 "file fields, the value associated to a key is a list of strings, not bytes. "
 "(Contributed by Pierre Quentel in :issue:`29979`.)"
@@ -3327,7 +3388,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2369
 msgid ""
-":func:`re.sub()` now replaces empty matches adjacent to a previous non-empty "
+":func:`re.sub` now replaces empty matches adjacent to a previous non-empty "
 "match.  For example ``re.sub('x*', '-', 'abxd')`` returns now ``'-a-b--d-'`` "
 "instead of ``'-a-b-d-'`` (the first minus between 'b' and 'd' replaces 'x', "
 "and the second minus replaces an empty string between 'x' and 'd')."
@@ -3413,7 +3474,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2428
 msgid ""
-":meth:`ast.literal_eval()` is now stricter.  Addition and subtraction of "
+":meth:`ast.literal_eval` is now stricter.  Addition and subtraction of "
 "arbitrary numbers are no longer allowed. (Contributed by Serhiy Storchaka "
 "in :issue:`31778`.)"
 msgstr ""
@@ -3479,7 +3540,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2477
 msgid "CPython bytecode changes"
-msgstr ""
+msgstr "CPython 位元組碼變更"
 
 #: ../../whatsnew/3.7.rst:2479
 msgid ""
@@ -3522,15 +3583,15 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:2511
 msgid ""
-":c:func:`PySys_AddWarnOptionUnicode` is not currently usable by embedding "
+":c:func:`!PySys_AddWarnOptionUnicode` is not currently usable by embedding "
 "applications due to the requirement to create a Unicode object prior to "
-"calling ``Py_Initialize``. Use :c:func:`PySys_AddWarnOption` instead."
+"calling ``Py_Initialize``. Use :c:func:`!PySys_AddWarnOption` instead."
 msgstr ""
 
 #: ../../whatsnew/3.7.rst:2515
 msgid ""
-"warnings filters added by an embedding application with :c:func:"
-"`PySys_AddWarnOption` should now more consistently take precedence over the "
+"warnings filters added by an embedding application with :c:func:`!"
+"PySys_AddWarnOption` should now more consistently take precedence over the "
 "default filters set by the interpreter"
 msgstr ""
 
@@ -3627,8 +3688,8 @@ msgid ""
 "parameter separators in :func:`urllib.parse.parse_qs` and :func:`urllib."
 "parse.parse_qsl`.  Due to security concerns, and to conform with newer W3C "
 "recommendations, this has been changed to allow only a single separator key, "
-"with ``&`` as the default.  This change also affects :func:`cgi.parse` and :"
-"func:`cgi.parse_multipart` as they use the affected functions internally. "
+"with ``&`` as the default.  This change also affects :func:`!cgi.parse` and :"
+"func:`!cgi.parse_multipart` as they use the affected functions internally. "
 "For more details, please see their respective documentation. (Contributed by "
 "Adam Goldschmidt, Senthil Kumaran and Ken Jin in :issue:`42967`.)"
 msgstr ""

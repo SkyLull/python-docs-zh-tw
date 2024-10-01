@@ -1,5 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -8,9 +7,9 @@
 # Steven Hsu <hsuhaochun@gmail.com>, 2023
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 00:03+0000\n"
+"POT-Creation-Date: 2024-09-24 07:20+0000\n"
 "PO-Revision-Date: 2023-08-31 11:34+0800\n"
 "Last-Translator: Steven Hsu <hsuhaochun@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -52,6 +51,18 @@ msgid ""
 msgstr ""
 "因為沒有開始/結束括號，因此剖析器和人類讀者感知到的分組就不存在分歧。偶爾 C "
 "語言的程式設計師會遇到這樣的程式碼片段： ::"
+
+#: ../../faq/design.rst:21
+msgid ""
+"if (x <= y)\n"
+"        x++;\n"
+"        y--;\n"
+"z++;"
+msgstr ""
+"if (x <= y)\n"
+"        x++;\n"
+"        y--;\n"
+"z++;"
 
 #: ../../faq/design.rst:26
 msgid ""
@@ -108,6 +119,14 @@ msgstr "為何浮點數運算如此不精確？"
 msgid "Users are often surprised by results like this::"
 msgstr "使用者時常對這樣的結果感到驚訝： ::"
 
+#: ../../faq/design.rst:58
+msgid ""
+">>> 1.2 - 1.0\n"
+"0.19999999999999996"
+msgstr ""
+">>> 1.2 - 1.0\n"
+"0.19999999999999996"
+
 #: ../../faq/design.rst:61
 msgid ""
 "and think it is a bug in Python.  It's not.  This has little to do with "
@@ -134,10 +153,14 @@ msgstr ""
 #: ../../faq/design.rst:72
 msgid ""
 "Many numbers that can be written easily in decimal notation cannot be "
-"expressed exactly in binary floating-point.  For example, after::"
+"expressed exactly in binary floating point.  For example, after::"
 msgstr ""
-"很多數字可以簡單地寫成十進位表示，但卻無法簡單地變成二進制表示。比方說，在以"
-"下程式碼執行後： ::"
+"很多數字可以簡單地寫成十進位表示，但卻無法簡單地以二進制浮點數表示。比方說，"
+"在以下程式碼執行後： ::"
+
+#: ../../faq/design.rst:75
+msgid ">>> x = 1.2"
+msgstr ">>> x = 1.2"
 
 #: ../../faq/design.rst:77
 msgid ""
@@ -148,9 +171,17 @@ msgstr ""
 "``x`` 裡的值是一個（很接近）1.2 的估計值，但並非精確地等於 1.2。以一般的電腦"
 "來說，他實際儲存的值是： ::"
 
+#: ../../faq/design.rst:81
+msgid "1.0011001100110011001100110011001100110011001100110011 (binary)"
+msgstr "1.0011001100110011001100110011001100110011001100110011 (binary)"
+
 #: ../../faq/design.rst:83
 msgid "which is exactly::"
 msgstr "而這個值正是： ::"
+
+#: ../../faq/design.rst:85
+msgid "1.1999999999999999555910790149937383830547332763671875 (decimal)"
+msgstr "1.1999999999999999555910790149937383830547332763671875 (decimal)"
 
 #: ../../faq/design.rst:87
 msgid ""
@@ -160,7 +191,7 @@ msgstr "53 位元的精度讓 Python 可以有 15 至 16 小數位的準確度�
 
 #: ../../faq/design.rst:90
 msgid ""
-"For a fuller explanation, please see the :ref:`floating point arithmetic "
+"For a fuller explanation, please see the :ref:`floating-point arithmetic "
 "<tut-fp-issues>` chapter in the Python tutorial."
 msgstr ""
 "要更完全的解釋可以查閱在 Python 教學的\\ :ref:`浮點運算 <tut-fp-issues>`\\ 一"
@@ -281,6 +312,14 @@ msgid ""
 "an expression::"
 msgstr "指派運算式使用海象運算子 ``:=`` 來在運算式中指派變數值： ::"
 
+#: ../../faq/design.rst:161
+msgid ""
+"while chunk := fp.read(200):\n"
+"   print(chunk)"
+msgstr ""
+"while chunk := fp.read(200):\n"
+"   print(chunk)"
+
 #: ../../faq/design.rst:164
 msgid "See :pep:`572` for more information."
 msgstr "更多資訊請見 :pep:`572`。"
@@ -348,9 +387,17 @@ msgstr ""
 "的函式有相同功能的方法也被加入。大多數的新方法都被廣泛接受，但有一個方法似乎"
 "讓一些程式人員不舒服： ::"
 
+#: ../../faq/design.rst:201
+msgid "\", \".join(['1', '2', '4', '8', '16'])"
+msgstr "\", \".join(['1', '2', '4', '8', '16'])"
+
 #: ../../faq/design.rst:203
 msgid "which gives the result::"
 msgstr "結果是： ::"
+
+#: ../../faq/design.rst:205
+msgid "\"1, 2, 4, 8, 16\""
+msgstr "\"1, 2, 4, 8, 16\""
 
 #: ../../faq/design.rst:207
 msgid "There are two common arguments against this usage."
@@ -378,6 +425,10 @@ msgstr ""
 "第二個反對意見通常是：「我是在叫一個序列把它的成員用一個字串常數連接起來」。"
 "但很遺憾地，你並不是在這樣做。因為某種原因，把 :meth:`~str.split` 當成字串方"
 "法比較簡單，因為這樣我們可以輕易地看到： ::"
+
+#: ../../faq/design.rst:220
+msgid "\"1, 2, 4, 8, 16\".split(\", \")"
+msgstr "\"1, 2, 4, 8, 16\".split(\", \")"
 
 #: ../../faq/design.rst:222
 msgid ""
@@ -413,6 +464,20 @@ msgstr ""
 "的。事實上，抓捕例外要付出昂貴的代價。在 Python 2.0 以前，這樣使用是相當常見"
 "的： ::"
 
+#: ../../faq/design.rst:240
+msgid ""
+"try:\n"
+"    value = mydict[key]\n"
+"except KeyError:\n"
+"    mydict[key] = getvalue(key)\n"
+"    value = mydict[key]"
+msgstr ""
+"try:\n"
+"    value = mydict[key]\n"
+"except KeyError:\n"
+"    mydict[key] = getvalue(key)\n"
+"    value = mydict[key]"
+
 #: ../../faq/design.rst:246
 msgid ""
 "This only made sense when you expected the dict to have the key almost all "
@@ -420,6 +485,18 @@ msgid ""
 msgstr ""
 "這只有在你預料這個字典大多數時候都有鍵的時候才合理。如果並非如此，你應該寫"
 "成： ::"
+
+#: ../../faq/design.rst:249
+msgid ""
+"if key in mydict:\n"
+"    value = mydict[key]\n"
+"else:\n"
+"    value = mydict[key] = getvalue(key)"
+msgstr ""
+"if key in mydict:\n"
+"    value = mydict[key]\n"
+"else:\n"
+"    value = mydict[key] = getvalue(key)"
 
 #: ../../faq/design.rst:254
 msgid ""
@@ -451,6 +528,20 @@ msgid ""
 "to call.  For example::"
 msgstr "如果可能性很多，你可以用字典去映射要呼叫的函式。舉例來說： ::"
 
+#: ../../faq/design.rst:272
+msgid ""
+"functions = {'a': function_1,\n"
+"             'b': function_2,\n"
+"             'c': self.method_1}\n"
+"\n"
+"func = functions[value]\n"
+"func()"
+msgstr ""
+"if key in mydict:\n"
+"    value = mydict[key]\n"
+"else:\n"
+"    value = mydict[key] = getvalue(key)"
+
 #: ../../faq/design.rst:279
 msgid ""
 "For calling methods on objects, you can simplify yet further by using the :"
@@ -458,6 +549,26 @@ msgid ""
 msgstr ""
 "對於呼叫物件裡的方法，你可以利用內建用來找尋特定方法的函式 :func:`getattr` 來"
 "做進一步的簡化： ::"
+
+#: ../../faq/design.rst:282
+msgid ""
+"class MyVisitor:\n"
+"    def visit_a(self):\n"
+"        ...\n"
+"\n"
+"    def dispatch(self, value):\n"
+"        method_name = 'visit_' + str(value)\n"
+"        method = getattr(self, method_name)\n"
+"        method()"
+msgstr ""
+"class MyVisitor:\n"
+"    def visit_a(self):\n"
+"        ...\n"
+"\n"
+"    def dispatch(self, value):\n"
+"        method_name = 'visit_' + str(value)\n"
+"        method = getattr(self, method_name)\n"
+"        method()"
 
 #: ../../faq/design.rst:291
 msgid ""
@@ -538,13 +649,13 @@ msgstr "Python 可以被編譯成機器語言、C 語言或其他種語言嗎？
 #: ../../faq/design.rst:330
 msgid ""
 "`Cython <https://cython.org/>`_ compiles a modified version of Python with "
-"optional annotations into C extensions.  `Nuitka <https://www.nuitka.net/>`_ "
-"is an up-and-coming compiler of Python into C++ code, aiming to support the "
+"optional annotations into C extensions.  `Nuitka <https://nuitka.net/>`_ is "
+"an up-and-coming compiler of Python into C++ code, aiming to support the "
 "full Python language."
 msgstr ""
 "`Cython <https://cython.org/>`_ 可以編譯一個調整過有選擇性註解的 Python 版"
-"本。 `Nuitka <https://www.nuitka.net/>`_ 是一個有潛力編譯器，可以把 Python 編"
-"譯成 C++，他的目標是支援完整的 Python 語言。"
+"本。`Nuitka <https://nuitka.net/>`_ 是一個有潛力編譯器，可以把 Python 編譯成 "
+"C++，他的目標是支援完整的 Python 語言。"
 
 #: ../../faq/design.rst:337
 msgid "How does Python manage memory?"
@@ -569,14 +680,14 @@ msgstr ""
 #: ../../faq/design.rst:347
 msgid ""
 "Other implementations (such as `Jython <https://www.jython.org>`_ or `PyPy "
-"<https://www.pypy.org>`_), however, can rely on a different mechanism such "
-"as a full-blown garbage collector.  This difference can cause some subtle "
-"porting problems if your Python code depends on the behavior of the "
-"reference counting implementation."
+"<https://pypy.org>`_), however, can rely on a different mechanism such as a "
+"full-blown garbage collector.  This difference can cause some subtle porting "
+"problems if your Python code depends on the behavior of the reference "
+"counting implementation."
 msgstr ""
 "然而，在其他實作（像是 `Jython <https://www.jython.org>`_ 或 `PyPy <https://"
-"www.pypy.org>`_）中，會使用像是成熟的垃圾收集器等不同機制。如果你的 Python 程"
-"式碼的表現取決於參照計次的實作，這個相異處會導致一些微小的移植問題。"
+"pypy.org>`_）中，會使用像是成熟的垃圾收集器等不同機制。如果你的 Python 程式碼"
+"的表現取決於參照計次的實作，這個相異處會導致一些微小的移植問題。"
 
 #: ../../faq/design.rst:353
 msgid ""
@@ -585,6 +696,16 @@ msgid ""
 msgstr ""
 "在一些 Python 實作中，下面這段程式碼（在 CPython 可以正常運作）可能會把檔案描"
 "述子 (file descriptor) 用盡： ::"
+
+#: ../../faq/design.rst:356
+msgid ""
+"for file in very_long_list_of_files:\n"
+"    f = open(file)\n"
+"    c = f.read(1)"
+msgstr ""
+"for file in very_long_list_of_files:\n"
+"    f = open(file)\n"
+"    c = f.read(1)"
 
 #: ../../faq/design.rst:360
 msgid ""
@@ -606,6 +727,16 @@ msgstr ""
 "如果你希望你的程式碼在任何 Python 實作版本中都可以運作，那你應該清楚地關閉檔"
 "案或是使用 :keyword:`with` 陳述式，如此一來，不用管記憶體管理的方法，他也會正"
 "常運作： ::"
+
+#: ../../faq/design.rst:369
+msgid ""
+"for file in very_long_list_of_files:\n"
+"    with open(file) as f:\n"
+"        c = f.read(1)"
+msgstr ""
+"for file in very_long_list_of_files:\n"
+"    with open(file) as f:\n"
+"        c = f.read(1)"
 
 #: ../../faq/design.rst:375
 msgid "Why doesn't CPython use a more traditional garbage collection scheme?"
@@ -817,6 +948,14 @@ msgstr ""
 "用串列的記憶體位址（物件 id）來雜湊。這不會成功，因為你如果用同樣的值建立一個"
 "新的串列，是找不到的。舉例來說： ::"
 
+#: ../../faq/design.rst:483
+msgid ""
+"mydict = {[1, 2]: '12'}\n"
+"print(mydict[[1, 2]])"
+msgstr ""
+"mydict = {[1, 2]: '12'}\n"
+"print(mydict[[1, 2]])"
+
 #: ../../faq/design.rst:486
 msgid ""
 "would raise a :exc:`KeyError` exception because the id of the ``[1, 2]`` "
@@ -875,6 +1014,42 @@ msgstr ""
 "（或其他用雜湊為基底的結構）中他們的雜湊值會保持恆定。\n"
 "\n"
 "::"
+
+#: ../../faq/design.rst:513
+msgid ""
+"class ListWrapper:\n"
+"    def __init__(self, the_list):\n"
+"        self.the_list = the_list\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        return self.the_list == other.the_list\n"
+"\n"
+"    def __hash__(self):\n"
+"        l = self.the_list\n"
+"        result = 98767 - len(l)*555\n"
+"        for i, el in enumerate(l):\n"
+"            try:\n"
+"                result = result + (hash(el) % 9999999) * 1001 + i\n"
+"            except Exception:\n"
+"                result = (result % 7777777) + i * 333\n"
+"        return result"
+msgstr ""
+"class ListWrapper:\n"
+"    def __init__(self, the_list):\n"
+"        self.the_list = the_list\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        return self.the_list == other.the_list\n"
+"\n"
+"    def __hash__(self):\n"
+"        l = self.the_list\n"
+"        result = 98767 - len(l)*555\n"
+"        for i, el in enumerate(l):\n"
+"            try:\n"
+"                result = result + (hash(el) % 9999999) * 1001 + i\n"
+"            except Exception:\n"
+"                result = (result % 7777777) + i * 333\n"
+"        return result"
 
 #: ../../faq/design.rst:530
 msgid ""
@@ -936,6 +1111,12 @@ msgstr ""
 "如果你想要他回傳新的串列，那可以改用內建的 :func:`sorted`。他會用提供的可疊代"
 "物件 (iterable) 來排序建立新串列，並回傳之。例如，以下這個範例會說明如何有序"
 "地疊代字典的鍵： ::"
+
+#: ../../faq/design.rst:559
+msgid ""
+"for key in sorted(mydict):\n"
+"    ...  # do whatever with mydict[key]..."
+msgstr ""
 
 #: ../../faq/design.rst:564
 msgid "How do you specify and enforce an interface spec in Python?"
@@ -1050,6 +1231,19 @@ msgstr ""
 "以方便地模擬在 C、Fortran 和其他語言裡各種合理使用的 ``go`` 和 ``goto``。例"
 "如： ::"
 
+#: ../../faq/design.rst:620
+msgid ""
+"class label(Exception): pass  # declare a label\n"
+"\n"
+"try:\n"
+"    ...\n"
+"    if condition: raise label()  # goto label\n"
+"    ...\n"
+"except label:  # where to goto\n"
+"    pass\n"
+"..."
+msgstr ""
+
 #: ../../faq/design.rst:630
 msgid ""
 "This doesn't allow you to jump into the middle of a loop, but that's usually "
@@ -1091,10 +1285,21 @@ msgid ""
 msgstr ""
 "如果你嘗試建立 Windows 的路徑名稱，請注意 Windows 系統指令也接受一般斜線： ::"
 
+#: ../../faq/design.rst:651
+msgid "f = open(\"/mydir/file.txt\")  # works fine!"
+msgstr ""
+
 #: ../../faq/design.rst:653
 msgid ""
 "If you're trying to build a pathname for a DOS command, try e.g. one of ::"
 msgstr "如果你嘗試建立 DOS 指令的路徑名稱，試試看使用以下的範例： ::"
+
+#: ../../faq/design.rst:655
+msgid ""
+"dir = r\"\\this\\is\\my\\dos\\dir\" \"\\\\\"\n"
+"dir = r\"\\this\\is\\my\\dos\\dir\\ \"[:-1]\n"
+"dir = \"\\\\this\\\\is\\\\my\\\\dos\\\\dir\\\\\""
+msgstr ""
 
 #: ../../faq/design.rst:661
 msgid "Why doesn't Python have a \"with\" statement for attribute assignments?"
@@ -1108,6 +1313,13 @@ msgid ""
 msgstr ""
 "Python 的 :keyword:`with` 陳述式包裝了一區塊程式的執行，在進入和離開該區塊時"
 "執行程式碼。一些語言會有像如下的結構： ::"
+
+#: ../../faq/design.rst:667
+msgid ""
+"with obj:\n"
+"    a = 1               # equivalent to obj.a = 1\n"
+"    total = total + 1   # obj.total = obj.total + 1"
+msgstr ""
 
 #: ../../faq/design.rst:671
 msgid "In Python, such a construct would be ambiguous."
@@ -1140,6 +1352,16 @@ msgstr ""
 msgid "For instance, take the following incomplete snippet::"
 msgstr "以下列不完整的程式碼為例： ::"
 
+#: ../../faq/design.rst:686
+msgid ""
+"def foo(a):\n"
+"    with a:\n"
+"        print(x)"
+msgstr ""
+"def foo(a):\n"
+"    with a:\n"
+"        print(x)"
+
 #: ../../faq/design.rst:690
 msgid ""
 "The snippet assumes that ``a`` must have a member attribute called ``x``. "
@@ -1162,9 +1384,31 @@ msgstr ""
 "然而 :keyword:`with` 陳述式或類似的語言特性（減少程式碼量）的主要好處可以透過"
 "賦值來達成。相較於這樣寫： ::"
 
+#: ../../faq/design.rst:699
+msgid ""
+"function(args).mydict[index][index].a = 21\n"
+"function(args).mydict[index][index].b = 42\n"
+"function(args).mydict[index][index].c = 63"
+msgstr ""
+"function(args).mydict[index][index].a = 21\n"
+"function(args).mydict[index][index].b = 42\n"
+"function(args).mydict[index][index].c = 63"
+
 #: ../../faq/design.rst:703
 msgid "write this::"
 msgstr "應該寫成這樣： ::"
+
+#: ../../faq/design.rst:705
+msgid ""
+"ref = function(args).mydict[index][index]\n"
+"ref.a = 21\n"
+"ref.b = 42\n"
+"ref.c = 63"
+msgstr ""
+"ref = function(args).mydict[index][index]\n"
+"ref.a = 21\n"
+"ref.b = 42\n"
+"ref.c = 63"
 
 #: ../../faq/design.rst:710
 msgid ""
@@ -1213,9 +1457,25 @@ msgid ""
 msgstr ""
 "需要冒號主要是為了增加可讀性（由 ABC 語言的實驗得知）。試想如下範例： ::"
 
+#: ../../faq/design.rst:735
+msgid ""
+"if a == b\n"
+"    print(a)"
+msgstr ""
+"if a == b\n"
+"    print(a)"
+
 #: ../../faq/design.rst:738
 msgid "versus ::"
 msgstr "以及： ::"
+
+#: ../../faq/design.rst:740
+msgid ""
+"if a == b:\n"
+"    print(a)"
+msgstr ""
+"if a == b:\n"
+"    print(a)"
 
 #: ../../faq/design.rst:743
 msgid ""
@@ -1246,6 +1506,16 @@ msgid ""
 "dictionaries::"
 msgstr "Python 允許你在串列、元組和字典的結尾加上逗號： ::"
 
+#: ../../faq/design.rst:757
+msgid ""
+"[1, 2, 3,]\n"
+"('a', 'b', 'c',)\n"
+"d = {\n"
+"    \"A\": [1, 5],\n"
+"    \"B\": [6, 7],  # last trailing comma is optional but good style\n"
+"}"
+msgstr ""
+
 #: ../../faq/design.rst:765
 msgid "There are several reasons to allow this."
 msgstr "這有許多原因可被允許。"
@@ -1266,6 +1536,22 @@ msgid ""
 "diagnose. For example::"
 msgstr "不小心遺漏了逗號會導致難以發現的錯誤，例如： ::"
 
+#: ../../faq/design.rst:775
+msgid ""
+"x = [\n"
+"  \"fee\",\n"
+"  \"fie\"\n"
+"  \"foo\",\n"
+"  \"fum\"\n"
+"]"
+msgstr ""
+"x = [\n"
+"  \"fee\",\n"
+"  \"fie\"\n"
+"  \"foo\",\n"
+"  \"fum\"\n"
+"]"
+
 #: ../../faq/design.rst:782
 msgid ""
 "This list looks like it has four elements, but it actually contains three: "
@@ -1280,11 +1566,3 @@ msgid ""
 "Allowing the trailing comma may also make programmatic code generation "
 "easier."
 msgstr "允許結尾逗號也讓生成的程式碼更容易產生。"
-
-#~ msgid ""
-#~ "You can do this easily enough with a sequence of ``if... elif... elif... "
-#~ "else``. For literal values, or constants within a namespace, you can also "
-#~ "use a ``match ... case`` statement."
-#~ msgstr ""
-#~ "你可以用一連串的 ``if... elif... elif... else`` 來輕易達成相同的效果。對於"
-#~ "單純的值或是在命名空間內的常數，你也可以使用 ``match ... case`` 陳述式。"

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 00:03+0000\n"
+"POT-Creation-Date: 2024-09-03 11:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgid ""
 "shipped within a package. Typically this is something like a data file that "
 "lives next to the ``__init__.py`` file of the package. The purpose of this "
 "class is to help abstract out the accessing of such data files so that it "
-"does not matter if the package and its data file(s) are stored in a e.g. zip "
+"does not matter if the package and its data file(s) are stored e.g. in a zip "
 "file versus on the file system."
 msgstr ""
 
@@ -65,7 +65,7 @@ msgid ""
 "with this ABC should only be returned when the specified module is a package."
 msgstr ""
 
-#: ../../library/importlib.resources.abc.rst:48
+#: ../../library/importlib.resources.abc.rst:46
 msgid "Use :class:`importlib.resources.abc.TraversableResources` instead."
 msgstr ""
 
@@ -157,6 +157,14 @@ msgid ""
 "equivalent::"
 msgstr ""
 
+#: ../../library/importlib.resources.abc.rst:121
+msgid ""
+"files.joinpath('subdir', 'subsuddir', 'file.txt')\n"
+"files.joinpath('subdir/subsuddir/file.txt')"
+msgstr ""
+"files.joinpath('subdir', 'subsuddir', 'file.txt')\n"
+"files.joinpath('subdir/subsuddir/file.txt')"
+
 #: ../../library/importlib.resources.abc.rst:124
 msgid ""
 "Note that some :class:`!Traversable` implementations might not be updated to "
@@ -164,6 +172,10 @@ msgid ""
 "implementations, provide a single argument without path separators to each "
 "call to ``joinpath``. For example::"
 msgstr ""
+
+#: ../../library/importlib.resources.abc.rst:129
+msgid "files.joinpath('subdir').joinpath('subsubdir').joinpath('file.txt')"
+msgstr "files.joinpath('subdir').joinpath('subsubdir').joinpath('file.txt')"
 
 #: ../../library/importlib.resources.abc.rst:133
 msgid ""

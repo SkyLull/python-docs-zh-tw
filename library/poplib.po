@@ -5,9 +5,9 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.12\n"
+"Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 00:03+0000\n"
+"POT-Creation-Date: 2024-09-23 07:52+0800\n"
 "PO-Revision-Date: 2018-05-23 16:08+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -52,17 +52,16 @@ msgid ""
 msgstr ""
 
 #: ../../includes/wasm-notavail.rst:3
-msgid ":ref:`Availability <availability>`: not Emscripten, not WASI."
-msgstr ""
+msgid ":ref:`Availability <availability>`: not WASI."
+msgstr ":ref:`適用 <availability>`：非 WASI。"
 
 #: ../../includes/wasm-notavail.rst:5
 msgid ""
-"This module does not work or is not available on WebAssembly platforms "
-"``wasm32-emscripten`` and ``wasm32-wasi``. See :ref:`wasm-availability` for "
-"more information."
+"This module does not work or is not available on WebAssembly. See :ref:`wasm-"
+"availability` for more information."
 msgstr ""
-"此模組在 WebAssembly 平台 ``wasm32-emscripten`` 和 ``wasm32-wasi`` 上無法作用"
-"或無法使用。有關更多資訊，請參閱 :ref:`wasm-availability`。"
+"此模組在 WebAssembly 平台上不起作用或無法使用。更多資訊請參閱 :ref:`wasm-"
+"availability`。"
 
 #: ../../library/poplib.rst:33
 msgid "The :mod:`poplib` module provides two classes:"
@@ -77,7 +76,7 @@ msgid ""
 "timeout setting will be used)."
 msgstr ""
 
-#: ../../library/poplib.rst:55 ../../library/poplib.rst:77
+#: ../../library/poplib.rst:44 ../../library/poplib.rst:66
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``poplib.connect`` with arguments "
 "``self``, ``host``, ``port``."
@@ -85,15 +84,8 @@ msgstr ""
 "引發一個附帶引數 ``self``、``host``、``port`` 的\\ :ref:`稽核事件 "
 "<auditing>` ``poplib.connect``。"
 
-#: ../../library/poplib.rst:57 ../../library/poplib.rst:79
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``poplib.putline`` with arguments "
-"``self``, ``line``."
-msgstr ""
-"引發一個附帶引數 ``self``、``line`` 的\\ :ref:`稽核事件 <auditing>` ``poplib."
-"putline``。"
-
-#: ../../library/poplib.rst:48 ../../library/poplib.rst:70
+#: ../../library/poplib.rst:46 ../../library/poplib.rst:48
+#: ../../library/poplib.rst:68 ../../library/poplib.rst:70
 msgid ""
 "All commands will raise an :ref:`auditing event <auditing>` ``poplib."
 "putline`` with arguments ``self`` and ``line``, where ``line`` is the bytes "
@@ -322,6 +314,28 @@ msgid ""
 "retrieves and prints all messages::"
 msgstr ""
 
+#: ../../library/poplib.rst:260
+msgid ""
+"import getpass, poplib\n"
+"\n"
+"M = poplib.POP3('localhost')\n"
+"M.user(getpass.getuser())\n"
+"M.pass_(getpass.getpass())\n"
+"numMessages = len(M.list()[1])\n"
+"for i in range(numMessages):\n"
+"    for j in M.retr(i+1)[1]:\n"
+"        print(j)"
+msgstr ""
+"import getpass, poplib\n"
+"\n"
+"M = poplib.POP3('localhost')\n"
+"M.user(getpass.getuser())\n"
+"M.pass_(getpass.getpass())\n"
+"numMessages = len(M.list()[1])\n"
+"for i in range(numMessages):\n"
+"    for j in M.retr(i+1)[1]:\n"
+"        print(j)"
+
 #: ../../library/poplib.rst:270
 msgid ""
 "At the end of the module, there is a test section that contains a more "
@@ -335,3 +349,19 @@ msgstr "POP3"
 #: ../../library/poplib.rst:12
 msgid "protocol"
 msgstr "protocol（協定）"
+
+#, fuzzy
+#~ msgid ""
+#~ "Raises an auditing event poplib.connect with arguments self, host, port."
+#~ msgstr ""
+#~ "引發一個附帶引數 ``self``、``host``、``port`` 的\\ :ref:`稽核事件 "
+#~ "<auditing>` ``poplib.connect``。"
+
+#, fuzzy
+#~ msgid ""
+#~ "All commands will raise an auditing event poplib.putline with arguments "
+#~ "self and line, where line is the bytes about to be sent to the remote "
+#~ "host."
+#~ msgstr ""
+#~ "引發一個附帶引數 ``self``、``line`` 的\\ :ref:`稽核事件 <auditing>` "
+#~ "``poplib.putline``。其中 ``line`` 為即將傳送給遠端的位元組。"
