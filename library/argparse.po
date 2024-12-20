@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
+# SkyLull
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
@@ -22,7 +23,7 @@ msgstr ""
 msgid ""
 ":mod:`!argparse` --- Parser for command-line options, arguments and "
 "subcommands"
-msgstr ""
+msgstr ":mod:`!argparse` --- 命令列界面選項、參數與子命令的剖析器"
 
 #: ../../library/argparse.rst:12
 msgid "**Source code:** :source:`Lib/argparse.py`"
@@ -37,7 +38,7 @@ msgid ""
 "This page contains the API reference information. For a more gentle "
 "introduction to Python command-line parsing, have a look at the :ref:"
 "`argparse tutorial <argparse-tutorial>`."
-msgstr ""
+msgstr "這個頁面含有很多 API 參考資訊。`argparse tutorial <argparse-tutorial>` 有更簡單易懂的 Python 命令剖析教學。"
 
 #: ../../library/argparse.rst:22
 msgid ""
@@ -47,7 +48,8 @@ msgid ""
 "mod:`!argparse` module also automatically generates help and usage "
 "messages.  The module will also issue errors when users give the program "
 "invalid arguments."
-msgstr ""
+msgstr "使用 :mod:`!argparse` 模組可輕易地寫出一個對使用者友善的命命列界面。你只要告訴 :mod:`!argparse` 你的程式需要什麼參數，它會自動幫你做好如何剖析 :data:`sys.argv` 的設定。"
+":data:`sys.argv` 還會自動幫你生成幫助和使用說明，以及自動檢查使用者的輸入是否合規。"
 
 #: ../../library/argparse.rst:28
 msgid ""
@@ -55,7 +57,8 @@ msgid ""
 "around an instance of :class:`argparse.ArgumentParser`.  It is a container "
 "for argument specifications and has options that apply to the parser as "
 "whole::"
-msgstr ""
+msgstr ":class:`argparse.ArgumentParser` 是一個供你客製化參數規則和控制剖析器（parser）的容器。"
+"控制 :mod:`!argparse` 如何應對命令列界面的核心，都圍繞在控制一個 argparse.ArgumentParser 的實例之上：::"
 
 #: ../../library/argparse.rst:32
 msgid ""
@@ -64,6 +67,10 @@ msgid ""
 "                    description='What the program does',\n"
 "                    epilog='Text at the bottom of help')"
 msgstr ""
+"parser = argparse.ArgumentParser(\n"
+"                    prog='程式名稱',\n"
+"                    description='程式的用途說明',\n"
+"                    epilog='幫助訊息底下的文字')"
 
 #: ../../library/argparse.rst:37
 msgid ""
@@ -71,6 +78,8 @@ msgid ""
 "specifications to the parser.  It supports positional arguments, options "
 "that accept values, and on/off flags::"
 msgstr ""
+":meth:`ArgumentParser.add_argument` 方法可以將你設定好的每個參數與其規則各自附加進剖析器裡。"
+"它支援位置參數（positional arguments）、接受值的選項以及開關旗標（on/off flags）：::"
 
 #: ../../library/argparse.rst:41
 msgid ""
@@ -79,18 +88,25 @@ msgid ""
 "parser.add_argument('-v', '--verbose',\n"
 "                    action='store_true')  # on/off flag"
 msgstr ""
+"parser.add_argument('filename')           # 位置參數\n"
+"parser.add_argument('-c', '--count')      # 接受值的選項\n"
+"parser.add_argument('-v', '--verbose',\n"
+"                    action='store_true')  # 開關旗標"
 
 #: ../../library/argparse.rst:46
 msgid ""
 "The :meth:`ArgumentParser.parse_args` method runs the parser and places the "
 "extracted data in a :class:`argparse.Namespace` object::"
 msgstr ""
+":meth:`ArgumentParser.parse_args` 方法執行剖析並將結果資料存放在一個 :class:`argparse.Namespace` 物件裡：::"
 
 #: ../../library/argparse.rst:49
 msgid ""
 "args = parser.parse_args()\n"
 "print(args.filename, args.count, args.verbose)"
 msgstr ""
+"args = parser.parse_args()\n"
+"print(args.filename, args.count, args.verbose)"
 
 #: ../../library/argparse.rst:53
 msgid ""
@@ -98,6 +114,9 @@ msgid ""
 "mod:`!argparse`, see :ref:`Upgrading Optparse Code <upgrading-optparse-"
 "code>`."
 msgstr ""
+"如果你在尋找的是如何把使用 :mod:`optparse` 的程式升級成使用 :mod:`!argparse` 的指引的話，"
+"請參看 :ref:`Upgrading Optparse Code <upgrading-optparse-"
+"code>`."
 
 #: ../../library/argparse.rst:57
 msgid "ArgumentParser objects"
@@ -109,36 +128,42 @@ msgid ""
 "as keyword arguments. Each parameter has its own more detailed description "
 "below, but in short they are:"
 msgstr ""
+"建立一個新的 :class:`ArgumentParser` 物件。所有給予它的參數都應使用關鍵字引數來指定。"
+"下方會有每個參數各自的詳細說明，不過簡單來說他們的功用分別是："
 
 #: ../../library/argparse.rst:70
 msgid ""
 "prog_ - The name of the program (default: ``os.path.basename(sys.argv[0])``)"
 msgstr ""
+"prog_ - 程式的名字。（預設是： ``os.path.basename(sys.argv[0])``）。"
 
 #: ../../library/argparse.rst:73
 msgid ""
 "usage_ - The string describing the program usage (default: generated from "
 "arguments added to parser)"
 msgstr ""
+"usage_ - 描述程式用途的字串。（預設值： 從附加到剖析器的參數中生成。）"
 
 #: ../../library/argparse.rst:76
 msgid ""
 "description_ - Text to display before the argument help (by default, no text)"
 msgstr ""
+"description_ - 顯示在參數幫助說明前的文字。（預設沒有）"
 
 #: ../../library/argparse.rst:79
 msgid "epilog_ - Text to display after the argument help (by default, no text)"
-msgstr ""
+msgstr "epilog_ - 顯示在參數幫助說明後的文字。（預設沒有）"
 
 #: ../../library/argparse.rst:81
 msgid ""
 "parents_ - A list of :class:`ArgumentParser` objects whose arguments should "
 "also be included"
 msgstr ""
+"parents_ - 一個所有應該被一併列入考量的 :class:`ArgumentParser` 形成的串列。"
 
 #: ../../library/argparse.rst:84
 msgid "formatter_class_ - A class for customizing the help output"
-msgstr ""
+msgstr "formatter_class_ - 能自訂幫助說明文字的類別"
 
 #: ../../library/argparse.rst:86
 msgid ""
