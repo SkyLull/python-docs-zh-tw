@@ -163,48 +163,58 @@ msgstr ""
 
 #: ../../library/argparse.rst:84
 msgid "formatter_class_ - A class for customizing the help output"
-msgstr "formatter_class_ - 能自訂幫助說明文字的類別"
+msgstr "formatter_class_ - 能自訂幫助文字的類別"
 
 #: ../../library/argparse.rst:86
 msgid ""
 "prefix_chars_ - The set of characters that prefix optional arguments "
 "(default: '-')"
 msgstr ""
+"prefix_chars_ - 可選項的前置修飾符字符組（預設：'-'）"
 
 #: ../../library/argparse.rst:89
 msgid ""
 "fromfile_prefix_chars_ - The set of characters that prefix files from which "
 "additional arguments should be read (default: ``None``)"
 msgstr ""
+"fromfile_prefix_chars_ - 指示額外參數所在檔案的前置修飾符字符組 (預設：``None``)"
 
 #: ../../library/argparse.rst:92
 msgid ""
 "argument_default_ - The global default value for arguments (default: "
 "``None``)"
 msgstr ""
+"argument_default_ - 所有參數的預設值 (預設："
+"``None``)"
 
 #: ../../library/argparse.rst:95
 msgid ""
 "conflict_handler_ - The strategy for resolving conflicting optionals "
 "(usually unnecessary)"
 msgstr ""
+"conflict_handler_ - 排解互相衝突選項的策略"
+"（一般來說不需要）"
 
 #: ../../library/argparse.rst:98
 msgid ""
 "add_help_ - Add a ``-h/--help`` option to the parser (default: ``True``)"
 msgstr ""
+"add_help_ - 增加 ``-h/--help`` 選項到剖析選項中 (預設：``True``)"
 
 #: ../../library/argparse.rst:100
 msgid ""
 "allow_abbrev_ - Allows long options to be abbreviated if the abbreviation is "
 "unambiguous. (default: ``True``)"
 msgstr ""
+"allow_abbrev_ - 在無混淆可能的前提下允許使用簡寫來替代較長的選項名稱。"
+"（預設：``True``）"
 
 #: ../../library/argparse.rst:103
 msgid ""
 "exit_on_error_ - Determines whether or not :class:`!ArgumentParser` exits "
 "with error info when an error occurs. (default: ``True``)"
 msgstr ""
+"exit_on_error_ - 當剖析出錯時，:class:`!ArgumentParser` 是否中止程式並跳出錯誤訊息。（預設：``True``）"
 
 #: ../../library/argparse.rst:106
 msgid "*allow_abbrev* parameter was added."
@@ -215,6 +225,7 @@ msgid ""
 "In previous versions, *allow_abbrev* also disabled grouping of short flags "
 "such as ``-vv`` to mean ``-v -v``."
 msgstr ""
+"在早前的版本中，*allow_abbrev* 還會讓能組合使用的短旗標失效（例如讓 ``-vv`` 被視為 ``-v -v``）。"
 
 #: ../../library/argparse.rst:113
 msgid "*exit_on_error* parameter was added."
@@ -222,35 +233,39 @@ msgstr "新增 *exit_on_error* 參數。"
 
 #: ../../library/argparse.rst:116 ../../library/argparse.rst:598
 msgid "The following sections describe how each of these are used."
-msgstr ""
+msgstr "以下段落將詳述這些選項各自的用法"
 
 #: ../../library/argparse.rst:122
 msgid "prog"
-msgstr ""
+msgstr "prog"
 
 #: ../../library/argparse.rst:125
 msgid ""
 "By default, :class:`ArgumentParser` calculates the name of the program to "
 "display in help messages depending on the way the Python interpreter was run:"
 msgstr ""
+":class:`ArgumentParser` 預設會依據 Python 直譯器被啟動時的不同狀況，自動生成該程式在幫助訊息裡的名稱："
 
 #: ../../library/argparse.rst:128
 msgid ""
 "The :func:`base name <os.path.basename>` of ``sys.argv[0]`` if a file was "
 "passed as argument."
 msgstr ""
+"如果該程式是作為檔案被傳入啟動參數，則使用 ``sys.argv[0]`` 的 :func:`base name <os.path.basename>`。"
 
 #: ../../library/argparse.rst:130
 msgid ""
 "The Python interpreter name followed by ``sys.argv[0]`` if a directory or a "
 "zipfile was passed as argument."
 msgstr ""
+"如果被傳入啟動參數的是一個資料夾或壓縮檔，則使用 Python 直譯器的名稱加上 ``sys.argv[0]``。"
 
 #: ../../library/argparse.rst:132
 msgid ""
 "The Python interpreter name followed by ``-m`` followed by the module or "
 "package name if the :option:`-m` option was used."
 msgstr ""
+"如果傳入了 :option:`-m` 選項，則使用 Python 直譯器的名稱加上所呼叫的模組或套件的名字。"
 
 #: ../../library/argparse.rst:135
 msgid ""
