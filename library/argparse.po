@@ -274,6 +274,8 @@ msgid ""
 "line. However, to change this default behavior, another value can be "
 "supplied using the ``prog=`` argument to :class:`ArgumentParser`::"
 msgstr ""
+"基本上這個預設行為就是我們需要的，因為如此產生的名字可以正確地代表啟動這個程式需使用的指令。"
+"如果還是想要指定名稱，像這樣把想要使用的名稱傳入:class:`ArgumentParser`　的　``prog=``　即可：::"
 
 #: ../../library/argparse.rst:140
 msgid ""
@@ -291,12 +293,15 @@ msgstr ""
 "options:\n"
 " -h, --help  show this help message and exit"
 
+# [T]
+# format specifier => 格式指定字
 #: ../../library/argparse.rst:147
 msgid ""
 "Note that the program name, whether determined from ``sys.argv[0]`` or from "
 "the ``prog=`` argument, is available to help messages using the ``%(prog)s`` "
 "format specifier."
 msgstr ""
+"不過，無論程式名稱是透過預設的 ``sys.argv[0]`` 還是 ``prog=`` 參數指定的，都可以在幫助字串中以格式指定字 ``%(prog)s`` 引用，如下例。"
 
 #: ../../library/argparse.rst:153
 msgid ""
@@ -320,7 +325,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:164
 msgid "usage"
-msgstr ""
+msgstr "使用方法"
 
 #: ../../library/argparse.rst:166
 msgid ""
@@ -328,6 +333,7 @@ msgid ""
 "arguments it contains. The default message can be overridden with the "
 "``usage=`` keyword argument::"
 msgstr ""
+":class:`ArgumentParser` 預設會自動從其所含有的參數去推算出使用方法訊息，預設的使用方法訊息可以用 ``usage=`` 關鍵字引數來覆寫：::"
 
 #: ../../library/argparse.rst:170
 msgid ""
@@ -364,6 +370,7 @@ msgid ""
 "The ``%(prog)s`` format specifier is available to fill in the program name "
 "in your usage messages."
 msgstr ""
+"格式指定字 ``%(prog)s`` 可以用來在使用方法字串中自動填入程式名稱。"
 
 #: ../../library/argparse.rst:190
 msgid "description"
@@ -377,16 +384,19 @@ msgid ""
 "description is displayed between the command-line usage string and the help "
 "messages for the various arguments."
 msgstr ""
+"一般來說，呼叫 :class:`ArgumentParser` 建構式的時候會使用關鍵字引數 ``description=`` 來記錄這個程式的功用及運作方法的簡述。"
+"在幫助訊息中，描述字串會被顯示在使用方式字串和引數的幫助字串之間。"
 
 #: ../../library/argparse.rst:198
 msgid ""
 "By default, the description will be line-wrapped so that it fits within the "
 "given space.  To change this behavior, see the formatter_class_ argument."
 msgstr ""
+"描述字串預設會自動換行，以讓整體訊息自動符合被給予的空間。若想變更此行為，請參見 formatter_class_ 引數的說明。"
 
 #: ../../library/argparse.rst:203
 msgid "epilog"
-msgstr ""
+msgstr "結語"
 
 #: ../../library/argparse.rst:205
 msgid ""
@@ -394,6 +404,8 @@ msgid ""
 "the description of the arguments.  Such text can be specified using the "
 "``epilog=`` argument to :class:`ArgumentParser`::"
 msgstr ""
+"有些程式會在引數的幫助字串後面再接一段針對程式的額外描述。"
+"如果有此需求的話只要在 :class:`ArgumentParser` 建構時傳給 ``epilog=`` 關鍵字引數即可：::"
 
 #: ../../library/argparse.rst:209
 msgid ""
