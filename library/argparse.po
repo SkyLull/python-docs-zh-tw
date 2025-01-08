@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
+# Adrian Liaw <adrianliaw2000@gmail.com>
 # SkyLull
 msgid ""
 msgstr ""
@@ -48,7 +49,7 @@ msgid ""
 "mod:`!argparse` module also automatically generates help and usage "
 "messages.  The module will also issue errors when users give the program "
 "invalid arguments."
-msgstr "使用 :mod:`!argparse` 模組可輕易地寫出一個對使用者友善的命命列界面。你只要告訴 :mod:`!argparse` 你的程式需要什麼參數，它會自動幫你做好如何剖析 :data:`sys.argv` 的設定。"
+msgstr "使用 :mod:`!argparse` 模組可輕易地寫出一個對使用者友善的命命列界面。你只要告訴 :mod:`!argparse` 你的程式需要什麼引數，它會自動幫你做好如何剖析 :data:`sys.argv` 的設定。"
 ":data:`sys.argv` 還會自動幫你生成幫助和使用說明，以及自動檢查使用者的輸入是否合規。"
 
 #: ../../library/argparse.rst:28
@@ -57,7 +58,7 @@ msgid ""
 "around an instance of :class:`argparse.ArgumentParser`.  It is a container "
 "for argument specifications and has options that apply to the parser as "
 "whole::"
-msgstr ":class:`argparse.ArgumentParser` 是一個供你客製化參數規則和控制剖析器（parser）的容器。"
+msgstr ":class:`argparse.ArgumentParser` 是一個供你客製化引數規則和控制剖析器（parser）的容器。"
 "控制 :mod:`!argparse` 如何應對命令列界面的核心，都圍繞在控制一個 argparse.ArgumentParser 的實例之上：::"
 
 #: ../../library/argparse.rst:32
@@ -78,8 +79,8 @@ msgid ""
 "specifications to the parser.  It supports positional arguments, options "
 "that accept values, and on/off flags::"
 msgstr ""
-":meth:`ArgumentParser.add_argument` 方法可以將你設定好的每個參數與其規則各自附加進剖析器裡。"
-"它支援位置參數（positional arguments）、接受值的選項以及開關旗標（on/off flags）：::"
+":meth:`ArgumentParser.add_argument` 方法可以將你設定好的每個引數與其規則各自附加進剖析器裡。"
+"它支援位置引數（positional arguments）、接受值的選項以及開關旗標（on/off flags）：::"
 
 #: ../../library/argparse.rst:41
 msgid ""
@@ -88,7 +89,7 @@ msgid ""
 "parser.add_argument('-v', '--verbose',\n"
 "                    action='store_true')  # on/off flag"
 msgstr ""
-"parser.add_argument('filename')           # 位置參數\n"
+"parser.add_argument('filename')           # 位置引數\n"
 "parser.add_argument('-c', '--count')      # 接受值的選項\n"
 "parser.add_argument('-v', '--verbose',\n"
 "                    action='store_true')  # 開關旗標"
@@ -128,8 +129,8 @@ msgid ""
 "as keyword arguments. Each parameter has its own more detailed description "
 "below, but in short they are:"
 msgstr ""
-"建立一個新的 :class:`ArgumentParser` 物件。所有給予它的參數都應使用關鍵字引數來指定。"
-"下方會有每個參數各自的詳細說明，不過簡單來說他們的功用分別是："
+"建立一個新的 :class:`ArgumentParser` 物件。所有給予它的引數都應使用關鍵字引數來指定。"
+"下方會有每個引數各自的詳細說明，不過簡單來說他們的功用分別是："
 
 #: ../../library/argparse.rst:70
 msgid ""
@@ -142,17 +143,17 @@ msgid ""
 "usage_ - The string describing the program usage (default: generated from "
 "arguments added to parser)"
 msgstr ""
-"usage_ - 描述程式用途的字串。（預設值： 從附加到剖析器的參數中生成。）"
+"usage_ - 描述程式用途的字串。（預設值： 從附加到剖析器的引數中生成。）"
 
 #: ../../library/argparse.rst:76
 msgid ""
 "description_ - Text to display before the argument help (by default, no text)"
 msgstr ""
-"description_ - 顯示在參數幫助說明前的文字。（預設沒有）"
+"description_ - 顯示在引數幫助說明前的文字。（預設沒有）"
 
 #: ../../library/argparse.rst:79
 msgid "epilog_ - Text to display after the argument help (by default, no text)"
-msgstr "epilog_ - 顯示在參數幫助說明後的文字。（預設沒有）"
+msgstr "epilog_ - 顯示在引數幫助說明後的文字。（預設沒有）"
 
 #: ../../library/argparse.rst:81
 msgid ""
@@ -177,14 +178,14 @@ msgid ""
 "fromfile_prefix_chars_ - The set of characters that prefix files from which "
 "additional arguments should be read (default: ``None``)"
 msgstr ""
-"fromfile_prefix_chars_ - 指示額外參數所在檔案的前置修飾符字符組 (預設：``None``)"
+"fromfile_prefix_chars_ - 指示額外引數所在檔案的前置修飾符字符組 (預設：``None``)"
 
 #: ../../library/argparse.rst:92
 msgid ""
 "argument_default_ - The global default value for arguments (default: "
 "``None``)"
 msgstr ""
-"argument_default_ - 所有參數的預設值 (預設："
+"argument_default_ - 所有引數的預設值 (預設："
 "``None``)"
 
 #: ../../library/argparse.rst:95
@@ -251,14 +252,14 @@ msgid ""
 "The :func:`base name <os.path.basename>` of ``sys.argv[0]`` if a file was "
 "passed as argument."
 msgstr ""
-"如果該程式是作為檔案被傳入啟動參數，則使用 ``sys.argv[0]`` 的 :func:`base name <os.path.basename>`。"
+"如果該程式是作為檔案被傳入啟動引數，則使用 ``sys.argv[0]`` 的 :func:`base name <os.path.basename>`。"
 
 #: ../../library/argparse.rst:130
 msgid ""
 "The Python interpreter name followed by ``sys.argv[0]`` if a directory or a "
 "zipfile was passed as argument."
 msgstr ""
-"如果被傳入啟動參數的是一個資料夾或壓縮檔，則使用 Python 直譯器的名稱加上 ``sys.argv[0]``。"
+"如果被傳入啟動引數的是一個資料夾或壓縮檔，則使用 Python 直譯器的名稱加上 ``sys.argv[0]``。"
 
 #: ../../library/argparse.rst:132
 msgid ""
@@ -301,7 +302,7 @@ msgid ""
 "the ``prog=`` argument, is available to help messages using the ``%(prog)s`` "
 "format specifier."
 msgstr ""
-"不過，無論程式名稱是透過預設的 ``sys.argv[0]`` 還是 ``prog=`` 參數指定的，都可以在幫助字串中以格式指定字 ``%(prog)s`` 引用，如下例。"
+"不過，無論程式名稱是透過預設的 ``sys.argv[0]`` 還是 ``prog=`` 引數指定的，都可以在幫助字串中以格式指定字 ``%(prog)s`` 引用，如下例。"
 
 #: ../../library/argparse.rst:153
 msgid ""
@@ -333,7 +334,7 @@ msgid ""
 "arguments it contains. The default message can be overridden with the "
 "``usage=`` keyword argument::"
 msgstr ""
-":class:`ArgumentParser` 預設會自動從其所含有的參數去推算出使用方法訊息，預設的使用方法訊息可以用 ``usage=`` 關鍵字引數來覆寫：::"
+":class:`ArgumentParser` 預設會自動從其所含有的引數去推算出使用方法訊息，預設的使用方法訊息可以用 ``usage=`` 關鍵字引數來覆寫：::"
 
 #: ../../library/argparse.rst:170
 msgid ""
@@ -441,10 +442,11 @@ msgid ""
 "wrapped, but this behavior can be adjusted with the formatter_class_ "
 "argument to :class:`ArgumentParser`."
 msgstr ""
+"至於 description_ 引數，``epilog=`` 中的文字預設會自動換行，不過這個行為可以透過修改 :class:`ArgumentParser` 本身的 formatter_class_ 引數去調整。"
 
 #: ../../library/argparse.rst:228
 msgid "parents"
-msgstr ""
+msgstr "parents"
 
 #: ../../library/argparse.rst:230
 msgid ""
@@ -456,6 +458,9 @@ msgid ""
 "actions from them, and adds these actions to the :class:`ArgumentParser` "
 "object being constructed::"
 msgstr ""
+"有時候，數個剖析器可能會共享幾個定義相同的引數。此時你可以只寫一次這些引數的定義，並將其傳入其他 :class:"
+"`ArgumentParser` 的 ``parents=`` 中以避免重複的無用功。``parents=`` 引數接收一個含有 :"
+"class:`ArgumentParser` 的串列物件，並將串列中所有剖析器已定義的引數加入當前的 :class:`ArgumentParser` 中。"
 
 #: ../../library/argparse.rst:237
 msgid ""
@@ -491,6 +496,8 @@ msgid ""
 "the :class:`ArgumentParser` will see two ``-h/--help`` options (one in the "
 "parent and one in the child) and raise an error."
 msgstr ""
+"大部分時候會建議將共用的父剖析器的幫助字串關閉，也就是設定 ``add_help=False``。"
+"否則繼承了該剖析器的 :class:`ArgumentParser` 若看見兩個 ``-h/--help`` 選項 （父、子物件中各自有一個）時會拋出一個錯誤。"
 
 #: ../../library/argparse.rst:255
 msgid ""
@@ -498,6 +505,7 @@ msgid ""
 "If you change the parent parsers after the child parser, those changes will "
 "not be reflected in the child."
 msgstr ""
+"請確保將父物件完全初始化完成再將其傳入其他剖析器的 ``parents=``，若父物件在傳入後有所更動，其更動不會反映在已收受該父物件的子剖析器中。"
 
 #: ../../library/argparse.rst:263
 msgid "formatter_class"
@@ -509,6 +517,8 @@ msgid ""
 "by specifying an alternate formatting class.  Currently, there are four such "
 "classes:"
 msgstr ""
+":class:`ArgumentParser` 物件允許你透過指定一個格式化類別來替代原先的預設格式、以讓你能夠自訂幫助文字的格式。"
+"目前總共有四個可用於替換的格式化類別："
 
 #: ../../library/argparse.rst:274
 msgid ""
@@ -517,6 +527,8 @@ msgid ""
 "`ArgumentParser` objects line-wrap the description_ and epilog_ texts in "
 "command-line help messages::"
 msgstr ""
+":class:`RawDescriptionHelpFormatter` 和 :class:`RawTextHelpFormatter` 讓你對文字描述顯示的方式有更多的控制。"
+":class:`ArgumentParser` 預設會讓 description_ 和 epilog_ 中的文字顯示在命令視窗時自動換行。"
 
 #: ../../library/argparse.rst:279
 msgid ""
@@ -541,6 +553,25 @@ msgid ""
 "words\n"
 "will be wrapped across a couple lines"
 msgstr ""
+">>> parser = argparse.ArgumentParser(\n"
+"...     prog='PROG',\n"
+"...     description='''這個描述在撰寫時\n"
+"...         用了很奇怪的方式縮排\n"
+"...             但沒關係''',\n"
+"...     epilog='''\n"
+"...             這段結語也是，文字中所有多餘\n"
+"...         的空白都會被清除，\n"
+"...         並且會根據版面自動換行。''')\n"
+">>> parser.print_help()\n"
+"usage: PROG [-h]\n"
+"\n"
+"這個描述在撰寫時用了很奇怪的方式縮排但沒關係\n"
+"\n"
+"options:\n"
+" -h, --help  show this help message and exit\n"
+"\n"
+"這段結語也是，文字中所有多餘的空白都會被清除\n"
+"，並且會根據版面自動換行。"
 
 #: ../../library/argparse.rst:299
 msgid ""
@@ -548,6 +579,7 @@ msgid ""
 "indicates that description_ and epilog_ are already correctly formatted and "
 "should not be line-wrapped::"
 msgstr ""
+"將 :class:`RawDescriptionHelpFormatter` 傳給 ``formatter_class=`` 等於是在指示「description_ 和 epilog_ 中的文字格式已經被編排過了，請不要自動換行」"
 
 #: ../../library/argparse.rst:303
 msgid ""
@@ -573,6 +605,27 @@ msgid ""
 "options:\n"
 " -h, --help  show this help message and exit"
 msgstr ""
+">>> parser = argparse.ArgumentParser(\n"
+"...     prog='PROG',\n"
+"...     formatter_class=argparse.RawDescriptionHelpFormatter,\n"
+"...     description=textwrap.dedent('''\\\n"
+"...         請勿亂排此文字！\n"
+"...         ---------------\n"
+"...         我已經把它\n"
+"...         排成了\n"
+"...         我想要的樣子\n"
+"...         '''))\n"
+">>> parser.print_help()\n"
+"usage: PROG [-h]\n"
+"\n"
+"請勿亂排此文字！\n"
+"---------------\n"
+"我已經把它\n"
+"排成了\n"
+"我想要的樣子\n"
+"\n"
+"options:\n"
+" -h, --help  show this help message and exit"
 
 #: ../../library/argparse.rst:325
 msgid ""
@@ -581,12 +634,15 @@ msgid ""
 "replaced with one. If you wish to preserve multiple blank lines, add spaces "
 "between the newlines."
 msgstr ""
+":class:`RawTextHelpFormatter` 會如實保持所有幫助文字中的空白字元，包含引數說明的文字也是。"
+"但連續的重複換行符會被縮減為一個。如果你就是想要空好幾行，請在換行符之間插入空白字元即可。"
 
 #: ../../library/argparse.rst:330
 msgid ""
 ":class:`ArgumentDefaultsHelpFormatter` automatically adds information about "
 "default values to each of the argument help messages::"
 msgstr ""
+":class:`ArgumentDefaultsHelpFormatter` 會自動將預設值的資訊加入各自引數的說明文字中：::"
 
 #: ../../library/argparse.rst:333
 msgid ""
@@ -626,6 +682,7 @@ msgid ""
 "each argument as the display name for its values (rather than using the "
 "dest_ as the regular formatter does)::"
 msgstr ""
+":class:`MetavarTypeHelpFormatter 使得 type_ 的名稱會被做為引數名稱顯示（預設的格式是用 dest_）：::"
 
 #: ../../library/argparse.rst:352
 msgid ""
@@ -2675,7 +2732,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:1568
 msgid "Description of parameters:"
-msgstr "參數的解釋："
+msgstr "參數的描述："
 
 #: ../../library/argparse.rst:1570
 msgid ""
