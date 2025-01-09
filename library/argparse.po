@@ -727,6 +727,8 @@ msgid ""
 "for options like ``+f`` or ``/foo``, may specify them using the "
 "``prefix_chars=`` argument to the :class:`ArgumentParser` constructor::"
 msgstr ""
+"大部分命令列選項會用 ``-`` 做為其前綴，例如 ``-f/--foo``。"
+"如果你預期你的剖析器需要支援例如 ``+f`` 或 ``/foo`` 等其他的前綴，你可以在 :class:`ArgumentParser` 的建構時用 ``prefix_chars=`` 來指定，如下例：::"
 
 #: ../../library/argparse.rst:377
 msgid ""
@@ -748,6 +750,7 @@ msgid ""
 "characters that does not include ``-`` will cause ``-f/--foo`` options to be "
 "disallowed."
 msgstr ""
+"``prefix_chars=`` 的預設值是 ``'-'``。如果你提供的字元集合裡面不包含 ``-`` 的話，會使得該前綴 ``-f/--foo`` 不再有效。"
 
 #: ../../library/argparse.rst:389
 msgid "fromfile_prefix_chars"
@@ -762,6 +765,9 @@ msgid ""
 "of the specified characters will be treated as files, and will be replaced "
 "by the arguments they contain.  For example::"
 msgstr ""
+"有時候，某些程式呼叫時需要的引數可能非常冗長，這時候將其全數儲存在一個文字檔案裡可能會比每次都重打一遍要方便得多。"
+"如果在建構 :class:`ArgumentParser` 時有指定 ``fromfile_prefix_chars=`` 的字元集合，則任何使用該系列字元開頭的選項字串都會被視作為檔案，並以其中儲存的引數取代其位置。"
+"請見下例：::"
 
 #: ../../library/argparse.rst:398
 msgid ""
@@ -790,18 +796,24 @@ msgid ""
 "'@args.txt']`` is considered equivalent to the expression ``['-f', 'foo', '-"
 "f', 'bar']``."
 msgstr ""
+"從檔案讀取引數時，預設每行只會有一個選項（詳情請參見 :meth:`~ArgumentParser.convert_arg_line_to_args`），"
+"且這些選項的位置會取代原先指定檔案時該選項的位置。以上例而言，``['-f', 'foo', "
+"'@args.txt']`` 等於是 ``['-f', 'foo', '-"
+"f', 'bar']``。"
 
 #: ../../library/argparse.rst:412
 msgid ""
 ":class:`ArgumentParser` uses :term:`filesystem encoding and error handler` "
 "to read the file containing arguments."
 msgstr ""
+":class:`ArgumentParser` 使用 :term:`filesystem encoding and error handler` 來讀取含有引數的檔案。"
 
 #: ../../library/argparse.rst:415
 msgid ""
 "The ``fromfile_prefix_chars=`` argument defaults to ``None``, meaning that "
 "arguments will never be treated as file references."
 msgstr ""
+"``fromfile_prefix_chars=`` 預設是沒有值得，也就是預設行為中不存在令選項被視為檔案處理的前綴。"
 
 #: ../../library/argparse.rst:418
 msgid ""
@@ -811,6 +823,9 @@ msgid ""
 "and error handler`. Arguments file should be encoded in UTF-8 instead of "
 "ANSI Codepage on Windows."
 msgstr ""
+":class:`ArgumentParser` 讀取檔案的行為從預設（:func:`locale.getpreferredencoding(False) <locale."
+"getpreferredencoding>` and ``\"strict\"``）改成 :term:`filesystem encoding "
+"and error handler`。因此在 Windows 作業系統上，引數檔案應該以 UTF-8 編碼儲存，而非 ANSI。"
 
 #: ../../library/argparse.rst:426
 msgid "argument_default"
@@ -827,6 +842,11 @@ msgid ""
 "suppress attribute creation on :meth:`~ArgumentParser.parse_args` calls, we "
 "supply ``argument_default=SUPPRESS``::"
 msgstr ""
+"一般來說，引數的預設值會透過在 :"
+"meth:`~ArgumentParser.add_argument` 中寫明或以特定的鍵值對呼叫 :meth:`~ArgumentParser."
+"set_defaults` 來設定預設值。不過，有時候直接設定一個所有選項通用的預設值可能會更方便，"
+"你可以透過在建構 :class:`ArgumentParser` 時將通用預設值傳入 ``argument_default=`` 來達成這個目標。"
+"舉例來說，如果你希望不要在呼叫 :meth:`~ArgumentParser.parse_args` 時就為了每個引數建立一個對應的屬性，你可以傳入 ``argument_default=SUPPRESS``，如下例：::"
 
 #: ../../library/argparse.rst:437
 msgid ""
@@ -856,10 +876,12 @@ msgid ""
 "parse_args` method of an :class:`ArgumentParser`, it :ref:`recognizes "
 "abbreviations <prefix-matching>` of long options."
 msgstr ""
+"一般來說，當你將一系列引數傳給 :class:`ArgumentParser` 的 :meth:`~ArgumentParser.parse_args` 方法時"
+"，他能夠 :ref:`認出 <prefix-matching>` 較長選項的縮寫。"
 
 #: ../../library/argparse.rst:454
 msgid "This feature can be disabled by setting ``allow_abbrev`` to ``False``::"
-msgstr ""
+msgstr "這個功能可以透過將 ``allow_abbrev`` 設為 ``False`` 來關閉：::"
 
 #: ../../library/argparse.rst:456
 msgid ""
@@ -888,6 +910,8 @@ msgid ""
 "exception if an attempt is made to create an argument with an option string "
 "that is already in use::"
 msgstr ""
+":class:`ArgumentParser` 物件不允許針對同一個選項採取兩種動作。"
+":class:`ArgumentParser` 預設會在針對同一段選項文字發生二次處理時拋出一個例外：::"
 
 #: ../../library/argparse.rst:474
 msgid ""
@@ -912,6 +936,8 @@ msgid ""
 "value ``'resolve'`` can be supplied to the ``conflict_handler=`` argument "
 "of :class:`ArgumentParser`::"
 msgstr ""
+"但有時候你可能會希望比較新的選項處裡結果能夠直接覆蓋掉比較舊的（例如使用 parents_ 時）。"
+"在建構 :class:`ArgumentParser` 時指定 ``conflict_handler=`` 為 ``'resolve'`` 就可以啟用這個行為。"
 
 #: ../../library/argparse.rst:486
 msgid ""
@@ -946,6 +972,8 @@ msgid ""
 "foo`` action is retained as the ``-f`` action, because only the ``--foo`` "
 "option string was overridden."
 msgstr ""
+":class:`ArgumentParser` 此時只會停止剖析被完全複寫的選項。"
+"以上例而言，舊有的 ``-f/--foo`` 選項仍會被以 ``-f`` 之名保存，因為只有 ``--foo`` 選項字串被覆寫了。"
 
 #: ../../library/argparse.rst:504
 msgid "add_help"
@@ -957,6 +985,8 @@ msgid ""
 "displays the parser's help message. If ``-h`` or ``--help`` is supplied at "
 "the command line, the :class:`!ArgumentParser` help will be printed."
 msgstr ""
+":class:`ArgumentParser` 預設會自動加入一個能夠印出整個幫助訊息的選項。"
+"如果在呼叫該程式時加入了 ``-h`` 或 ``--help``，則會印出 :class:`!ArgumentParser` 幫助字串。"
 
 #: ../../library/argparse.rst:510
 msgid ""
@@ -964,6 +994,8 @@ msgid ""
 "This can be achieved by passing ``False`` as the ``add_help=`` argument to :"
 "class:`ArgumentParser`::"
 msgstr ""
+"偶爾你可能會遇到需要把這個自動加入幫助選項的行為關掉的情況。"
+"這個行為可以透過在建構 :class:`ArgumentParser` 時將 ``add_help=`` 設為 ``False`` 來達成"
 
 #: ../../library/argparse.rst:514
 msgid ""
