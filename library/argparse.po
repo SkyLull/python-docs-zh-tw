@@ -1022,6 +1022,8 @@ msgid ""
 "h`` and ``--help`` are not valid options.  In this case, the first character "
 "in ``prefix_chars`` is used to prefix the help options::"
 msgstr ""
+"列印幫助的選項一般來說是 ``-h/--help``。不過當你使用 ``prefix_chars=`` 指定了前綴，且前綴不包含 ``-`` 時，"
+"``-h`` 和 ``--help`` 就不會是預設的幫助選項，而會用 ``prefix_chars`` 中指定的第一個前綴作為預設值。請見下例：::"
 
 #: ../../library/argparse.rst:528
 msgid ""
@@ -1049,12 +1051,15 @@ msgid ""
 "`~ArgumentParser.parse_args` method of an :class:`ArgumentParser`, it will "
 "print a *message* to :data:`sys.stderr` and exit with a status code of 2."
 msgstr ""
+"一般來說，當你傳入無效的引數給 :class:`ArgumentParser` 的 :meth:`~ArgumentParser.parse_args` 方法時，"
+"它會自動印出一個*訊息*到 :data:`sys.stderr` 並以狀態碼 2 結束執行。"
 
 #: ../../library/argparse.rst:543
 msgid ""
 "If the user would like to catch errors manually, the feature can be enabled "
 "by setting ``exit_on_error`` to ``False``::"
 msgstr ""
+"如果使用者希望自己手動處理錯誤，你可以將 ``exit_on_error`` 設定為 ``False`` 來阻止程式自動結束執行：::"
 
 #: ../../library/argparse.rst:546
 msgid ""
@@ -1078,83 +1083,87 @@ msgstr ""
 ">>> try:\n"
 "...     parser.parse_args('--integers a'.split())\n"
 "... except argparse.ArgumentError:\n"
-"...     print('Catching an argumentError')\n"
+"...     print('捕捉到一個 argumentError 錯誤')\n"
 "...\n"
-"Catching an argumentError"
+"捕捉到一個 argumentError 錯誤"
 
 #: ../../library/argparse.rst:560
 msgid "The add_argument() method"
-msgstr ""
+msgstr "add_argument() 方法"
 
 #: ../../library/argparse.rst:566
 msgid ""
 "Define how a single command-line argument should be parsed.  Each parameter "
 "has its own more detailed description below, but in short they are:"
 msgstr ""
+"定義個某個命令引數應該如何被剖析。等一下會再對每個參數進行額外的解釋，簡而言之這些參數的功用是：::"
 
 #: ../../library/argparse.rst:569
 msgid ""
 "`name or flags`_ - Either a name or a list of option strings, e.g. ``'foo'`` "
 "or ``'-f', '--foo'``."
 msgstr ""
+"`name or flags`_ — 一個選項的名字、或一個有數個選項名字的串列。例如 ``'foo'`` 或 ``'-f', '--foo'``。"
 
 #: ../../library/argparse.rst:572
 msgid ""
 "action_ - The basic type of action to be taken when this argument is "
 "encountered at the command line."
 msgstr ""
+"`name or flags`_ — 在命令中遇到這個引數時所應採取的基本行動。"
 
 #: ../../library/argparse.rst:575
 msgid "nargs_ - The number of command-line arguments that should be consumed."
-msgstr ""
+msgstr "nargs_ — 這個引數應該要接受多少個值。"
 
 #: ../../library/argparse.rst:577
 msgid ""
 "const_ - A constant value required by some action_ and nargs_ selections."
-msgstr ""
+msgstr "const_ — 某些 action_ 或 nargs_ 選項所需要的一個常數。"
 
 #: ../../library/argparse.rst:579
 msgid ""
 "default_ - The value produced if the argument is absent from the command "
 "line and if it is absent from the namespace object."
 msgstr ""
+"default_ — 該引數未被指定、且在命名空間中也不存在時賦予的預設值。"
 
 #: ../../library/argparse.rst:582
 msgid ""
 "type_ - The type to which the command-line argument should be converted."
-msgstr ""
+msgstr "type_ — 引數轉換並儲存時所用的型別。"
 
 #: ../../library/argparse.rst:584
 msgid "choices_ - A sequence of the allowable values for the argument."
-msgstr ""
+msgstr "choices_ — 一列該引數所能接受的值。"
 
 #: ../../library/argparse.rst:586
 msgid ""
 "required_ - Whether or not the command-line option may be omitted (optionals "
 "only)."
-msgstr ""
+msgstr "required_ — 該選項是否可被忽略（僅限可選選項）。"
 
 #: ../../library/argparse.rst:589
 msgid "help_ - A brief description of what the argument does."
-msgstr ""
+msgstr "help_ — 簡述該引數的作用。"
 
 #: ../../library/argparse.rst:591
 msgid "metavar_ - A name for the argument in usage messages."
-msgstr ""
+msgstr "metavar_ — 在使用方法訊息裡，該引數的名稱。"
 
 #: ../../library/argparse.rst:593
 msgid ""
 "dest_ - The name of the attribute to be added to the object returned by :"
 "meth:`parse_args`."
-msgstr ""
+msgstr "dest_ — 該選項以這個名字作為屬性名稱被加入 :meth:`parse_args` 回傳的物件中。"
 
 #: ../../library/argparse.rst:596
 msgid "deprecated_ - Whether or not use of the argument is deprecated."
-msgstr ""
+msgstr "deprecated_ — 該引數是否已被棄用。"
 
 #: ../../library/argparse.rst:604
 msgid "name or flags"
-msgstr ""
+msgstr "name or flags"
 
 #: ../../library/argparse.rst:606
 msgid ""
