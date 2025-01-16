@@ -1354,6 +1354,9 @@ msgid ""
 "``None`` (the default) or ``'?'``, each character of the argument string "
 "will be appended to the list. Example usage::"
 msgstr ""
+"``'extend'`` — 此動作將儲存一個串列，並將一個有複數值的引數的每個物件附加在該串列之中。"
+"``'extend'`` 動作一般還會一起將 nargs_ 關鍵字引數設為 ``'+'`` 或 ``'*'`` 來使用。"
+"請注意當 nargs_ 是 ``None`` （預設值） 或 ``'?'`` 時，引數字串的每個字元都會一一被附加到串列中。以下是使用範例：::"
 
 #: ../../library/argparse.rst:703
 msgid ""
@@ -1376,6 +1379,7 @@ msgid ""
 "``'count'`` - This counts the number of times a keyword argument occurs. For "
 "example, this is useful for increasing verbosity levels::"
 msgstr ""
+"``'count'`` — 此動作將數出某個關鍵字引數出現的次數。在例如增加紀錄輸出的繁瑣程度時很有用，如下例：::"
 
 #: ../../library/argparse.rst:713
 msgid ""
@@ -1384,10 +1388,14 @@ msgid ""
 ">>> parser.parse_args(['-vvv'])\n"
 "Namespace(verbose=3)"
 msgstr ""
+">>> parser = argparse.ArgumentParser()\n"
+">>> parser.add_argument('--verbose', '-v', action='count', default=0)\n"
+">>> parser.parse_args(['-vvv'])\n"
+"Namespace(verbose=3)"
 
 #: ../../library/argparse.rst:718
 msgid "Note, the *default* will be ``None`` unless explicitly set to *0*."
-msgstr ""
+msgstr "注意，此選項的 *default* 預設值為 ``None``，除非你主動要求其應為 *0*。"
 
 #: ../../library/argparse.rst:720
 msgid ""
@@ -1396,6 +1404,8 @@ msgid ""
 "added to the parser. See :class:`ArgumentParser` for details of how the "
 "output is created."
 msgstr ""
+"``'help'`` — 此動作將印出一個描述所有當前剖析器接受之選項的完整幫助訊息，並退出。"
+"預設已經會有一個具有此動作的選項被加入到剖析器中。請參閱 :class:`ArgumentParser` 以了解幫助訊息是如何產生的。"
 
 #: ../../library/argparse.rst:725
 msgid ""
@@ -1403,6 +1413,8 @@ msgid ""
 "`~ArgumentParser.add_argument` call, and prints version information and "
 "exits when invoked::"
 msgstr ""
+"``'version'`` — 此動作將印出版本資訊後退出。"
+"此動作還預期你一並將版本資訊給予該次 :meth:`~ArgumentParser.add_argument` 呼叫的 ``version=`` 關鍵字引數。如下例：::"
 
 #: ../../library/argparse.rst:729
 msgid ""
@@ -1425,6 +1437,8 @@ msgid ""
 "Only actions that consume command-line arguments (e.g. ``'store'``, "
 "``'append'`` or ``'extend'``) can be used with positional arguments."
 msgstr ""
+"只有會消耗引數的動作（即 ``'store'``、"
+"``'append'`` 或 ``'extend'``） 可以被用於位置引數。"
 
 #: ../../library/argparse.rst:740
 msgid ""
@@ -1433,6 +1447,7 @@ msgid ""
 "BooleanOptionalAction` is available in :mod:`!argparse` and adds support for "
 "boolean actions such as ``--foo`` and ``--no-foo``::"
 msgstr ""
+""
 
 #: ../../library/argparse.rst:745
 msgid ""
