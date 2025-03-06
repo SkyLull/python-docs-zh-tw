@@ -1447,7 +1447,8 @@ msgid ""
 "BooleanOptionalAction` is available in :mod:`!argparse` and adds support for "
 "boolean actions such as ``--foo`` and ``--no-foo``::"
 msgstr ""
-""
+"你也可以透過傳入一個 :class:`Action` 子類別或其他任意時做了相同界面的物件來指定一個任意動作。:class:`!"
+"BooleanOptionalAction` 在 :mod:`!argparse` 中可用，且支援如 ``--foo`` 與 ``--no-foo`` 樣式的布林動作：::"
 
 #: ../../library/argparse.rst:745
 msgid ""
@@ -1469,10 +1470,12 @@ msgid ""
 "overriding the :meth:`!__call__` method and optionally the :meth:`!__init__` "
 "and :meth:`!format_usage` methods."
 msgstr ""
+"擴充 :class:`Action`，覆寫其中的 :meth:`!__call__` 方法、以及非必要的 :meth:`!__init__` 、"
+":meth:`!format_usage` 等方法是目前自創一個動作時的推薦方式。"
 
 #: ../../library/argparse.rst:757
 msgid "An example of a custom action::"
-msgstr ""
+msgstr "以下是一個自訂動作的範例：::"
 
 #: ../../library/argparse.rst:759
 msgid ""
@@ -1494,10 +1497,27 @@ msgid ""
 ">>> args\n"
 "Namespace(bar='1', foo='2')"
 msgstr ""
+">>> class FooAction(argparse.Action):\n"
+"...     def __init__(self, option_strings, dest, nargs=None, **kwargs):\n"
+"...         if nargs is not None:\n"
+"...             raise ValueError(\"不允許 nargs 有值\")\n"
+"...         super().__init__(option_strings, dest, **kwargs)\n"
+"...     def __call__(self, parser, namespace, values, option_string=None):\n"
+"...         print('%r %r %r' % (namespace, values, option_string))\n"
+"...         setattr(namespace, self.dest, values)\n"
+"...\n"
+">>> parser = argparse.ArgumentParser()\n"
+">>> parser.add_argument('--foo', action=FooAction)\n"
+">>> parser.add_argument('bar', action=FooAction)\n"
+">>> args = parser.parse_args('1 --foo 2'.split())\n"
+"Namespace(bar=None, foo=None) '1' None\n"
+"Namespace(bar='1', foo=None) '2' '--foo'\n"
+">>> args\n"
+"Namespace(bar='1', foo='2')"
 
 #: ../../library/argparse.rst:777
 msgid "For more details, see :class:`Action`."
-msgstr "更多詳情請見 :class:`Action`。"
+msgstr "詳情請見 :class:`Action`。"
 
 #: ../../library/argparse.rst:783
 msgid "nargs"
@@ -1511,12 +1531,15 @@ msgid ""
 "action. See also :ref:`specifying-ambiguous-arguments`. The supported values "
 "are:"
 msgstr ""
+":class:`ArgumentParser` 一般來說會為每一個命令列選項分配一個動作。 ``nargs`` 關鍵字引數可使多個選項共用同一個動作。"
+"請另參閱 :ref:`specifying-ambiguous-arguments`。 本引數支援的值有："
 
 #: ../../library/argparse.rst:790
 msgid ""
 "``N`` (an integer).  ``N`` arguments from the command line will be gathered "
 "together into a list.  For example::"
 msgstr ""
+"``N`` （一個整數。） ``N`` 個來自命令的引數會被集成至一個串列（list）中。例如：::"
 
 #: ../../library/argparse.rst:793
 msgid ""
@@ -1537,6 +1560,7 @@ msgid ""
 "Note that ``nargs=1`` produces a list of one item.  This is different from "
 "the default, in which the item is produced by itself."
 msgstr ""
+"注意到 ``nargs=1`` 會產生含有一個元素的串列。與預設情況不同，預設情況下只會產生該選項的值本身。"
 
 #: ../../library/argparse.rst:804
 msgid ""
@@ -1547,6 +1571,8 @@ msgid ""
 "by a command-line argument.  In this case the value from const_ will be "
 "produced.  Some examples to illustrate this::"
 msgstr ""
+"``'?'``。 若情況允許，會從命令中消耗一個引數，並產生一個物件。如果沒有任何可用的引數， default_ 的預設值會被使用。"
+"請注意，若是可選引數則還有其他可能—如果選項字串存在，但後方卻沒有任何來自命令的引數，則 const_ 中的值會被作為預設值使用。以下的範例展示了這個行為：::"
 
 #: ../../library/argparse.rst:811
 msgid ""
@@ -1575,6 +1601,7 @@ msgid ""
 "One of the more common uses of ``nargs='?'`` is to allow optional input and "
 "output files::"
 msgstr ""
+"其中一個最常見的 ``nargs='?'`` 用法是令指定輸入或輸出檔案的引數成為可選項：::"
 
 #: ../../library/argparse.rst:824
 msgid ""
@@ -1609,6 +1636,7 @@ msgid ""
 "argument with ``nargs='*'``, but multiple optional arguments with "
 "``nargs='*'`` is possible.  For example::"
 msgstr ""
+"``'*'``。 所有可用的命令列引數都會被蒐集至一個串列（list）中。一般來說不會讓一個以上的選項具有 ``nargs='*'``，但確實可以做到讓數個選項同時具有 ``nargs='*'``。請見下例：::"
 
 #: ../../library/argparse.rst:843
 msgid ""
@@ -1632,6 +1660,8 @@ msgid ""
 "a list.  Additionally, an error message will be generated if there wasn't at "
 "least one command-line argument present.  For example::"
 msgstr ""
+"``'+'``. 與 ``'*'`` 很像，所有可用的命令列引數都會被收集到一個串列（llist）中。"
+"除此之外，如果可用的引數少於一個則會產生一個錯誤訊息。請見下例：::"
 
 #: ../../library/argparse.rst:856
 msgid ""
