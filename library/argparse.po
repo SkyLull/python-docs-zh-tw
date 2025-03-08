@@ -1689,10 +1689,12 @@ msgid ""
 "be produced. Actions that do not consume command-line arguments (e.g. "
 "``'store_const'``) set ``nargs=0``."
 msgstr ""
+"如果未提供關鍵字參數 ``nargs``，將消耗的參數量將取決於 action_ 的選擇。一般來說這代表會消耗一個命令列參數，並產生一個物件（而非串列）。"
+"不消耗命令列參數的動作將設定 ``nargs=0``。"
 
 #: ../../library/argparse.rst:874
 msgid "const"
-msgstr ""
+msgstr "const"
 
 #: ../../library/argparse.rst:876
 msgid ""
@@ -1701,6 +1703,7 @@ msgid ""
 "required for the various :class:`ArgumentParser` actions.  The two most "
 "common uses of it are:"
 msgstr ""
+":meth:`~ArgumentParser.add_argument` 的 ``const`` 參數用來保存許多 :class:`ArgumentParser` 動作使用到、但不從命令列參數讀取的常數。最常用到的兩個情況有：::"
 
 #: ../../library/argparse.rst:880
 msgid ""
@@ -1711,7 +1714,31 @@ msgid ""
 "``const`` is not provided to :meth:`~ArgumentParser.add_argument`, it will "
 "receive a default value of ``None``."
 msgstr ""
+"當設定 ``action='store_const'`` 或 ``action='append_const'`` 呼叫 :meth:`~ArgumentParser.add_argument` 時。這兩個動作會將 ``const`` 的值加入 :meth:"
+"`~ArgumentParser.parse_args` 方法所回傳物件的其中一個屬性。範例請見 action_ 的描述。"
+"如果沒有提供 ``const`` 值給 :meth:`~ArgumentParser.add_argument`，其預設值為 ``None``。"
 
+# SkyLull: 痾，倒數第二段看不懂。我照實際操作的結果去翻。
+# Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 17:35:02) [GCC 11.2.0] on linux
+# Type "help", "copyright", "credits" or "license" for more information.
+# >>> import argparse
+# >>> parser = argparse.ArgumentParser()
+# >>> parser.add_argument('--foo', const=42, nargs='?')
+# _StoreAction(option_strings=['--foo'], dest='foo', nargs='?', const=42, default=None, type=None, choices=None, required=False, help=None, metavar=None)
+# >>> parser.parse_args(["--foo", "52"])
+# Namespace(foo='52')
+# >>> parser.parse_args(["--foo"])
+# Namespace(foo=42)
+# >>> parser.parse_args([])
+# Namespace(foo=None)
+#
+# >>> parser = argparse.ArgumentParser()
+# >>> parser.add_argument('--foo', nargs='?')
+# _StoreAction(option_strings=['--foo'], dest='foo', nargs='?', const=None, default=None, type=None, choices=None, required=False, help=None, metavar=None)
+# >>> parser.parse_args(["--foo"])
+# Namespace(foo=None)
+# >>> parser.parse_args([])
+# Namespace(foo=None)
 #: ../../library/argparse.rst:888
 msgid ""
 "When :meth:`~ArgumentParser.add_argument` is called with option strings "
@@ -1721,16 +1748,21 @@ msgid ""
 "command-line argument following it, the value of ``const`` will be assumed "
 "to be ``None`` instead.  See the nargs_ description for examples."
 msgstr ""
+"當設定了選項字串（例如 ``-f`` 或 ``--foo``）給 :meth:`~ArgumentParser.add_argument` 且給予了 ``nargs='?'`` 時。"
+"將建立一個能接收零或一個參數的可選選項。在剖析命令時，如果選項後方沒有對應的參數，``const`` 的值將作為預設值，若未設定則預設為 ``None``。"
+"範例請見 nargs_ 的描述。"
 
 #: ../../library/argparse.rst:895
 msgid ""
 "``const=None`` by default, including when ``action='append_const'`` or "
 "``action='store_const'``."
 msgstr ""
+"預設 ``const=None``，包含 ``action='append_const'`` 或"
+" ``action='store_const'`` 時。"
 
 #: ../../library/argparse.rst:902
 msgid "default"
-msgstr ""
+msgstr "default"
 
 #: ../../library/argparse.rst:904
 msgid ""
@@ -1741,6 +1773,9 @@ msgid ""
 "the ``default`` value is used when the option string was not present at the "
 "command line::"
 msgstr ""
+"所有可選引數和部份位置引數可以在命令中省略。 :meth:`~ArgumentParser."
+"add_argument` 的關鍵字引數 ``default`` 將指定該選項被省略時所使用的預設值，該值預設為 ``None``。"
+"對於可選選項而言，該選項的字串未出限於命令中時，``default`` 的值將被使用。"
 
 #: ../../library/argparse.rst:911
 msgid ""
@@ -1763,6 +1798,7 @@ msgid ""
 "If the target namespace already has an attribute set, the action *default* "
 "will not overwrite it::"
 msgstr ""
+"如果目標的命名空間中已具有該屬性，*default* 將不會對其進行覆寫：::"
 
 #: ../../library/argparse.rst:921
 msgid ""
