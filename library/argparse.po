@@ -1749,7 +1749,7 @@ msgid ""
 "to be ``None`` instead.  See the nargs_ description for examples."
 msgstr ""
 "當設定了選項字串（例如 ``-f`` 或 ``--foo``）給 :meth:`~ArgumentParser.add_argument` 且給予了 ``nargs='?'`` 時。"
-"將建立一個能接收零或一個參數的可選選項。在剖析命令時，如果選項後方沒有對應的參數，``const`` 的值將作為預設值，若未設定則預設為 ``None``。"
+"將建立一個能接收零或一個參數的可選選項。在剖析命令時，如果命令選項後方沒有對應的參數，``const`` 的值將作為預設值，若未設定則預設為 ``None``。"
 "範例請見 nargs_ 的描述。"
 
 #: ../../library/argparse.rst:895
@@ -1819,6 +1819,9 @@ msgid ""
 "conversion argument, if provided, before setting the attribute on the :class:"
 "`Namespace` return value.  Otherwise, the parser uses the value as is::"
 msgstr ""
+"如果 ``default`` 值是字串，剖析器仍將其視同從命令中讀取的選項處裡。"
+"若有進行設定，剖析器會依照 type_ 的設定轉換其型別後儲存進回傳的 :class:"
+"`Namespace` 的屬性中。否無設定則剖析器將原封不動地使用該值。"
 
 #: ../../library/argparse.rst:931
 msgid ""
@@ -1839,6 +1842,7 @@ msgid ""
 "For positional arguments with nargs_ equal to ``?`` or ``*``, the "
 "``default`` value is used when no command-line argument was present::"
 msgstr ""
+"對於未出現在命令引數中、且設定 nargs_ 為 ``?`` 或 ``*`` 的位置引數，其 ``default`` 值將被使用：::"
 
 #: ../../library/argparse.rst:940
 msgid ""
@@ -1862,12 +1866,15 @@ msgid ""
 "applies to positional arguments with nargs_ values other than ``?`` or "
 "``*``, or optional arguments marked as ``required=True``."
 msgstr ""
+"設定為 required_ 的引數，``default`` 的設定將被忽略。"
+"舉例來說，這也包括 nargs_ 不是 ``?`` 或 ``*`` 的位置引數，或設定為 ``required=True`` 的可選引數。"
 
 #: ../../library/argparse.rst:951
 msgid ""
 "Providing ``default=argparse.SUPPRESS`` causes no attribute to be added if "
 "the command-line argument was not present::"
 msgstr ""
+"當設定 ``default=argparse.SUPPRESS`` 時，如該選項不存在命令中，則該屬性將不會被加入結果。"
 
 #: ../../library/argparse.rst:954
 msgid ""
@@ -1887,7 +1894,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:965
 msgid "type"
-msgstr ""
+msgstr "type"
 
 #: ../../library/argparse.rst:967
 msgid ""
@@ -1897,12 +1904,15 @@ msgid ""
 "keyword for :meth:`~ArgumentParser.add_argument` allows any necessary type-"
 "checking and type conversions to be performed."
 msgstr ""
+"剖析器預設將命令列引數讀取為字串。不過，經常會遇到需要將讀取值轉換為其他定型別的狀況，例如 :class:`float` 或 :class:`int`。"
+":meth:`~ArgumentParser.add_argument` 的關鍵字引數 ``type`` 可對讀取值進行必要的轉換與檢察。"
 
 #: ../../library/argparse.rst:973
 msgid ""
 "If the type_ keyword is used with the default_ keyword, the type converter "
 "is only applied if the default is a string."
 msgstr ""
+"如果 type_ 和 default_ 關鍵字被一同使用，則只有在預設值被設定為字串時才會進行型別轉換。"
 
 #: ../../library/argparse.rst:976
 msgid ""
@@ -1911,10 +1921,13 @@ msgid ""
 "`ValueError`, the exception is caught and a nicely formatted error message "
 "is displayed.  No other exception types are handled."
 msgstr ""
+"傳入 ``type`` 的物件可以是任意接受一個字串輸入的可呼叫物件。"
+"若呼叫該函數時發生了 :exc:`ArgumentTypeError`、:exc:`TypeError` 或 :exc:"
+"`ValueError` 例外，該例外將被捕捉，並且顯示於一個格式化過的整潔訊息當中。其他未列出的例外都不會進行額外處裡。"
 
 #: ../../library/argparse.rst:981
 msgid "Common built-in types and functions can be used as type converters:"
-msgstr ""
+msgstr "可用於型別轉換的常用內建型別和函數：::"
 
 #: ../../library/argparse.rst:983
 msgid ""
@@ -1944,7 +1957,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:996
 msgid "User defined functions can be used as well:"
-msgstr ""
+msgstr "也可以使用自定義的函數：::"
 
 #: ../../library/argparse.rst:998
 msgid ""
@@ -1970,6 +1983,7 @@ msgid ""
 "does is convert empty strings to ``False`` and non-empty strings to "
 "``True``. This is usually not what is desired."
 msgstr ""
+"不建議使用 :func:`bool` 函數作為型別轉換器。該函數只將空字串轉換為 ``False``，其餘都轉換為 ``True``。一般而言這不是使用者預期的行為。"
 
 #: ../../library/argparse.rst:1012
 msgid ""
