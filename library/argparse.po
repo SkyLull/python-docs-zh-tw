@@ -1992,6 +1992,8 @@ msgid ""
 "exceptions. Anything with more interesting error-handling or resource "
 "management should be done downstream after the arguments are parsed."
 msgstr ""
+"一般來說，``type`` 關鍵字只應被用在能簡單轉換（也就是只會引發上開那三種例外）的應用場景中。"
+"其餘更複雜的錯誤處裡或資源管理需求的應用應該在剖析完後、更下游的程式中進行。"
 
 #: ../../library/argparse.rst:1017
 msgid ""
@@ -2000,6 +2002,8 @@ msgid ""
 "JSONDecodeError` would not be well formatted and a :exc:`FileNotFoundError` "
 "exception would not be handled at all."
 msgstr ""
+"舉例來說，JSON、YAML 的轉換就有著超出 ``type`` 所能應付範圍的更複雜的錯誤處裡。:exc:`~json."
+"JSONDecodeError` 錯誤的回報格式會出錯，而 :exc:`FileNotFoundError` 則是根本不會被處裡。"
 
 #: ../../library/argparse.rst:1022
 msgid ""
@@ -2010,16 +2014,19 @@ msgid ""
 "the parser has run and then use the :keyword:`with`-statement to manage the "
 "files."
 msgstr ""
+"就算是 :class:`~argparse.FileType` 在使用於 ``type`` 關鍵字時也有不少限制。例如有個引數使用了 :class:`~argparse.FileType` 而該引數的剖析出錯，錯誤會被回報但該檔案不會被自動關閉。"
+"在這個情況下，建議的寫法會是讓程式在剖析器跑完後，再用 :keyword:`with` 的情境管理去做檔案的存取。"
 
 #: ../../library/argparse.rst:1029
 msgid ""
 "For type checkers that simply check against a fixed set of values, consider "
 "using the choices_ keyword instead."
 msgstr ""
+"若檢查器只是檢查輸入值是否符合某幾個確定的值，請考慮改用 choices_ 關鍵字的功能來進行。"
 
 #: ../../library/argparse.rst:1036
 msgid "choices"
-msgstr ""
+msgstr "choices"
 
 #: ../../library/argparse.rst:1038
 msgid ""
@@ -2029,6 +2036,8 @@ msgid ""
 "line is parsed, argument values will be checked, and an error message will "
 "be displayed if the argument was not one of the acceptable values::"
 msgstr ""
+"若有命令引數只接受從幾個特定的值之中挑一個，你可以透過將些可接受的選項編入一個序列物件，並傳入 :meth:`~ArgumentParser.add_argument` 的 *choices* 關鍵字引數來處裡。"
+"當在剖析命令時，引數的值就會依照要求被檢查，如果引數值不是其中一個可接受值的話便會顯示一個錯誤訊息，如範例：::"
 
 #: ../../library/argparse.rst:1044
 msgid ""
