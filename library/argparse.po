@@ -2065,18 +2065,22 @@ msgid ""
 "conversions have been performed, so the type of the objects in the *choices* "
 "sequence should match the type_ specified."
 msgstr ""
+"請注意，針對「輸入是否包含在 *choices* 序列裡」的檢查發生在型別轉換後，所以 *choices* 裡面的資料型別要符合你在 type_ 所指定的型別。"
 
 #: ../../library/argparse.rst:1057
 msgid ""
 "Any sequence can be passed as the *choices* value, so :class:`list` "
 "objects, :class:`tuple` objects, and custom sequences are all supported."
 msgstr ""
+"任意的型別都能傳入 *choices*，也就是說 :class:`list`、"
+"objects、:class:`tuple` 和其他自訂的序列型物件都是可行的。"
 
 #: ../../library/argparse.rst:1060
 msgid ""
 "Use of :class:`enum.Enum` is not recommended because it is difficult to "
 "control its appearance in usage, help, and error messages."
 msgstr ""
+"不建議使用 :class:`enum.Enum`，因為它出現在使用說明、幫助和錯誤訊息的樣貌難以控制。"
 
 #: ../../library/argparse.rst:1063
 msgid ""
@@ -2085,10 +2089,13 @@ msgid ""
 "*dest* parameter.  If this display isn't desirable (perhaps because there "
 "are many choices), just specify an explicit metavar_."
 msgstr ""
+"預設由 *dest* 導出的 *metavar* 會被格式化的多選選項覆寫。"
+"一般來說這會是個理想的行為，因為使用者永遠不會看見 *dest* 參數。"
+"如果這樣導致的顯示輸出並不理想（例如因為有太多選項），你可以直接顯式地指定 metavar_ 。"
 
 #: ../../library/argparse.rst:1072
 msgid "required"
-msgstr ""
+msgstr "必選選項"
 
 #: ../../library/argparse.rst:1074
 msgid ""
@@ -2097,6 +2104,8 @@ msgid ""
 "command line. To make an option *required*, ``True`` can be specified for "
 "the ``required=`` keyword argument to :meth:`~ArgumentParser.add_argument`::"
 msgstr ""
+"一般而言，:mod:`!argparse` 自動認定如 ``-f``、``--bar`` 等具旗標的選項就代表它們是可選的引數，也就是說它們在命令列中是可不輸入的。"
+"如果想要使某個選項變成必選，你可以指定 :meth:`~ArgumentParser.add_argument` 的關鍵字引數 ``required=`` 為 ``True``：::"
 
 #: ../../library/argparse.rst:1079
 msgid ""
@@ -2122,6 +2131,8 @@ msgid ""
 "`~ArgumentParser.parse_args` will report an error if that option is not "
 "present at the command line."
 msgstr ""
+"如範例所示，如果該選項被標記為 ``required`，:meth:"
+"`~ArgumentParser.parse_args` 會在該選項不存在命令中時回報錯誤。"
 
 #: ../../library/argparse.rst:1093
 msgid ""
