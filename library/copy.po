@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 07:52+0800\n"
+"POT-Creation-Date: 2025-06-27 07:36+0000\n"
 "PO-Revision-Date: 2022-01-20 18:49+0800\n"
 "Last-Translator: Matt Wang <mattwang44@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -46,14 +46,12 @@ msgid "Interface summary:"
 msgstr "介面摘要："
 
 #: ../../library/copy.rst:22
-#, fuzzy
 msgid "Return a shallow copy of *obj*."
-msgstr "回傳 *x* 的淺層複製。"
+msgstr "回傳 *obj* 的淺層複製。"
 
 #: ../../library/copy.rst:27
-#, fuzzy
 msgid "Return a deep copy of *obj*."
-msgstr "回傳 *x* 的深層複製。"
+msgstr "回傳 *obj* 的深層複製。"
 
 #: ../../library/copy.rst:32
 msgid ""
@@ -118,7 +116,7 @@ msgstr ":func:`deepcopy` 函式用以下方式避免了這些問題："
 msgid ""
 "keeping a ``memo`` dictionary of objects already copied during the current "
 "copying pass; and"
-msgstr "保留在當前複製過程中已複製的物件的 ``memo`` 字典；以及"
+msgstr "保留在目前複製過程中已複製的物件的 ``memo`` 字典；以及"
 
 #: ../../library/copy.rst:67
 msgid ""
@@ -172,7 +170,6 @@ msgid ""
 msgstr ""
 
 #: ../../library/copy.rst:104
-#, fuzzy
 msgid ""
 "Called to implement the deep copy operation; it is passed one argument, the "
 "*memo* dictionary.  If the ``__deepcopy__`` implementation needs to make a "
@@ -180,12 +177,10 @@ msgid ""
 "with the component as first argument and the *memo* dictionary as second "
 "argument. The *memo* dictionary should be treated as an opaque object."
 msgstr ""
-"想要為一個類別定義它自己的複製操作實作，可以透過定義特殊方法 :meth:"
-"`__copy__` 和 :meth:`__deepcopy__`。呼叫前者以實現淺層複製操作；不必傳入額外"
-"引數。呼叫後者以實現深層複製操作；它應傳入一個引數，即 ``memo`` 字典。如果 :"
-"meth:`__deepcopy__` 實現需要建立一個元件的深層複製，它應當呼叫 :func:"
-"`deepcopy` 函式並以該元件作為第一個引數、以該 memo 字典作為第二個引數。memo "
-"字典應當被當作不透明物件 (opaque object) 來處理。"
+"用來實作深層複製操作；它會傳遞一個引數，即 *memo* 字典。如果 "
+"``__deepcopy__`` 實現需要建立一個元件的深層複製，它應當呼叫 :func:`~copy."
+"deepcopy` 函式並以該元件作為第一個引數、以該 *memo* 字典作為第二個引數。*memo* "
+"字典應當被當作不透明物件 (opaque object) 來處理"
 
 #: ../../library/copy.rst:114
 msgid ""
@@ -201,11 +196,11 @@ msgid ""
 "with values from *changes*."
 msgstr ""
 
-#: ../../library/copy.rst:128
+#: ../../library/copy.rst:130
 msgid "Module :mod:`pickle`"
 msgstr ":mod:`pickle` 模組"
 
-#: ../../library/copy.rst:129
+#: ../../library/copy.rst:131
 msgid ""
 "Discussion of the special methods used to support object state retrieval and "
 "restoration."
@@ -230,6 +225,5 @@ msgid "__deepcopy__() (copy protocol)"
 msgstr "__deepcopy__() （複製協定）"
 
 #: ../../library/copy.rst:111
-#, fuzzy
 msgid "__replace__() (replace protocol)"
-msgstr "__deepcopy__() （複製協定）"
+msgstr "__replace__() （取代協定）"

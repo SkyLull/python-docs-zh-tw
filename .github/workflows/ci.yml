@@ -1,5 +1,11 @@
 name: build
 
+concurrency: preview-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   pull_request:
 
@@ -9,8 +15,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
       - name: Install Dependencies
         run: sudo apt-get install gettext
 
-      - name: Validate
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Build HTML Docs
         run: VERSION=${{ github.event.repository.default_branch }} JOBS=4 MODE=html make all
+
+      - name: Deploy PR Doc Preview
+        # PR from the forked repo would be denied as the permission is not granted.
+        # Allow only PR from this repo.
+        if: ${{ ( github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name ) }}
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ../cpython/Doc/build/html
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto

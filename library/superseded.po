@@ -1,15 +1,16 @@
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
 # Matt Wang <mattwang44@gmail.com>, 2022
+# Weilin Du, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 07:52+0800\n"
-"PO-Revision-Date: 2022-02-15 20:45+0800\n"
-"Last-Translator: Matt Wang <mattwang44@gmail.com>\n"
+"POT-Creation-Date: 2024-12-29 11:18+0000\n"
+"PO-Revision-Date: 2025-06-28 12:28+0800\n"
+"Last-Translator: Weilin Du <mattwang44@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
 "tw)\n"
 "Language: zh_TW\n"
@@ -17,18 +18,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
 
 #: ../../library/superseded.rst:5
 msgid "Superseded Modules"
 msgstr "已被取代的模組"
 
 #: ../../library/superseded.rst:7
-#, fuzzy
 msgid ""
-"The modules described in this chapter are deprecated or :term:`soft "
-"deprecated` and only kept for backwards compatibility. They have been "
-"superseded by other modules."
+"The modules described in this chapter have been superseded by other modules "
+"for most use cases, and are retained primarily to preserve backwards "
+"compatibility."
 msgstr ""
-"此章節所描述的模組 (modules) 均已被棄用，僅為了向後相容性而被保留下來。它們已"
-"經被其他模組所取代。"
+"此章節所描述的模組在大多數使用情況下已被其他模組取代，僅為了向後相容性而被保"
+"留下來。"
+
+#: ../../library/superseded.rst:10
+msgid ""
+"Modules may appear in this chapter because they only cover a limited subset "
+"of a problem space, and a more generally applicable solution is available "
+"elsewhere in the standard library (for example, :mod:`getopt` covers the "
+"very specific task of \"mimic the C :c:func:`!getopt` API in Python\", "
+"rather than the broader command line option parsing and argument parsing "
+"capabilities offered by :mod:`optparse` and :mod:`argparse`)."
+msgstr ""
+"某些模組出現在本章節，可能是因為它們能解決的問題是問題空間的有限子集，而標準函"
+"式庫的其他地方提供了更通用的解決方案（例如，:mod:`getopt` 只處理「在 Python "
+"中模擬 C 語言中 :c:func:`!getopt` 這個 API 」這項非常具體的任務，而非像 :mod:"
+"`optparse` 和 :mod:`argparse` 那樣提供更廣泛的命令列選項剖析與引數剖析功"
+"能）。"
+
+#: ../../library/superseded.rst:17
+msgid ""
+"Alternatively, modules may appear in this chapter because they are "
+"deprecated outright, and awaiting removal in a future release, or they are :"
+"term:`soft deprecated` and their use is actively discouraged in new "
+"projects. With the removal of various obsolete modules through :pep:`594`, "
+"there are currently no modules in this latter category."
+msgstr ""
+"或者， 某些模組出現在本章節，可能是因為它們已被明確棄用（deprecated），並將"
+"在未來版本中移除；又或者它們屬於 :term:`soft deprecated` 狀態，官方強烈不建"
+"議在新專案中使用。隨著 :pep:`594` 移除了多個過時模組，目前標準函式庫中已不存"
+"在後者（軟性棄用）這類模組。"

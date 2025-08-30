@@ -1,4 +1,4 @@
-# Copyright (C) 2001-2024, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 07:52+0800\n"
+"POT-Creation-Date: 2025-08-12 00:17+0000\n"
 "PO-Revision-Date: 2024-04-30 00:20+0800\n"
 "Last-Translator: Matt Wang <mattwang44@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -22,10 +22,9 @@ msgid "PyHash API"
 msgstr "PyHash API"
 
 #: ../../c-api/hash.rst:6
-#, fuzzy
 msgid ""
 "See also the :c:member:`PyTypeObject.tp_hash` member and :ref:`numeric-hash`."
-msgstr "另請參閱 :c:member:`PyTypeObject.tp_hash` 成員。"
+msgstr "另請參閱 :c:member:`PyTypeObject.tp_hash` 成員和 :ref:`numeric-hash`。"
 
 #: ../../c-api/hash.rst:10
 msgid "Hash value type: signed integer."
@@ -40,26 +39,32 @@ msgid ""
 "The `Mersenne prime <https://en.wikipedia.org/wiki/Mersenne_prime>`_ ``P = "
 "2**n -1``, used for numeric hash scheme."
 msgstr ""
+"用於數值雜湊方案的\\ `梅森質數 (Mersenne prime) <https://en.wikipedia.org/"
+"wiki/Mersenne_prime>`_ ``P = 2**n -1``。"
 
 #: ../../c-api/hash.rst:28
 msgid "The exponent ``n`` of ``P`` in :c:macro:`PyHASH_MODULUS`."
-msgstr ""
+msgstr ":c:macro:`PyHASH_MODULUS` 中 ``P`` 的指數 ``n``。"
 
 #: ../../c-api/hash.rst:34
 msgid "Prime multiplier used in string and various other hashes."
-msgstr ""
+msgstr "用於字串和其他各種雜湊的質數乘數 (prime multiplier)。"
 
 #: ../../c-api/hash.rst:40
 msgid "The hash value returned for a positive infinity."
-msgstr ""
+msgstr "正無窮大回傳的雜湊值。"
 
 #: ../../c-api/hash.rst:46
 msgid "The multiplier used for the imaginary part of a complex number."
-msgstr ""
+msgstr "用於複數虛數部分的乘數。"
 
 #: ../../c-api/hash.rst:52
 msgid "Hash function definition used by :c:func:`PyHash_GetFuncDef`."
 msgstr ":c:func:`PyHash_GetFuncDef` 所使用的雜湊函式定義。"
+
+#: ../../c-api/hash.rst:56
+msgid "Hash function."
+msgstr "雜湊函式。"
 
 #: ../../c-api/hash.rst:60
 msgid "Hash function name (UTF-8 encoded string)."
@@ -88,17 +93,21 @@ msgid ""
 "Hash a pointer value: process the pointer value as an integer (cast it to "
 "``uintptr_t`` internally). The pointer is not dereferenced."
 msgstr ""
+"雜湊指標值：將指標值作為整數處理（在內部轉型為 ``uintptr_t``）。指標不會被取"
+"值 (dereference)。"
 
 #: ../../c-api/hash.rst:88
 msgid "The function cannot fail: it cannot return ``-1``."
-msgstr ""
+msgstr "此函式不會失敗：它不會回傳 ``-1``。"
 
 #: ../../c-api/hash.rst:94
 msgid ""
 "Generic hashing function that is meant to be put into a type object's "
 "``tp_hash`` slot. Its result only depends on the object's identity."
 msgstr ""
+"泛用雜湊函式，旨在放入型別物件的 ``tp_hash`` 插槽中。其結果僅取決於物件的識別"
+"性。"
 
 #: ../../c-api/hash.rst:99
 msgid "In CPython, it is equivalent to :c:func:`Py_HashPointer`."
-msgstr ""
+msgstr "在 CPython 中，它等價於 :c:func:`Py_HashPointer`。"

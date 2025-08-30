@@ -1,4 +1,4 @@
-# Copyright (C) 2001-2023, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 07:52+0800\n"
+"POT-Creation-Date: 2025-08-16 00:16+0000\n"
 "PO-Revision-Date: 2023-06-24 17:09+0800\n"
 "Last-Translator: Matt Wang <mattwang44@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -21,11 +21,10 @@ msgstr ""
 "X-Generator: Poedit 3.3.1\n"
 
 #: ../../library/tk.rst:5
-msgid "Graphical User Interfaces with Tk"
+msgid "Graphical user interfaces with Tk"
 msgstr "以 Tk 打造圖形使用者介面 (Graphical User Interfaces)"
 
 #: ../../library/tk.rst:13
-#, fuzzy
 msgid ""
 "Tk/Tcl has long been an integral part of Python.  It provides a robust and "
 "platform independent windowing toolkit, that is available to Python "
@@ -33,8 +32,8 @@ msgid ""
 "`tkinter.ttk` module."
 msgstr ""
 "Tk/Tcl 長期以來一直是 Python 不可或缺的一部分。它提供了一個強大且獨立於平台的"
-"視窗工具包，可供使用 :mod:`tkinter` 套件及其擴充套件 :mod:`tkinter.tix` 和 :"
-"mod:`tkinter.ttk` 模組的 Python 開發者使用。"
+"視窗工具包，可供使用 :mod:`tkinter` 套件及其擴充套件 :mod:`tkinter.ttk` 模組"
+"的 Python 開發者使用。"
 
 #: ../../library/tk.rst:17
 msgid ""

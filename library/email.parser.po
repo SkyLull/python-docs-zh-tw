@@ -1,5 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -7,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 11:11+0800\n"
+"POT-Creation-Date: 2025-07-14 11:31+0000\n"
 "PO-Revision-Date: 2018-05-23 16:01+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -163,7 +162,7 @@ msgid ""
 "Works like :class:`BytesFeedParser` except that the input to the :meth:"
 "`~BytesFeedParser.feed` method must be a string.  This is of limited "
 "utility, since the only way for such a message to be valid is for it to "
-"contain only ASCII text or, if :attr:`~email.policy.Policy.utf8` is "
+"contain only ASCII text or, if :attr:`~email.policy.EmailPolicy.utf8` is "
 "``True``, no binary attachments."
 msgstr ""
 
@@ -213,11 +212,11 @@ msgstr ""
 #: ../../library/email.parser.rst:161
 msgid ""
 "The bytes contained in *fp* must be formatted as a block of :rfc:`5322` (or, "
-"if :attr:`~email.policy.Policy.utf8` is ``True``, :rfc:`6532`) style headers "
-"and header continuation lines, optionally preceded by an envelope header.  "
-"The header block is terminated either by the end of the data or by a blank "
-"line.  Following the header block is the body of the message (which may "
-"contain MIME-encoded subparts, including subparts with a :mailheader:"
+"if :attr:`~email.policy.EmailPolicy.utf8` is ``True``, :rfc:`6532`) style "
+"headers and header continuation lines, optionally preceded by an envelope "
+"header.  The header block is terminated either by the end of the data or by "
+"a blank line.  Following the header block is the body of the message (which "
+"may contain MIME-encoded subparts, including subparts with a :mailheader:"
 "`Content-Transfer-Encoding` of ``8bit``)."
 msgstr ""
 
@@ -330,10 +329,10 @@ msgstr ""
 #: ../../library/email.parser.rst:286
 msgid ""
 ">>> import email\n"
-">>> msg = email.message_from_bytes(myBytes)  "
+">>> msg = email.message_from_bytes(myBytes)"
 msgstr ""
 ">>> import email\n"
-">>> msg = email.message_from_bytes(myBytes)  "
+">>> msg = email.message_from_bytes(myBytes)"
 
 #: ../../library/email.parser.rst:291
 msgid "Additional notes"

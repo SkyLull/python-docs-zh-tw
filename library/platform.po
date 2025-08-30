@@ -1,4 +1,4 @@
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 07:52+0800\n"
+"POT-Creation-Date: 2025-07-13 00:18+0000\n"
 "PO-Revision-Date: 2022-06-11 14:03+0800\n"
 "Last-Translator: Matt Wang <mattwang44@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -35,7 +35,7 @@ msgid ""
 msgstr "特定平臺清單為按字母順序排列，Linux 包括在 Unix 小節之中。"
 
 #: ../../library/platform.rst:21
-msgid "Cross Platform"
+msgid "Cross platform"
 msgstr "跨平台"
 
 #: ../../library/platform.rst:26
@@ -43,7 +43,7 @@ msgid ""
 "Queries the given executable (defaults to the Python interpreter binary) for "
 "various architecture information."
 msgstr ""
-"查詢給定的可執行檔案（預設為 Python 直譯器二進位制檔案）來獲取各種架構資訊。"
+"查詢給定的可執行檔案（預設為 Python 直譯器二進位制檔案）來取得各種架構資訊。"
 
 #: ../../library/platform.rst:29
 msgid ""
@@ -88,7 +88,7 @@ msgid ""
 "To get at the \"64-bitness\" of the current interpreter, it is more reliable "
 "to query the :data:`sys.maxsize` attribute::"
 msgstr ""
-"要獲取當前直譯器的 \"64 位元性 (64-bitness)\"，更可靠的做法是查詢 :data:`sys."
+"要取得目前直譯器的 \"64 位元性 (64-bitness)\"，更可靠的做法是查詢 :data:`sys."
 "maxsize` 屬性： ::"
 
 #: ../../library/platform.rst:51
@@ -146,7 +146,7 @@ msgid ""
 "release string, to get the macOS version rather than the darwin version."
 msgstr ""
 "在 macOS 上，如果 :func:`mac_ver` 回傳的釋出版字串非空字串，此函式現在會使用"
-"它以獲取 macOS 版本而非 darwin 版本。"
+"它以取得 macOS 版本而非 darwin 版本。"
 
 #: ../../library/platform.rst:90
 msgid "Returns the (real) processor name, e.g. ``'amdk6'``."
@@ -278,10 +278,10 @@ msgstr ":attr:`processor` 會延遲解析，有需求時才會解析"
 #: ../../library/platform.rst:178
 msgid ""
 "Note: the first two attribute names differ from the names presented by :func:"
-"`os.uname`, where they are named :attr:`sysname` and :attr:`nodename`."
+"`os.uname`, where they are named :attr:`!sysname` and :attr:`!nodename`."
 msgstr ""
 "注意：前兩個屬性名稱與 :func:`os.uname` 提供的名稱不同，它們分別命名為 :attr:"
-"`sysname` 和 :attr:`nodename`。"
+"`!sysname` 和 :attr:`!nodename`。"
 
 #: ../../library/platform.rst:182
 msgid "Entries which cannot be determined are set to ``''``."
@@ -296,7 +296,7 @@ msgid ":attr:`processor` is resolved late instead of immediately."
 msgstr ":attr:`processor` 會延遲解析，並非立即解析。"
 
 #: ../../library/platform.rst:192
-msgid "Java Platform"
+msgid "Java platform"
 msgstr "Java 平台"
 
 #: ../../library/platform.rst:197
@@ -322,7 +322,7 @@ msgid ""
 msgstr ""
 
 #: ../../library/platform.rst:210
-msgid "Windows Platform"
+msgid "Windows platform"
 msgstr "Windows 平台"
 
 #: ../../library/platform.rst:215
@@ -333,7 +333,7 @@ msgid ""
 "Values which cannot be determined are set to the defaults given as "
 "parameters (which all default to an empty string)."
 msgstr ""
-"從 Windows 登錄檔 (Window Registry) 獲取額外的版本資訊並回傳一個 tuple "
+"從 Windows 登錄檔 (Window Registry) 取得額外的版本資訊並回傳一個 tuple "
 "``(release, version, csd, ptype)``，它代表 OS 發行版、版本號、CSD 級別 "
 "(service pack) 和 OS 類型（多個/單個處理器）。"
 
@@ -357,7 +357,7 @@ msgid ""
 "to ``'Enterprise'``, ``'IoTUAP'``, ``'ServerStandard'``, and "
 "``'nanoserver'``."
 msgstr ""
-"回傳一個代表當前 Windows 版本的字串。可能的值包括但不限於 ``'Enterprise'``、"
+"回傳一個代表目前 Windows 版本的字串。可能的值包括但不限於 ``'Enterprise'``、"
 "``'IoTUAP'``、``'ServerStandard'`` 和 ``'nanoserver'``。"
 
 #: ../../library/platform.rst:237
@@ -369,7 +369,7 @@ msgstr ""
 "``True``。"
 
 #: ../../library/platform.rst:244
-msgid "macOS Platform"
+msgid "macOS platform"
 msgstr "macOS 平台"
 
 #: ../../library/platform.rst:248
@@ -378,7 +378,7 @@ msgid ""
 "versioninfo, machine)`` with *versioninfo* being a tuple ``(version, "
 "dev_stage, non_release_version)``."
 msgstr ""
-"獲取 Mac OS 版本資訊並將其回傳為 tuple ``(release, versioninfo, machine)``，"
+"取得 Mac OS 版本資訊並將其回傳為 tuple ``(release, versioninfo, machine)``，"
 "其中 *versioninfo* 是一個 tuple ``(version, dev_stage, "
 "non_release_version)``。"
 
@@ -389,7 +389,7 @@ msgid ""
 msgstr "無法確定的條目會被設為 ``''``。所有 tuple 條目均為字串。"
 
 #: ../../library/platform.rst:256
-msgid "iOS Platform"
+msgid "iOS platform"
 msgstr "iOS 平台"
 
 #: ../../library/platform.rst:260
@@ -400,7 +400,7 @@ msgstr ""
 
 #: ../../library/platform.rst:263
 msgid "``system`` is the OS name; either ``'iOS'`` or ``'iPadOS'``."
-msgstr ""
+msgstr "``system`` 是 OS 名稱；可能是 ``'iOS'`` 或 ``'iPadOS'``。"
 
 #: ../../library/platform.rst:264
 msgid "``release`` is the iOS version number as a string (e.g., ``'17.2'``)."
@@ -419,14 +419,13 @@ msgid ""
 msgstr ""
 
 #: ../../library/platform.rst:270
-#, fuzzy
 msgid ""
 "Entries which cannot be determined are set to the defaults given as "
 "parameters."
-msgstr "無法確定的條目會被設為 ``''``。所有 tuple 條目均為字串。"
+msgstr "無法確定的條目會被設定為以參數給定的預設值。"
 
 #: ../../library/platform.rst:275
-msgid "Unix Platforms"
+msgid "Unix platforms"
 msgstr "Unix 平台"
 
 #: ../../library/platform.rst:279
@@ -453,7 +452,7 @@ msgid "The file is read and scanned in chunks of *chunksize* bytes."
 msgstr "檔案會以 *chunksize* 位元組大小的分塊 (chunk) 來讀取和掃描。"
 
 #: ../../library/platform.rst:291
-msgid "Linux Platforms"
+msgid "Linux platforms"
 msgstr "Linux 平台"
 
 #: ../../library/platform.rst:295
@@ -464,7 +463,7 @@ msgid ""
 "in most Linux distributions. A noticeable exception is Android and Android-"
 "based distributions."
 msgstr ""
-"從 ``os-release`` 檔案獲取作業系統標識，並將其作為一個字典回傳。``os-"
+"從 ``os-release`` 檔案取得作業系統標識，並將其作為一個字典回傳。``os-"
 "release`` 檔案為 `freedesktop.org 標準 <https://www.freedesktop.org/software/"
 "systemd/man/os-release.html>`_、並在大多數 Linux 發行版上可用。一個重要的例外"
 "是 Android 和基於 Android 的發行版。"
@@ -517,7 +516,7 @@ msgid ""
 msgstr ""
 
 #: ../../library/platform.rst:329
-msgid "Android Platform"
+msgid "Android platform"
 msgstr "Android 平台"
 
 #: ../../library/platform.rst:334
@@ -566,4 +565,42 @@ msgstr ""
 msgid ""
 "Google maintains a `list of known model and device names <https://storage."
 "googleapis.com/play_public/supported_devices.html>`__."
+msgstr ""
+
+#: ../../library/platform.rst:366
+msgid "Command-line usage"
+msgstr "命令列用法"
+
+#: ../../library/platform.rst:368
+msgid ""
+":mod:`platform` can also be invoked directly using the :option:`-m` switch "
+"of the interpreter::"
+msgstr ""
+
+#: ../../library/platform.rst:371
+msgid "python -m platform [--terse] [--nonaliased] [{nonaliased,terse} ...]"
+msgstr "python -m platform [--terse] [--nonaliased] [{nonaliased,terse} ...]"
+
+#: ../../library/platform.rst:373
+msgid "The following options are accepted:"
+msgstr "可接受以下選項："
+
+#: ../../library/platform.rst:379
+msgid ""
+"Print terse information about the platform. This is equivalent to calling :"
+"func:`platform.platform` with the *terse* argument set to ``True``."
+msgstr ""
+
+#: ../../library/platform.rst:384
+msgid ""
+"Print platform information without system/OS name aliasing. This is "
+"equivalent to calling :func:`platform.platform` with the *aliased* argument "
+"set to ``True``."
+msgstr ""
+
+#: ../../library/platform.rst:388
+msgid ""
+"You can also pass one or more positional arguments (``terse``, "
+"``nonaliased``) to explicitly control the output format. These behave "
+"similarly to their corresponding options."
 msgstr ""

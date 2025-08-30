@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-22 00:13+0000\n"
+"POT-Creation-Date: 2025-06-27 07:36+0000\n"
 "PO-Revision-Date: 2018-05-23 14:06+0000\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -402,10 +402,10 @@ msgstr ""
 
 #: ../../c-api/long.rst:385
 msgid ""
-"If the returned value is greater than than *n_bytes*, the value was "
-"truncated: as many of the lowest bits of the value as could fit are written, "
-"and the higher bits are ignored. This matches the typical behavior of a C-"
-"style downcast."
+"If the returned value is greater than *n_bytes*, the value was truncated: as "
+"many of the lowest bits of the value as could fit are written, and the "
+"higher bits are ignored. This matches the typical behavior of a C-style "
+"downcast."
 msgstr ""
 
 #: ../../c-api/long.rst:392
@@ -640,11 +640,11 @@ msgstr "object（物件）"
 
 #: ../../c-api/long.rst:8
 msgid "long integer"
-msgstr "long integer（長整数）"
+msgstr "long integer（長整數）"
 
 #: ../../c-api/long.rst:8
 msgid "integer"
-msgstr "integer（整数）"
+msgstr "integer（整數）"
 
 #: ../../c-api/long.rst:144
 msgid "LONG_MAX (C macro)"
@@ -653,7 +653,7 @@ msgstr "LONG_MAX（C 巨集）"
 #: ../../c-api/long.rst:144 ../../c-api/long.rst:204 ../../c-api/long.rst:247
 #: ../../c-api/long.rst:262 ../../c-api/long.rst:278 ../../c-api/long.rst:294
 msgid "OverflowError (built-in exception)"
-msgstr "OverflowError（内建例外）"
+msgstr "OverflowError（內建例外）"
 
 #: ../../c-api/long.rst:247
 msgid "PY_SSIZE_T_MAX (C macro)"

@@ -52,7 +52,7 @@ the PSF for inclusion in the documentation.
 請注意此予翻譯專案的授權：Python 的說明文件是以全球的志工社群來維護。透過張貼\
 此專案在 Transifex、GitHub 以及其他公眾場合，以及邀請你參與，我們向你提出一個\
 協議：你必須將你對於 Python 說明文件或是 Python 說明文件翻譯的貢獻以 CC0\
-（請參考 https://creativecommons.org/publicdomain/zero/1.0/legalcode/ 
+（請參考 https://creativecommons.org/publicdomain/zero/1.0/legalcode/
 ）的方式授權給 PSF 使用。你可以公開地聲明你所貢獻翻譯的部分，並且如果你的翻譯被 PSF
 採用，你可以（但並不須要）送出一個修改，其包含在 Misc/ACKS 或是 TRANSLATORS
 檔案裡增加合適的注釋。雖然這個說明文件貢獻協議並沒有說明 PSF 有義務納入你的\
@@ -84,6 +84,7 @@ the PSF for inclusion in the documentation.
 - `安裝好 git <https://help.github.com/articles/set-up-git/>`_\ （Windows
   上請參考 https://gitforwindows.org/）
 - 一個 ``.po`` 檔的編輯器。推薦使用 `Poedit <https://poedit.net>`_，若熟悉 po 檔用一般文字編輯器亦可。
+- 參考 `uv Installation <https://docs.astral.sh/uv/getting-started/installation/>`_ 安裝 uv，以便在本機端預覽翻譯成果。
 - macOS 的使用者還需要先利用 `homebrew <https://brew.sh/index_zh-tw>`_ 安裝 gettext，屆時 Sphinx 會使用到。
 
   .. code-block:: bash
@@ -232,7 +233,7 @@ the PSF for inclusion in the documentation.
 其中最簡單的貢獻方式就是更新 *fuzzy entries*，讓曾經翻譯的內容保持與最新版本的文件
 同步。請參考\ `尋找有翻譯過但需校閱的 fuzzy entries`_ 段落。
 
-此外，當前的目標為完成 **Tutorial** 的翻譯，因此在 ``tutorial/`` 底下的所有
+此外，目前的目標為完成 **Tutorial** 的翻譯，因此在 ``tutorial/`` 底下的所有
 po 檔皆為首要的翻譯對象。你也可以幫忙校對已經翻譯過的內容。
 
 

@@ -14,13 +14,17 @@ jobs:
       - name: Install Dependencies
         run: sudo apt-get install gettext
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
       - name: Build
         run: JOBS=4 MODE=html make all
 
       - name: Deploy to gh page
-        uses: JamesIves/github-pages-deploy-action@v4.6.8
+        uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: ../cpython/Doc/build/html
-          CLEAN: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: ../cpython/Doc/build/html
+          clean: true
+          clean-exclude: pr-preview/

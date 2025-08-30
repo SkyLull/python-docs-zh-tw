@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 07:20+0000\n"
+"POT-Creation-Date: 2025-08-22 14:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
+"tw)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,6 +373,18 @@ msgid ""
 "\"$CODESIGNING_FOLDER_PATH/python/lib/\"\n"
 "fi"
 msgstr ""
+"set -e\n"
+"\n"
+"mkdir -p \"$CODESIGNING_FOLDER_PATH/python/lib\"\n"
+"if [ \"$EFFECTIVE_PLATFORM_NAME\" = \"-iphonesimulator\" ]; then\n"
+"    echo \"Installing Python modules for iOS Simulator\"\n"
+"    rsync -au --delete \"$PROJECT_DIR/Python.xcframework/ios-arm64_x86_64-"
+"simulator/lib/\" \"$CODESIGNING_FOLDER_PATH/python/lib/\"\n"
+"else\n"
+"    echo \"Installing Python modules for iOS Device\"\n"
+"    rsync -au --delete \"$PROJECT_DIR/Python.xcframework/ios-arm64/lib/\" "
+"\"$CODESIGNING_FOLDER_PATH/python/lib/\"\n"
+"fi"
 
 #: ../../using/ios.rst:233
 msgid ""
@@ -460,30 +473,30 @@ msgid ""
 msgstr ""
 
 #: ../../using/ios.rst:295
-msgid ":c:member:`UTF-8 mode <PyPreConfig.utf8_mode>` is *enabled*;"
+msgid "UTF-8 mode (:c:member:`PyPreConfig.utf8_mode`) is *enabled*;"
 msgstr ""
 
 #: ../../using/ios.rst:296
-msgid ":c:member:`Buffered stdio <PyConfig.buffered_stdio>` is *disabled*;"
+msgid "Buffered stdio (:c:member:`PyConfig.buffered_stdio`) is *disabled*;"
 msgstr ""
 
 #: ../../using/ios.rst:297
-msgid ":c:member:`Writing bytecode <PyConfig.write_bytecode>` is *disabled*;"
+msgid "Writing bytecode (:c:member:`PyConfig.write_bytecode`) is *disabled*;"
 msgstr ""
 
 #: ../../using/ios.rst:298
 msgid ""
-":c:member:`Signal handlers <PyConfig.install_signal_handlers>` are *enabled*;"
+"Signal handlers (:c:member:`PyConfig.install_signal_handlers`) are *enabled*;"
 msgstr ""
 
 #: ../../using/ios.rst:299
 msgid ""
-"``PYTHONHOME`` for the interpreter is configured to point at the ``python`` "
-"subfolder of your app's bundle; and"
+":envvar:`PYTHONHOME` for the interpreter is configured to point at the "
+"``python`` subfolder of your app's bundle; and"
 msgstr ""
 
 #: ../../using/ios.rst:301
-msgid "The ``PYTHONPATH`` for the interpreter includes:"
+msgid "The :envvar:`PYTHONPATH` for the interpreter includes:"
 msgstr ""
 
 #: ../../using/ios.rst:303
@@ -531,14 +544,106 @@ msgstr ""
 #: ../../using/ios.rst:324
 msgid ""
 "If you're using a separate folder for third-party packages, ensure that "
-"folder is included as part of the ``PYTHONPATH`` configuration in step 10."
+"folder is included as part of the :envvar:`PYTHONPATH` configuration in step "
+"10."
 msgstr ""
 
-#: ../../using/ios.rst:328
+#: ../../using/ios.rst:327
+msgid ""
+"If any of the folders that contain third-party packages will contain ``."
+"pth`` files, you should add that folder as a *site directory* (using :meth:"
+"`site.addsitedir`), rather than adding to :envvar:`PYTHONPATH` or :attr:`sys."
+"path` directly."
+msgstr ""
+
+#: ../../using/ios.rst:333
+msgid "Testing a Python package"
+msgstr ""
+
+#: ../../using/ios.rst:335
+msgid ""
+"The CPython source tree contains :source:`a testbed project <iOS/testbed>` "
+"that is used to run the CPython test suite on the iOS simulator. This "
+"testbed can also be used as a testbed project for running your Python "
+"library's test suite on iOS."
+msgstr ""
+
+#: ../../using/ios.rst:339
+msgid ""
+"After building or obtaining an iOS XCFramework (See :source:`iOS/README.rst` "
+"for details), create a clone of the Python iOS testbed project by running:"
+msgstr ""
+
+#: ../../using/ios.rst:342
+msgid ""
+"$ python iOS/testbed clone --framework <path/to/Python.xcframework> --app "
+"<path/to/module1> --app <path/to/module2> app-testbed"
+msgstr ""
+
+#: ../../using/ios.rst:346
+msgid ""
+"You will need to modify the ``iOS/testbed`` reference to point to that "
+"directory in the CPython source tree; any folders specified with the ``--"
+"app`` flag will be copied into the cloned testbed project. The resulting "
+"testbed will be created in the ``app-testbed`` folder. In this example, the "
+"``module1`` and ``module2`` would be importable modules at runtime. If your "
+"project has additional dependencies, they can be installed into the ``app-"
+"testbed/iOSTestbed/app_packages`` folder (using ``pip install --target app-"
+"testbed/iOSTestbed/app_packages`` or similar)."
+msgstr ""
+
+#: ../../using/ios.rst:355
+msgid ""
+"You can then use the ``app-testbed`` folder to run the test suite for your "
+"app, For example, if ``module1.tests`` was the entry point to your test "
+"suite, you could run:"
+msgstr ""
+
+#: ../../using/ios.rst:359
+msgid "$ python app-testbed run -- module1.tests"
+msgstr ""
+
+#: ../../using/ios.rst:363
+msgid ""
+"This is the equivalent of running ``python -m module1.tests`` on a desktop "
+"Python build. Any arguments after the ``--`` will be passed to the testbed "
+"as if they were arguments to ``python -m`` on a desktop machine."
+msgstr ""
+
+#: ../../using/ios.rst:367
+msgid "You can also open the testbed project in Xcode by running:"
+msgstr ""
+
+#: ../../using/ios.rst:369
+msgid "$ open app-testbed/iOSTestbed.xcodeproj"
+msgstr ""
+
+#: ../../using/ios.rst:373
+msgid "This will allow you to use the full Xcode suite of tools for debugging."
+msgstr ""
+
+#: ../../using/ios.rst:375
+msgid ""
+"The arguments used to run the test suite are defined as part of the test "
+"plan. To modify the test plan, select the test plan node of the project tree "
+"(it should be the first child of the root node), and select the "
+"\"Configurations\" tab. Modify the \"Arguments Passed On Launch\" value to "
+"change the testing arguments."
+msgstr ""
+
+#: ../../using/ios.rst:381
+msgid ""
+"The test plan also disables parallel testing, and specifies the use of the "
+"``iOSTestbed.lldbinit`` file for providing configuration of the debugger. "
+"The default debugger configuration disables automatic breakpoints on the "
+"``SIGINT``, ``SIGUSR1``, ``SIGUSR2``, and ``SIGXFSZ`` signals."
+msgstr ""
+
+#: ../../using/ios.rst:387
 msgid "App Store Compliance"
 msgstr ""
 
-#: ../../using/ios.rst:330
+#: ../../using/ios.rst:389
 msgid ""
 "The only mechanism for distributing apps to third-party iOS devices is to "
 "submit the app to the iOS App Store; apps submitted for distribution must "
@@ -547,7 +652,7 @@ msgid ""
 "problematic code."
 msgstr ""
 
-#: ../../using/ios.rst:335
+#: ../../using/ios.rst:394
 msgid ""
 "The Python standard library contains some code that is known to violate "
 "these automated rules. While these violations appear to be false positives, "
@@ -555,7 +660,7 @@ msgid ""
 "Python standard library for an app to pass App Store review."
 msgstr ""
 
-#: ../../using/ios.rst:340
+#: ../../using/ios.rst:399
 msgid ""
 "The Python source tree contains :source:`a patch file <Mac/Resources/app-"
 "store-compliance.patch>` that will remove all code that is known to cause "
