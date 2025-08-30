@@ -2322,6 +2322,7 @@ msgid ""
 "attribute on the :meth:`~ArgumentParser.parse_args` object is still "
 "determined by the dest_ value."
 msgstr ""
+"``metavar`` 僅改變 *顯示出來* 的名字，:meth:`~ArgumentParser.parse_args` 物件裡的屬性名稱依然由 dest_ 之值決定。"
 
 #: ../../library/argparse.rst:1189
 msgid ""
@@ -2329,6 +2330,7 @@ msgid ""
 "times. Providing a tuple to ``metavar`` specifies a different display for "
 "each of the arguments::"
 msgstr ""
+"不同的 ``nargs`` 設定可能會使 metavar 被顯示多次。若提供一個多元組予 ``metavar`` 將可指定多次顯示時每個參數所顯示的內容，如下例：::"
 
 #: ../../library/argparse.rst:1193
 msgid ""
