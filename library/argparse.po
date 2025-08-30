@@ -2,6 +2,8 @@
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
+# Adrian Liaw <adrianliaw2000@gmail.com>
+# SkyLull
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
@@ -49,7 +51,7 @@ msgid ""
 "This page contains the API reference information. For a more gentle "
 "introduction to Python command-line parsing, have a look at the :ref:"
 "`argparse tutorial <argparse-tutorial>`."
-msgstr ""
+msgstr "這個頁面含有很多 API 參考資訊。`argparse tutorial <argparse-tutorial>` 有更簡單易懂的 Python 命令剖析教學。"
 
 #: ../../library/argparse.rst:34
 msgid ""
@@ -59,7 +61,8 @@ msgid ""
 "mod:`!argparse` module also automatically generates help and usage "
 "messages.  The module will also issue errors when users give the program "
 "invalid arguments."
-msgstr ""
+msgstr "使用 :mod:`!argparse` 模組可輕易地寫出一個對使用者友善的命命列界面。你只要告訴 :mod:`!argparse` 你的程式需要什麼引數，它會自動幫你做好如何剖析 :data:`sys.argv` 的設定。"
+":data:`sys.argv` 還會自動幫你生成幫助和使用說明，以及自動檢查使用者的輸入是否合規。"
 
 #: ../../library/argparse.rst:40
 msgid ""
@@ -67,7 +70,8 @@ msgid ""
 "around an instance of :class:`argparse.ArgumentParser`.  It is a container "
 "for argument specifications and has options that apply to the parser as "
 "whole::"
-msgstr ""
+msgstr ":class:`argparse.ArgumentParser` 是一個供你客製化引數規則和控制剖析器（parser）的容器。"
+"控制 :mod:`!argparse` 如何應對命令列界面的核心，都圍繞在控制一個 argparse.ArgumentParser 的實例之上：::"
 
 #: ../../library/argparse.rst:44
 msgid ""
@@ -77,9 +81,9 @@ msgid ""
 "                    epilog='Text at the bottom of help')"
 msgstr ""
 "parser = argparse.ArgumentParser(\n"
-"                    prog='ProgramName',\n"
-"                    description='What the program does',\n"
-"                    epilog='Text at the bottom of help')"
+"                    prog='程式名稱',\n"
+"                    description='程式的用途說明',\n"
+"                    epilog='幫助訊息底下的文字')"
 
 #: ../../library/argparse.rst:49
 msgid ""
@@ -87,6 +91,8 @@ msgid ""
 "specifications to the parser.  It supports positional arguments, options "
 "that accept values, and on/off flags::"
 msgstr ""
+":meth:`ArgumentParser.add_argument` 方法可以將你設定好的每個引數與其規則各自附加進剖析器裡。"
+"它支援位置引數（positional arguments）、接受值的選項以及開關旗標（on/off flags）：::"
 
 #: ../../library/argparse.rst:53
 msgid ""
@@ -96,7 +102,7 @@ msgid ""
 "                    action='store_true')  # on/off flag"
 msgstr ""
 "parser.add_argument('filename')           # 位置引數\n"
-"parser.add_argument('-c', '--count')      # 接收一個值的選項\n"
+"parser.add_argument('-c', '--count')      # 接受值的選項\n"
 "parser.add_argument('-v', '--verbose',\n"
 "                    action='store_true')  # 開關旗標"
 
@@ -105,6 +111,7 @@ msgid ""
 "The :meth:`ArgumentParser.parse_args` method runs the parser and places the "
 "extracted data in a :class:`argparse.Namespace` object::"
 msgstr ""
+":meth:`ArgumentParser.parse_args` 方法執行剖析並將結果資料存放在一個 :class:`argparse.Namespace` 物件裡：::"
 
 #: ../../library/argparse.rst:61
 msgid ""
@@ -120,6 +127,9 @@ msgid ""
 "mod:`!argparse`, see :ref:`Upgrading Optparse Code <upgrading-optparse-"
 "code>`."
 msgstr ""
+"如果你在尋找的是如何把使用 :mod:`optparse` 的程式升級成使用 :mod:`!argparse` 的指引的話，"
+"請參看 :ref:`Upgrading Optparse Code <upgrading-optparse-"
+"code>`."
 
 #: ../../library/argparse.rst:69
 msgid "ArgumentParser objects"
@@ -131,6 +141,8 @@ msgid ""
 "as keyword arguments. Each parameter has its own more detailed description "
 "below, but in short they are:"
 msgstr ""
+"建立一個新的 :class:`ArgumentParser` 物件。所有給予它的引數都應使用關鍵字引數來指定。"
+"下方會有每個引數各自的詳細說明，不過簡單來說他們的功用分別是："
 
 #: ../../library/argparse.rst:82
 msgid ""
@@ -141,12 +153,14 @@ msgstr "prog_ - 程式的名稱（預設值：``os.path.basename(sys.argv[0])``�
 msgid ""
 "usage_ - The string describing the program usage (default: generated from "
 "arguments added to parser)"
-msgstr "usage_ - 描述程式用法的字串（預設值：從新增到剖析器的引數產生）"
+msgstr ""
+"usage_ - 描述程式用途的字串。（預設值： 從附加到剖析器的引數中生成。）"
 
 #: ../../library/argparse.rst:88
 msgid ""
 "description_ - Text to display before the argument help (by default, no text)"
 msgstr "description_ - 引數說明之前要顯示的文字（預設值：無文字）"
+
 
 #: ../../library/argparse.rst:91
 msgid "epilog_ - Text to display after the argument help (by default, no text)"
@@ -156,11 +170,12 @@ msgstr "epilog_ - 引數說明之後要顯示的文字（預設值：無文字�
 msgid ""
 "parents_ - A list of :class:`ArgumentParser` objects whose arguments should "
 "also be included"
-msgstr "parents_ - 一個 :class:`ArgumentParser` 物件的串列，其引數也應該被包含"
+msgstr ""
+"parents_ - 一個所有應被列入考量的 :class:`ArgumentParser` 形成的串列。"
 
 #: ../../library/argparse.rst:96
 msgid "formatter_class_ - A class for customizing the help output"
-msgstr "formatter_class_ - 用於自訂說明輸出的類別"
+msgstr "formatter_class_ - 能自訂說明文字的類別"
 
 #: ../../library/argparse.rst:98
 msgid ""
@@ -168,40 +183,50 @@ msgid ""
 "(default: '-')"
 msgstr "prefix_chars_ - 前綴可選引數的字元集合（預設值：'-'）"
 
+
 #: ../../library/argparse.rst:101
 msgid ""
 "fromfile_prefix_chars_ - The set of characters that prefix files from which "
 "additional arguments should be read (default: ``None``)"
 msgstr ""
+"fromfile_prefix_chars_ - 指示額外引數所在檔案的前置修飾符字符組 (預設：``None``)"
 
 #: ../../library/argparse.rst:104
 msgid ""
 "argument_default_ - The global default value for arguments (default: "
 "``None``)"
 msgstr ""
+"argument_default_ - 所有引數的預設值 (預設："
+"``None``)"
 
 #: ../../library/argparse.rst:107
 msgid ""
 "conflict_handler_ - The strategy for resolving conflicting optionals "
 "(usually unnecessary)"
 msgstr ""
+"conflict_handler_ - 排解互相衝突選項的策略"
+"（一般來說不需要）"
 
 #: ../../library/argparse.rst:110
 msgid ""
 "add_help_ - Add a ``-h/--help`` option to the parser (default: ``True``)"
 msgstr ""
+"add_help_ - 增加 ``-h/--help`` 選項到剖析選項中 (預設：``True``)"
 
 #: ../../library/argparse.rst:112
 msgid ""
 "allow_abbrev_ - Allows long options to be abbreviated if the abbreviation is "
 "unambiguous. (default: ``True``)"
 msgstr ""
+"allow_abbrev_ - 在無混淆可能的前提下允許使用簡寫來替代較長的選項名稱。"
+"（預設：``True``）"
 
 #: ../../library/argparse.rst:115
 msgid ""
 "exit_on_error_ - Determines whether or not :class:`!ArgumentParser` exits "
 "with error info when an error occurs. (default: ``True``)"
 msgstr ""
+"exit_on_error_ - 當剖析出錯時，:class:`!ArgumentParser` 是否中止程式並跳出錯誤訊息。（預設：``True``）"
 
 #: ../../library/argparse.rst:118
 msgid "*allow_abbrev* parameter was added."
@@ -212,6 +237,7 @@ msgid ""
 "In previous versions, *allow_abbrev* also disabled grouping of short flags "
 "such as ``-vv`` to mean ``-v -v``."
 msgstr ""
+"在早前的版本中，*allow_abbrev* 還會讓能組合使用的短旗標失效（例如讓 ``-vv`` 被視為 ``-v -v``）。"
 
 #: ../../library/argparse.rst:125
 msgid "*exit_on_error* parameter was added."
@@ -219,7 +245,7 @@ msgstr "新增 *exit_on_error* 參數。"
 
 #: ../../library/argparse.rst:128 ../../library/argparse.rst:616
 msgid "The following sections describe how each of these are used."
-msgstr ""
+msgstr "以下段落將詳述這些選項各自的用法"
 
 #: ../../library/argparse.rst:134
 msgid "prog"
@@ -230,24 +256,28 @@ msgid ""
 "By default, :class:`ArgumentParser` calculates the name of the program to "
 "display in help messages depending on the way the Python interpreter was run:"
 msgstr ""
+":class:`ArgumentParser` 預設會依據 Python 直譯器被啟動時的不同狀況，自動生成該程式在幫助訊息裡的名稱："
 
 #: ../../library/argparse.rst:140
 msgid ""
 "The :func:`base name <os.path.basename>` of ``sys.argv[0]`` if a file was "
 "passed as argument."
 msgstr ""
+"如果該程式是作為檔案被傳入啟動引數，則使用 ``sys.argv[0]`` 的 :func:`base name <os.path.basename>`。"
 
 #: ../../library/argparse.rst:142
 msgid ""
 "The Python interpreter name followed by ``sys.argv[0]`` if a directory or a "
 "zipfile was passed as argument."
 msgstr ""
+"如果被傳入啟動引數的是一個資料夾或壓縮檔，則使用 Python 直譯器的名稱加上 ``sys.argv[0]``。"
 
 #: ../../library/argparse.rst:144
 msgid ""
 "The Python interpreter name followed by ``-m`` followed by the module or "
 "package name if the :option:`-m` option was used."
 msgstr ""
+"如果傳入了 :option:`-m` 選項，則使用 Python 直譯器的名稱加上所呼叫的模組或套件的名字。"
 
 #: ../../library/argparse.rst:147
 msgid ""
@@ -256,6 +286,8 @@ msgid ""
 "line. However, to change this default behavior, another value can be "
 "supplied using the ``prog=`` argument to :class:`ArgumentParser`::"
 msgstr ""
+"基本上這個預設行為就是我們需要的，因為如此產生的名字可以正確地代表啟動這個程式需使用的指令。"
+"如果還是想要指定名稱，像這樣把想要使用的名稱傳入:class:`ArgumentParser`　的　``prog=``　即可：::"
 
 #: ../../library/argparse.rst:152
 msgid ""
@@ -273,12 +305,15 @@ msgstr ""
 "options:\n"
 " -h, --help  show this help message and exit"
 
-#: ../../library/argparse.rst:159
+# [T]
+# format specifier => 格式指定字
+#: ../../library/argparse.rst:147
 msgid ""
 "Note that the program name, whether determined from ``sys.argv[0]`` or from "
 "the ``prog=`` argument, is available to help messages using the ``%(prog)s`` "
 "format specifier."
 msgstr ""
+"不過，無論程式名稱是透過預設的 ``sys.argv[0]`` 還是 ``prog=`` 引數指定的，都可以在幫助字串中以格式指定字 ``%(prog)s`` 引用，如下例。"
 
 #: ../../library/argparse.rst:165
 msgid ""
@@ -310,6 +345,7 @@ msgid ""
 "arguments it contains. The default message can be overridden with the "
 "``usage=`` keyword argument::"
 msgstr ""
+":class:`ArgumentParser` 預設會自動從其所含有的引數去推算出使用方法訊息，預設的使用方法訊息可以用 ``usage=`` 關鍵字引數來覆寫：::"
 
 #: ../../library/argparse.rst:182
 msgid ""
@@ -346,6 +382,7 @@ msgid ""
 "The ``%(prog)s`` format specifier is available to fill in the program name "
 "in your usage messages."
 msgstr ""
+"格式指定字 ``%(prog)s`` 可以用來在使用方法字串中自動填入程式名稱。"
 
 #: ../../library/argparse.rst:202
 msgid "description"
@@ -359,12 +396,15 @@ msgid ""
 "description is displayed between the command-line usage string and the help "
 "messages for the various arguments."
 msgstr ""
+"一般來說，呼叫 :class:`ArgumentParser` 建構式的時候會使用關鍵字引數 ``description=`` 來記錄這個程式的功用及運作方法的簡述。"
+"在幫助訊息中，描述字串會被顯示在使用方式字串和引數的幫助字串之間。"
 
 #: ../../library/argparse.rst:210
 msgid ""
 "By default, the description will be line-wrapped so that it fits within the "
 "given space.  To change this behavior, see the formatter_class_ argument."
 msgstr ""
+"描述字串預設會自動換行，以讓整體訊息自動符合被給予的空間。若想變更此行為，請參見 formatter_class_ 引數的說明。"
 
 #: ../../library/argparse.rst:215
 msgid "epilog"
@@ -376,6 +416,8 @@ msgid ""
 "the description of the arguments.  Such text can be specified using the "
 "``epilog=`` argument to :class:`ArgumentParser`::"
 msgstr ""
+"有些程式會在引數的幫助字串後面再接一段針對程式的額外描述。"
+"如果有此需求的話只要在 :class:`ArgumentParser` 建構時傳給 ``epilog=`` 關鍵字引數即可：::"
 
 #: ../../library/argparse.rst:221
 msgid ""
@@ -411,6 +453,7 @@ msgid ""
 "wrapped, but this behavior can be adjusted with the formatter_class_ "
 "argument to :class:`ArgumentParser`."
 msgstr ""
+"至於 description_ 引數，``epilog=`` 中的文字預設會自動換行，不過這個行為可以透過修改 :class:`ArgumentParser` 本身的 formatter_class_ 引數去調整。"
 
 #: ../../library/argparse.rst:240
 msgid "parents"
@@ -426,6 +469,9 @@ msgid ""
 "actions from them, and adds these actions to the :class:`ArgumentParser` "
 "object being constructed::"
 msgstr ""
+"有時候，數個剖析器可能會共享幾個定義相同的引數。此時你可以只寫一次這些引數的定義，並將其傳入其他 :class:"
+"`ArgumentParser` 的 ``parents=`` 中以避免重複的無用功。``parents=`` 引數接收一個含有 :"
+"class:`ArgumentParser` 的串列物件，並將串列中所有剖析器已定義的引數加入當前的 :class:`ArgumentParser` 中。"
 
 #: ../../library/argparse.rst:249
 msgid ""
@@ -461,6 +507,8 @@ msgid ""
 "the :class:`ArgumentParser` will see two ``-h/--help`` options (one in the "
 "parent and one in the child) and raise an error."
 msgstr ""
+"大部分時候會建議將共用的父剖析器的幫助字串關閉，也就是設定 ``add_help=False``。"
+"否則繼承了該剖析器的 :class:`ArgumentParser` 若看見兩個 ``-h/--help`` 選項 （父、子物件中各自有一個）時會拋出一個錯誤。"
 
 #: ../../library/argparse.rst:267
 msgid ""
@@ -468,6 +516,7 @@ msgid ""
 "If you change the parent parsers after the child parser, those changes will "
 "not be reflected in the child."
 msgstr ""
+"請確保將父物件完全初始化完成再將其傳入其他剖析器的 ``parents=``，若父物件在傳入後有所更動，其更動不會反映在已收受該父物件的子剖析器中。"
 
 #: ../../library/argparse.rst:275
 msgid "formatter_class"
@@ -479,6 +528,8 @@ msgid ""
 "by specifying an alternate formatting class.  Currently, there are four such "
 "classes:"
 msgstr ""
+":class:`ArgumentParser` 物件允許你透過指定一個格式化類別來替代原先的預設格式、以讓你能夠自訂幫助文字的格式。"
+"目前總共有四個可用於替換的格式化類別："
 
 #: ../../library/argparse.rst:286
 msgid ""
@@ -487,6 +538,8 @@ msgid ""
 "`ArgumentParser` objects line-wrap the description_ and epilog_ texts in "
 "command-line help messages::"
 msgstr ""
+":class:`RawDescriptionHelpFormatter` 和 :class:`RawTextHelpFormatter` 讓你對文字描述顯示的方式有更多的控制。"
+":class:`ArgumentParser` 預設會讓 description_ 和 epilog_ 中的文字顯示在命令視窗時自動換行。"
 
 #: ../../library/argparse.rst:291
 msgid ""
@@ -511,6 +564,25 @@ msgid ""
 "words\n"
 "will be wrapped across a couple lines"
 msgstr ""
+">>> parser = argparse.ArgumentParser(\n"
+"...     prog='PROG',\n"
+"...     description='''這個描述在撰寫時\n"
+"...         用了很奇怪的方式縮排\n"
+"...             但沒關係''',\n"
+"...     epilog='''\n"
+"...             這段結語也是，文字中所有多餘\n"
+"...         的空白都會被清除，\n"
+"...         並且會根據版面自動換行。''')\n"
+">>> parser.print_help()\n"
+"usage: PROG [-h]\n"
+"\n"
+"這個描述在撰寫時用了很奇怪的方式縮排但沒關係\n"
+"\n"
+"options:\n"
+" -h, --help  show this help message and exit\n"
+"\n"
+"這段結語也是，文字中所有多餘的空白都會被清除\n"
+"，並且會根據版面自動換行。"
 
 #: ../../library/argparse.rst:311
 msgid ""
@@ -518,6 +590,7 @@ msgid ""
 "indicates that description_ and epilog_ are already correctly formatted and "
 "should not be line-wrapped::"
 msgstr ""
+"將 :class:`RawDescriptionHelpFormatter` 傳給 ``formatter_class=`` 等於是在指示「description_ 和 epilog_ 中的文字格式已經被編排過了，請不要自動換行」"
 
 #: ../../library/argparse.rst:315
 msgid ""
@@ -547,20 +620,20 @@ msgstr ""
 "...     prog='PROG',\n"
 "...     formatter_class=argparse.RawDescriptionHelpFormatter,\n"
 "...     description=textwrap.dedent('''\\\n"
-"...         Please do not mess up this text!\n"
-"...         --------------------------------\n"
-"...             I have indented it\n"
-"...             exactly the way\n"
-"...             I want it\n"
+"...         請勿亂排此文字！\n"
+"...         ---------------\n"
+"...         我已經把它\n"
+"...         排成了\n"
+"...         我想要的樣子\n"
 "...         '''))\n"
 ">>> parser.print_help()\n"
 "usage: PROG [-h]\n"
 "\n"
-"Please do not mess up this text!\n"
-"--------------------------------\n"
-"   I have indented it\n"
-"   exactly the way\n"
-"   I want it\n"
+"請勿亂排此文字！\n"
+"---------------\n"
+"我已經把它\n"
+"排成了\n"
+"我想要的樣子\n"
 "\n"
 "options:\n"
 " -h, --help  show this help message and exit"
@@ -572,12 +645,15 @@ msgid ""
 "replaced with one. If you wish to preserve multiple blank lines, add spaces "
 "between the newlines."
 msgstr ""
+":class:`RawTextHelpFormatter` 會如實保持所有幫助文字中的空白字元，包含引數說明的文字也是。"
+"但連續的重複換行符會被縮減為一個。如果你就是想要空好幾行，請在換行符之間插入空白字元即可。"
 
 #: ../../library/argparse.rst:342
 msgid ""
 ":class:`ArgumentDefaultsHelpFormatter` automatically adds information about "
 "default values to each of the argument help messages::"
 msgstr ""
+":class:`ArgumentDefaultsHelpFormatter` 會自動將預設值的資訊加入各自引數的說明文字中：::"
 
 #: ../../library/argparse.rst:345
 msgid ""
@@ -617,6 +693,7 @@ msgid ""
 "each argument as the display name for its values (rather than using the "
 "dest_ as the regular formatter does)::"
 msgstr ""
+":class:`MetavarTypeHelpFormatter 使得 type_ 的名稱會被做為引數名稱顯示（預設的格式是用 dest_）：::"
 
 #: ../../library/argparse.rst:364
 msgid ""
@@ -661,6 +738,8 @@ msgid ""
 "for options like ``+f`` or ``/foo``, may specify them using the "
 "``prefix_chars=`` argument to the :class:`ArgumentParser` constructor::"
 msgstr ""
+"大部分命令列選項會用 ``-`` 做為其前綴，例如 ``-f/--foo``。"
+"如果你預期你的剖析器需要支援例如 ``+f`` 或 ``/foo`` 等其他的前綴，你可以在 :class:`ArgumentParser` 的建構時用 ``prefix_chars=`` 來指定，如下例：::"
 
 #: ../../library/argparse.rst:389
 msgid ""
@@ -682,6 +761,7 @@ msgid ""
 "characters that does not include ``-`` will cause ``-f/--foo`` options to be "
 "disallowed."
 msgstr ""
+"``prefix_chars=`` 的預設值是 ``'-'``。如果你提供的字元集合裡面不包含 ``-`` 的話，會使得該前綴 ``-f/--foo`` 不再有效。"
 
 #: ../../library/argparse.rst:401
 msgid "fromfile_prefix_chars"
@@ -696,6 +776,9 @@ msgid ""
 "of the specified characters will be treated as files, and will be replaced "
 "by the arguments they contain.  For example::"
 msgstr ""
+"有時候，某些程式呼叫時需要的引數可能非常冗長，這時候將其全數儲存在一個文字檔案裡可能會比每次都重打一遍要方便得多。"
+"如果在建構 :class:`ArgumentParser` 時有指定 ``fromfile_prefix_chars=`` 的字元集合，則任何使用該系列字元開頭的選項字串都會被視作為檔案，並以其中儲存的引數取代其位置。"
+"請見下例：::"
 
 #: ../../library/argparse.rst:410
 msgid ""
@@ -724,6 +807,10 @@ msgid ""
 "'@args.txt']`` is considered equivalent to the expression ``['-f', 'foo', '-"
 "f', 'bar']``."
 msgstr ""
+"從檔案讀取引數時，預設每行只會有一個選項（詳情請參見 :meth:`~ArgumentParser.convert_arg_line_to_args`），"
+"且這些選項的位置會取代原先指定檔案時該選項的位置。以上例而言，``['-f', 'foo', "
+"'@args.txt']`` 等於是 ``['-f', 'foo', '-"
+"f', 'bar']``。"
 
 #: ../../library/argparse.rst:426
 msgid ""
@@ -737,12 +824,14 @@ msgid ""
 ":class:`ArgumentParser` uses :term:`filesystem encoding and error handler` "
 "to read the file containing arguments."
 msgstr ""
+":class:`ArgumentParser` 使用 :term:`filesystem encoding and error handler` 來讀取含有引數的檔案。"
 
 #: ../../library/argparse.rst:433
 msgid ""
 "The ``fromfile_prefix_chars=`` argument defaults to ``None``, meaning that "
 "arguments will never be treated as file references."
 msgstr ""
+"``fromfile_prefix_chars=`` 預設是沒有值得，也就是預設行為中不存在令選項被視為檔案處理的前綴。"
 
 #: ../../library/argparse.rst:436
 msgid ""
@@ -752,6 +841,9 @@ msgid ""
 "and error handler`. Arguments file should be encoded in UTF-8 instead of "
 "ANSI Codepage on Windows."
 msgstr ""
+":class:`ArgumentParser` 讀取檔案的行為從預設（:func:`locale.getpreferredencoding(False) <locale."
+"getpreferredencoding>` and ``\"strict\"``）改成 :term:`filesystem encoding "
+"and error handler`。因此在 Windows 作業系統上，引數檔案應該以 UTF-8 編碼儲存，而非 ANSI。"
 
 #: ../../library/argparse.rst:444
 msgid "argument_default"
@@ -768,6 +860,11 @@ msgid ""
 "suppress attribute creation on :meth:`~ArgumentParser.parse_args` calls, we "
 "supply ``argument_default=SUPPRESS``::"
 msgstr ""
+"一般來說，引數的預設值會透過在 :"
+"meth:`~ArgumentParser.add_argument` 中寫明或以特定的鍵值對呼叫 :meth:`~ArgumentParser."
+"set_defaults` 來設定預設值。不過，有時候直接設定一個所有選項通用的預設值可能會更方便，"
+"你可以透過在建構 :class:`ArgumentParser` 時將通用預設值傳入 ``argument_default=`` 來達成這個目標。"
+"舉例來說，如果你希望不要在呼叫 :meth:`~ArgumentParser.parse_args` 時就為了每個引數建立一個對應的屬性，你可以傳入 ``argument_default=SUPPRESS``，如下例：::"
 
 #: ../../library/argparse.rst:455
 msgid ""
@@ -797,10 +894,12 @@ msgid ""
 "parse_args` method of an :class:`ArgumentParser`, it :ref:`recognizes "
 "abbreviations <prefix-matching>` of long options."
 msgstr ""
+"一般來說，當你將一系列引數傳給 :class:`ArgumentParser` 的 :meth:`~ArgumentParser.parse_args` 方法時"
+"，他能夠 :ref:`認出 <prefix-matching>` 較長選項的縮寫。"
 
 #: ../../library/argparse.rst:472
 msgid "This feature can be disabled by setting ``allow_abbrev`` to ``False``::"
-msgstr ""
+msgstr "這個功能可以透過將 ``allow_abbrev`` 設為 ``False`` 來關閉：::"
 
 #: ../../library/argparse.rst:474
 msgid ""
@@ -829,6 +928,8 @@ msgid ""
 "exception if an attempt is made to create an argument with an option string "
 "that is already in use::"
 msgstr ""
+":class:`ArgumentParser` 物件不允許針對同一個選項採取兩種動作。"
+":class:`ArgumentParser` 預設會在針對同一段選項文字發生二次處理時拋出一個例外：::"
 
 #: ../../library/argparse.rst:492
 msgid ""
@@ -853,6 +954,8 @@ msgid ""
 "value ``'resolve'`` can be supplied to the ``conflict_handler=`` argument "
 "of :class:`ArgumentParser`::"
 msgstr ""
+"但有時候你可能會希望比較新的選項處裡結果能夠直接覆蓋掉比較舊的（例如使用 parents_ 時）。"
+"在建構 :class:`ArgumentParser` 時指定 ``conflict_handler=`` 為 ``'resolve'`` 就可以啟用這個行為。"
 
 #: ../../library/argparse.rst:504
 msgid ""
@@ -887,6 +990,8 @@ msgid ""
 "foo`` action is retained as the ``-f`` action, because only the ``--foo`` "
 "option string was overridden."
 msgstr ""
+":class:`ArgumentParser` 此時只會停止剖析被完全複寫的選項。"
+"以上例而言，舊有的 ``-f/--foo`` 選項仍會被以 ``-f`` 之名保存，因為只有 ``--foo`` 選項字串被覆寫了。"
 
 #: ../../library/argparse.rst:522
 msgid "add_help"
@@ -898,6 +1003,8 @@ msgid ""
 "displays the parser's help message. If ``-h`` or ``--help`` is supplied at "
 "the command line, the :class:`!ArgumentParser` help will be printed."
 msgstr ""
+":class:`ArgumentParser` 預設會自動加入一個能夠印出整個幫助訊息的選項。"
+"如果在呼叫該程式時加入了 ``-h`` 或 ``--help``，則會印出 :class:`!ArgumentParser` 幫助字串。"
 
 #: ../../library/argparse.rst:528
 msgid ""
@@ -905,6 +1012,8 @@ msgid ""
 "This can be achieved by passing ``False`` as the ``add_help=`` argument to :"
 "class:`ArgumentParser`::"
 msgstr ""
+"偶爾你可能會遇到需要把這個自動加入幫助選項的行為關掉的情況。"
+"這個行為可以透過在建構 :class:`ArgumentParser` 時將 ``add_help=`` 設為 ``False`` 來達成"
 
 #: ../../library/argparse.rst:532
 msgid ""
@@ -931,6 +1040,8 @@ msgid ""
 "h`` and ``--help`` are not valid options.  In this case, the first character "
 "in ``prefix_chars`` is used to prefix the help options::"
 msgstr ""
+"列印幫助的選項一般來說是 ``-h/--help``。不過當你使用 ``prefix_chars=`` 指定了前綴，且前綴不包含 ``-`` 時，"
+"``-h`` 和 ``--help`` 就不會是預設的幫助選項，而會用 ``prefix_chars`` 中指定的第一個前綴作為預設值。請見下例：::"
 
 #: ../../library/argparse.rst:546
 msgid ""
@@ -958,12 +1069,15 @@ msgid ""
 "`~ArgumentParser.parse_args` method of an :class:`ArgumentParser`, it will "
 "print a *message* to :data:`sys.stderr` and exit with a status code of 2."
 msgstr ""
+"一般來說，當你傳入無效的引數給 :class:`ArgumentParser` 的 :meth:`~ArgumentParser.parse_args` 方法時，"
+"它會自動印出一個*訊息*到 :data:`sys.stderr` 並以狀態碼 2 結束執行。"
 
 #: ../../library/argparse.rst:561
 msgid ""
 "If the user would like to catch errors manually, the feature can be enabled "
 "by setting ``exit_on_error`` to ``False``::"
 msgstr ""
+"如果使用者希望自己手動處理錯誤，你可以將 ``exit_on_error`` 設定為 ``False`` 來阻止程式自動結束執行：::"
 
 #: ../../library/argparse.rst:564
 msgid ""
@@ -987,9 +1101,9 @@ msgstr ""
 ">>> try:\n"
 "...     parser.parse_args('--integers a'.split())\n"
 "... except argparse.ArgumentError:\n"
-"...     print('Catching an argumentError')\n"
+"...     print('捕捉到一個 argumentError 錯誤')\n"
 "...\n"
-"Catching an argumentError"
+"捕捉到一個 argumentError 錯誤"
 
 #: ../../library/argparse.rst:578
 msgid "The add_argument() method"
@@ -1000,66 +1114,70 @@ msgid ""
 "Define how a single command-line argument should be parsed.  Each parameter "
 "has its own more detailed description below, but in short they are:"
 msgstr ""
+"定義個某個命令引數應該如何被剖析。等一下會再對每個參數進行額外的解釋，簡而言之這些參數的功用是：::"
 
 #: ../../library/argparse.rst:587
 msgid ""
 "`name or flags`_ - Either a name or a list of option strings, e.g. ``'foo'`` "
 "or ``'-f', '--foo'``."
 msgstr ""
+"`name or flags`_ — 一個選項的名字、或一個有數個選項名字的串列。例如 ``'foo'`` 或 ``'-f', '--foo'``。"
 
 #: ../../library/argparse.rst:590
 msgid ""
 "action_ - The basic type of action to be taken when this argument is "
 "encountered at the command line."
 msgstr ""
+"`name or flags`_ — 在命令中遇到這個引數時所應採取的基本行動。"
 
 #: ../../library/argparse.rst:593
 msgid "nargs_ - The number of command-line arguments that should be consumed."
-msgstr ""
+msgstr "nargs_ — 這個引數應該要接受多少個值。"
 
 #: ../../library/argparse.rst:595
 msgid ""
 "const_ - A constant value required by some action_ and nargs_ selections."
-msgstr ""
+msgstr "const_ — 某些 action_ 或 nargs_ 選項所需要的一個常數。"
 
 #: ../../library/argparse.rst:597
 msgid ""
 "default_ - The value produced if the argument is absent from the command "
 "line and if it is absent from the namespace object."
 msgstr ""
+"default_ — 該引數未被指定、且在命名空間中也不存在時賦予的預設值。"
 
 #: ../../library/argparse.rst:600
 msgid ""
 "type_ - The type to which the command-line argument should be converted."
-msgstr ""
+msgstr "type_ — 引數轉換並儲存時所用的型別。"
 
 #: ../../library/argparse.rst:602
 msgid "choices_ - A sequence of the allowable values for the argument."
-msgstr ""
+msgstr "choices_ — 一列該引數所能接受的值。"
 
 #: ../../library/argparse.rst:604
 msgid ""
 "required_ - Whether or not the command-line option may be omitted (optionals "
 "only)."
-msgstr ""
+msgstr "required_ — 該選項是否可被忽略（僅限可選選項）。"
 
 #: ../../library/argparse.rst:607
 msgid "help_ - A brief description of what the argument does."
-msgstr ""
+msgstr "help_ — 簡述該引數的作用。"
 
 #: ../../library/argparse.rst:609
 msgid "metavar_ - A name for the argument in usage messages."
-msgstr ""
+msgstr "metavar_ — 在使用方法訊息裡，該引數的名稱。"
 
 #: ../../library/argparse.rst:611
 msgid ""
 "dest_ - The name of the attribute to be added to the object returned by :"
 "meth:`parse_args`."
-msgstr ""
+msgstr "dest_ — 該選項以這個名字作為屬性名稱被加入 :meth:`parse_args` 回傳的物件中。"
 
 #: ../../library/argparse.rst:614
 msgid "deprecated_ - Whether or not use of the argument is deprecated."
-msgstr ""
+msgstr "deprecated_ — 該引數是否已被棄用。"
 
 #: ../../library/argparse.rst:622
 msgid "name or flags"
@@ -1073,10 +1191,12 @@ msgid ""
 "`~ArgumentParser.add_argument` must therefore be either a series of flags, "
 "or a simple argument name."
 msgstr ""
+":meth:`~ArgumentParser.add_argument` 方法必須知道自己將處裡可選引數（類似 ``-f`` 或 ``--foo``）還是位置引數（例如一個檔案名稱的串列）。"
+"因此，傳給 :meth:`~ArgumentParser.add_argument` 的首個引數一定會是一系列的旗標或一個單一的引數名稱。"
 
 #: ../../library/argparse.rst:630
 msgid "For example, an optional argument could be created like::"
-msgstr ""
+msgstr "舉例來說，一個可選引數能以下列方式建立：::"
 
 #: ../../library/argparse.rst:632
 msgid ">>> parser.add_argument('-f', '--foo')"
@@ -1084,7 +1204,7 @@ msgstr ">>> parser.add_argument('-f', '--foo')"
 
 #: ../../library/argparse.rst:634
 msgid "while a positional argument could be created like::"
-msgstr ""
+msgstr "一個位置引數則能以下列方式建立：::"
 
 #: ../../library/argparse.rst:636
 msgid ">>> parser.add_argument('bar')"
@@ -1096,6 +1216,7 @@ msgid ""
 "be identified by the ``-`` prefix, and the remaining arguments will be "
 "assumed to be positional::"
 msgstr ""
+"當呼叫 :meth:`~ArgumentParser.parse_args` 時，可選引數將被以 ``-`` 前綴識別，其餘引數將被假設為位置引數處裡：::"
 
 #: ../../library/argparse.rst:642
 msgid ""
@@ -1134,12 +1255,14 @@ msgid ""
 "``action`` keyword argument specifies how the command-line arguments should "
 "be handled. The supplied actions are:"
 msgstr ""
+":class:`ArgumentParser` 物件以動作（action）與引數建立關聯。這些動作幾乎可以對其所屬的引數做任何事，不過動作大多數就是在 :meth:`~ArgumentParser.parse_args` 的回傳物件中加上一個屬性。"
+"``action`` 關鍵字引數會指明命令列引數應如何被處裡。可用的動作有：::"
 
 #: ../../library/argparse.rst:665
 msgid ""
 "``'store'`` - This just stores the argument's value.  This is the default "
 "action."
-msgstr ""
+msgstr "``'store'`` — 該動作直接將引數值儲存。這是預設的動作。"
 
 #: ../../library/argparse.rst:668
 msgid ""
@@ -1148,6 +1271,8 @@ msgid ""
 "``'store_const'`` action is most commonly used with optional arguments that "
 "specify some sort of flag.  For example::"
 msgstr ""
+"``'store_const'`` — 該動作將儲存 const_ 關鍵字引數所指定的常數；請注意 const_ 預設值是 ``None``。"
+"``'store_const'`` 最常用於某種旗標類的選項，例如：::"
 
 #: ../../library/argparse.rst:673
 msgid ""
@@ -1168,6 +1293,8 @@ msgid ""
 "respectively.  In addition, they create default values of ``False`` and "
 "``True`` respectively::"
 msgstr ""
+"``'store_true'`` 和 ``'store_false'`` — 這是指定要儲存 ``True`` 和 ``False`` 的 ``'store_const'`` 特例。"
+"此外，這兩個選項各自會給予 ``False`` 和 ``True`` 的預設值：::"
 
 #: ../../library/argparse.rst:683
 msgid ""
@@ -1193,6 +1320,8 @@ msgid ""
 "parsed value for the option, with any values from the command line appended "
 "after those default values. Example usage::"
 msgstr ""
+"``'append'`` — 此動作將儲存一個串列，並將每個引數值附加到該串列。此動作能允許重複指定同一選項。"
+"如果預設值不為空，則該預設值會首先出現在剖析後的該選項裡，後續才加上命令列中的數值。如下例：::"
 
 #: ../../library/argparse.rst:696
 msgid ""
@@ -1214,6 +1343,8 @@ msgid ""
 "useful when multiple arguments need to store constants to the same list. For "
 "example::"
 msgstr ""
+"``'append_const'`` — 此動作將儲存一個串列，並將 const_ 關鍵字引數指定的常數附加到串列中；請注意 const_ 關鍵字引數的預設值是 ``None``。"
+"``'append_const'`` 最適合在數個引數需要將常數存到同一個串列時使用。如下例：::"
 
 #: ../../library/argparse.rst:707
 msgid ""
@@ -1241,6 +1372,9 @@ msgid ""
 "``None`` (the default) or ``'?'``, each character of the argument string "
 "will be appended to the list. Example usage::"
 msgstr ""
+"``'extend'`` — 此動作將儲存一個串列，並將一個有複數值的引數的每個物件附加在該串列之中。"
+"``'extend'`` 動作一般還會一起將 nargs_ 關鍵字引數設為 ``'+'`` 或 ``'*'`` 來使用。"
+"請注意當 nargs_ 是 ``None`` （預設值） 或 ``'?'`` 時，引數字串的每個字元都會一一被附加到串列中。以下是使用範例：::"
 
 #: ../../library/argparse.rst:721
 msgid ""
@@ -1263,6 +1397,7 @@ msgid ""
 "``'count'`` - This counts the number of times a keyword argument occurs. For "
 "example, this is useful for increasing verbosity levels::"
 msgstr ""
+"``'count'`` — 此動作將數出某個關鍵字引數出現的次數。在例如增加紀錄輸出的繁瑣程度時很有用，如下例：::"
 
 #: ../../library/argparse.rst:731
 msgid ""
@@ -1271,10 +1406,14 @@ msgid ""
 ">>> parser.parse_args(['-vvv'])\n"
 "Namespace(verbose=3)"
 msgstr ""
+">>> parser = argparse.ArgumentParser()\n"
+">>> parser.add_argument('--verbose', '-v', action='count', default=0)\n"
+">>> parser.parse_args(['-vvv'])\n"
+"Namespace(verbose=3)"
 
 #: ../../library/argparse.rst:736
 msgid "Note, the *default* will be ``None`` unless explicitly set to *0*."
-msgstr ""
+msgstr "注意，此選項的 *default* 預設值為 ``None``，除非你主動要求其應為 *0*。"
 
 #: ../../library/argparse.rst:738
 msgid ""
@@ -1283,6 +1422,8 @@ msgid ""
 "added to the parser. See :class:`ArgumentParser` for details of how the "
 "output is created."
 msgstr ""
+"``'help'`` — 此動作將印出一個描述所有當前剖析器接受之選項的完整幫助訊息，並退出。"
+"預設已經會有一個具有此動作的選項被加入到剖析器中。請參閱 :class:`ArgumentParser` 以了解幫助訊息是如何產生的。"
 
 #: ../../library/argparse.rst:743
 msgid ""
@@ -1290,6 +1431,8 @@ msgid ""
 "`~ArgumentParser.add_argument` call, and prints version information and "
 "exits when invoked::"
 msgstr ""
+"``'version'`` — 此動作將印出版本資訊後退出。"
+"此動作還預期你一並將版本資訊給予該次 :meth:`~ArgumentParser.add_argument` 呼叫的 ``version=`` 關鍵字引數。如下例：::"
 
 #: ../../library/argparse.rst:747
 msgid ""
@@ -1307,7 +1450,15 @@ msgstr ""
 ">>> parser.parse_args(['--version'])\n"
 "PROG 2.0"
 
-#: ../../library/argparse.rst:753
+#: ../../library/argparse.rst:735
+msgid ""
+"Only actions that consume command-line arguments (e.g. ``'store'``, "
+"``'append'`` or ``'extend'``) can be used with positional arguments."
+msgstr ""
+"只有會消耗引數的動作（即 ``'store'``、"
+"``'append'`` 或 ``'extend'``） 可以被用於位置引數。"
+
+#: ../../library/argparse.rst:740
 msgid ""
 "You may also specify an arbitrary action by passing an :class:`Action` "
 "subclass (e.g. :class:`BooleanOptionalAction`) or other object that "
@@ -1316,7 +1467,7 @@ msgid ""
 "with non-zero ``nargs``) can be used with positional arguments."
 msgstr ""
 "你也可以傳遞一個 :class:`Action` 子類別（例如 :class:"
-"`BooleanOptionalAction`）或實作相同介面的其他物件。只有會消耗命令列引數的 "
+"`BooleanOptionalAction`）或實作了相同介面的其他物件來指定一個任意動作。只有會消耗命令列引數的 "
 "action（例如 ``'store'``、``'append'``、``'extend'`` 或 ``nargs`` 不為零的自"
 "定義 action）可以被用於位置引數。"
 
@@ -1328,10 +1479,12 @@ msgid ""
 "using the :meth:`~ArgumentParser.register` method and reference them by "
 "their registered name."
 msgstr ""
+"擴充 :class:`Action`，覆寫其中的 :meth:`!__call__` 方法、以及非必要的 :meth:`!__init__` 、"
+":meth:`!format_usage` 等方法是目前自創一個動作時的推薦方式。"
 
 #: ../../library/argparse.rst:764
 msgid "An example of a custom action::"
-msgstr ""
+msgstr "以下是一個自訂動作的範例：::"
 
 #: ../../library/argparse.rst:766
 msgid ""
@@ -1353,10 +1506,27 @@ msgid ""
 ">>> args\n"
 "Namespace(bar='1', foo='2')"
 msgstr ""
+">>> class FooAction(argparse.Action):\n"
+"...     def __init__(self, option_strings, dest, nargs=None, **kwargs):\n"
+"...         if nargs is not None:\n"
+"...             raise ValueError(\"不允許 nargs 有值\")\n"
+"...         super().__init__(option_strings, dest, **kwargs)\n"
+"...     def __call__(self, parser, namespace, values, option_string=None):\n"
+"...         print('%r %r %r' % (namespace, values, option_string))\n"
+"...         setattr(namespace, self.dest, values)\n"
+"...\n"
+">>> parser = argparse.ArgumentParser()\n"
+">>> parser.add_argument('--foo', action=FooAction)\n"
+">>> parser.add_argument('bar', action=FooAction)\n"
+">>> args = parser.parse_args('1 --foo 2'.split())\n"
+"Namespace(bar=None, foo=None) '1' None\n"
+"Namespace(bar='1', foo=None) '2' '--foo'\n"
+">>> args\n"
+"Namespace(bar='1', foo='2')"
 
 #: ../../library/argparse.rst:784
 msgid "For more details, see :class:`Action`."
-msgstr "更多詳情請見 :class:`Action`。"
+msgstr "詳情請見 :class:`Action`。"
 
 #: ../../library/argparse.rst:790
 msgid "nargs"
@@ -1370,12 +1540,15 @@ msgid ""
 "action. See also :ref:`specifying-ambiguous-arguments`. The supported values "
 "are:"
 msgstr ""
+":class:`ArgumentParser` 一般來說會為每一個命令列選項分配一個動作。 ``nargs`` 關鍵字引數可使多個選項共用同一個動作。"
+"請另參閱 :ref:`specifying-ambiguous-arguments`。 本引數支援的值有："
 
 #: ../../library/argparse.rst:797
 msgid ""
 "``N`` (an integer).  ``N`` arguments from the command line will be gathered "
 "together into a list.  For example::"
 msgstr ""
+"``N`` （一個整數。） ``N`` 個來自命令的引數會被集成至一個串列（list）中。例如：::"
 
 #: ../../library/argparse.rst:800
 msgid ""
@@ -1396,6 +1569,7 @@ msgid ""
 "Note that ``nargs=1`` produces a list of one item.  This is different from "
 "the default, in which the item is produced by itself."
 msgstr ""
+"注意到 ``nargs=1`` 會產生含有一個元素的串列。與預設情況不同，預設情況下只會產生該選項的值本身。"
 
 #: ../../library/argparse.rst:811
 msgid ""
@@ -1406,6 +1580,8 @@ msgid ""
 "by a command-line argument.  In this case the value from const_ will be "
 "produced.  Some examples to illustrate this::"
 msgstr ""
+"``'?'``。 若情況允許，會從命令中消耗一個引數，並產生一個物件。如果沒有任何可用的引數， default_ 的預設值會被使用。"
+"請注意，若是可選引數則還有其他可能—如果選項字串存在，但後方卻沒有任何來自命令的引數，則 const_ 中的值會被作為預設值使用。以下的範例展示了這個行為：::"
 
 #: ../../library/argparse.rst:818
 msgid ""
@@ -1434,6 +1610,7 @@ msgid ""
 "One of the more common uses of ``nargs='?'`` is to allow optional input and "
 "output files::"
 msgstr ""
+"其中一個最常見的 ``nargs='?'`` 用法是令指定輸入或輸出檔案的引數成為可選項：::"
 
 #: ../../library/argparse.rst:831
 msgid ""
@@ -1468,6 +1645,7 @@ msgid ""
 "argument with ``nargs='*'``, but multiple optional arguments with "
 "``nargs='*'`` is possible.  For example::"
 msgstr ""
+"``'*'``。 所有可用的命令列引數都會被蒐集至一個串列（list）中。一般來說不會讓一個以上的選項具有 ``nargs='*'``，但確實可以做到讓數個選項同時具有 ``nargs='*'``。請見下例：::"
 
 #: ../../library/argparse.rst:850
 msgid ""
@@ -1491,6 +1669,8 @@ msgid ""
 "into a list.  Additionally, an error message will be generated if there "
 "wasn't at least one command-line argument present.  For example::"
 msgstr ""
+"``'+'``. 與 ``'*'`` 很像，所有可用的命令列引數都會被收集到一個串列（llist）中。"
+"除此之外，如果可用的引數少於一個則會產生一個錯誤訊息。請見下例：::"
 
 #: ../../library/argparse.rst:863
 msgid ""
@@ -1518,6 +1698,8 @@ msgid ""
 "be produced. Actions that do not consume command-line arguments (e.g. "
 "``'store_const'``) set ``nargs=0``."
 msgstr ""
+"如果未提供關鍵字參數 ``nargs``，將消耗的參數量將取決於 action_ 的選擇。一般來說這代表會消耗一個命令列參數，並產生一個物件（而非串列）。"
+"不消耗命令列參數的動作將設定 ``nargs=0``。"
 
 #: ../../library/argparse.rst:881
 msgid "const"
@@ -1530,6 +1712,7 @@ msgid ""
 "required for the various :class:`ArgumentParser` actions.  The two most "
 "common uses of it are:"
 msgstr ""
+":meth:`~ArgumentParser.add_argument` 的 ``const`` 參數用來保存許多 :class:`ArgumentParser` 動作使用到、但不從命令列參數讀取的常數。最常用到的兩個情況有：::"
 
 #: ../../library/argparse.rst:887
 msgid ""
@@ -1540,7 +1723,31 @@ msgid ""
 "``const`` is not provided to :meth:`~ArgumentParser.add_argument`, it will "
 "receive a default value of ``None``."
 msgstr ""
+"當設定 ``action='store_const'`` 或 ``action='append_const'`` 呼叫 :meth:`~ArgumentParser.add_argument` 時。這兩個動作會將 ``const`` 的值加入 :meth:"
+"`~ArgumentParser.parse_args` 方法所回傳物件的其中一個屬性。範例請見 action_ 的描述。"
+"如果沒有提供 ``const`` 值給 :meth:`~ArgumentParser.add_argument`，其預設值為 ``None``。"
 
+# SkyLull: 痾，倒數第二段看不懂。我照實際操作的結果去翻。
+# Python 3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 17:35:02) [GCC 11.2.0] on linux
+# Type "help", "copyright", "credits" or "license" for more information.
+# >>> import argparse
+# >>> parser = argparse.ArgumentParser()
+# >>> parser.add_argument('--foo', const=42, nargs='?')
+# _StoreAction(option_strings=['--foo'], dest='foo', nargs='?', const=42, default=None, type=None, choices=None, required=False, help=None, metavar=None)
+# >>> parser.parse_args(["--foo", "52"])
+# Namespace(foo='52')
+# >>> parser.parse_args(["--foo"])
+# Namespace(foo=42)
+# >>> parser.parse_args([])
+# Namespace(foo=None)
+#
+# >>> parser = argparse.ArgumentParser()
+# >>> parser.add_argument('--foo', nargs='?')
+# _StoreAction(option_strings=['--foo'], dest='foo', nargs='?', const=None, default=None, type=None, choices=None, required=False, help=None, metavar=None)
+# >>> parser.parse_args(["--foo"])
+# Namespace(foo=None)
+# >>> parser.parse_args([])
+# Namespace(foo=None)
 #: ../../library/argparse.rst:895
 msgid ""
 "When :meth:`~ArgumentParser.add_argument` is called with option strings "
@@ -1550,12 +1757,17 @@ msgid ""
 "command-line argument following it, the value of ``const`` will be assumed "
 "to be ``None`` instead.  See the nargs_ description for examples."
 msgstr ""
+"當設定了選項字串（例如 ``-f`` 或 ``--foo``）給 :meth:`~ArgumentParser.add_argument` 且給予了 ``nargs='?'`` 時。"
+"將建立一個能接收零或一個參數的可選選項。在剖析命令時，如果命令選項後方沒有對應的參數，``const`` 的值將作為預設值，若未設定則預設為 ``None``。"
+"範例請見 nargs_ 的描述。"
 
 #: ../../library/argparse.rst:902
 msgid ""
 "``const=None`` by default, including when ``action='append_const'`` or "
 "``action='store_const'``."
 msgstr ""
+"預設 ``const=None``，包含 ``action='append_const'`` 或"
+" ``action='store_const'`` 時。"
 
 #: ../../library/argparse.rst:909
 msgid "default"
@@ -1570,6 +1782,9 @@ msgid ""
 "the ``default`` value is used when the option string was not present at the "
 "command line::"
 msgstr ""
+"所有可選引數和部份位置引數可以在命令中省略。 :meth:`~ArgumentParser."
+"add_argument` 的關鍵字引數 ``default`` 將指定該選項被省略時所使用的預設值，該值預設為 ``None``。"
+"對於可選選項而言，該選項的字串未出限於命令中時，``default`` 的值將被使用。"
 
 #: ../../library/argparse.rst:918
 msgid ""
@@ -1592,6 +1807,7 @@ msgid ""
 "If the target namespace already has an attribute set, the action *default* "
 "will not overwrite it::"
 msgstr ""
+"如果目標的命名空間中已具有該屬性，*default* 將不會對其進行覆寫：::"
 
 #: ../../library/argparse.rst:928
 msgid ""
@@ -1612,6 +1828,9 @@ msgid ""
 "conversion argument, if provided, before setting the attribute on the :class:"
 "`Namespace` return value.  Otherwise, the parser uses the value as is::"
 msgstr ""
+"如果 ``default`` 值是字串，剖析器仍將其視同從命令中讀取的選項處裡。"
+"若有進行設定，剖析器會依照 type_ 的設定轉換其型別後儲存進回傳的 :class:"
+"`Namespace` 的屬性中。否無設定則剖析器將原封不動地使用該值。"
 
 #: ../../library/argparse.rst:938
 msgid ""
@@ -1632,6 +1851,7 @@ msgid ""
 "For positional arguments with nargs_ equal to ``?`` or ``*``, the "
 "``default`` value is used when no command-line argument was present::"
 msgstr ""
+"對於未出現在命令引數中、且設定 nargs_ 為 ``?`` 或 ``*`` 的位置引數，其 ``default`` 值將被使用：::"
 
 #: ../../library/argparse.rst:947
 msgid ""
@@ -1655,12 +1875,15 @@ msgid ""
 "applies to positional arguments with nargs_ values other than ``?`` or "
 "``*``, or optional arguments marked as ``required=True``."
 msgstr ""
+"設定為 required_ 的引數，``default`` 的設定將被忽略。"
+"舉例來說，這也包括 nargs_ 不是 ``?`` 或 ``*`` 的位置引數，或設定為 ``required=True`` 的可選引數。"
 
 #: ../../library/argparse.rst:958
 msgid ""
 "Providing ``default=argparse.SUPPRESS`` causes no attribute to be added if "
 "the command-line argument was not present::"
 msgstr ""
+"當設定 ``default=argparse.SUPPRESS`` 時，如該選項不存在命令中，則該屬性將不會被加入結果。"
 
 #: ../../library/argparse.rst:961
 msgid ""
@@ -1690,12 +1913,15 @@ msgid ""
 "keyword for :meth:`~ArgumentParser.add_argument` allows any necessary type-"
 "checking and type conversions to be performed."
 msgstr ""
+"剖析器預設將命令列引數讀取為字串。不過，經常會遇到需要將讀取值轉換為其他定型別的狀況，例如 :class:`float` 或 :class:`int`。"
+":meth:`~ArgumentParser.add_argument` 的關鍵字引數 ``type`` 可對讀取值進行必要的轉換與檢察。"
 
 #: ../../library/argparse.rst:980
 msgid ""
 "If the type_ keyword is used with the default_ keyword, the type converter "
 "is only applied if the default is a string."
 msgstr ""
+"如果 type_ 和 default_ 關鍵字被一同使用，則只有在預設值被設定為字串時才會進行型別轉換。"
 
 #: ../../library/argparse.rst:983
 msgid ""
@@ -1705,10 +1931,13 @@ msgid ""
 "`ValueError`, the exception is caught and a nicely formatted error message "
 "is displayed. Other exception types are not handled."
 msgstr ""
+"傳入 ``type`` 的物件可以是任意接受一個字串輸入的可呼叫物件。"
+"若呼叫該函數時發生了 :exc:`ArgumentTypeError`、:exc:`TypeError` 或 :exc:"
+"`ValueError` 例外，該例外將被捕捉，並且顯示於一個格式化過的整潔訊息當中。其他未列出的例外都不會進行額外處裡。"
 
 #: ../../library/argparse.rst:989
 msgid "Common built-in types and functions can be used as type converters:"
-msgstr ""
+msgstr "可用於型別轉換的常用內建型別和函數：::"
 
 #: ../../library/argparse.rst:991
 msgid ""
@@ -1738,7 +1967,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:1004
 msgid "User defined functions can be used as well:"
-msgstr ""
+msgstr "也可以使用自定義的函數：::"
 
 #: ../../library/argparse.rst:1006
 msgid ""
@@ -1764,6 +1993,7 @@ msgid ""
 "does is convert empty strings to ``False`` and non-empty strings to "
 "``True``. This is usually not what is desired."
 msgstr ""
+"不建議使用 :func:`bool` 函數作為型別轉換器。該函數只將空字串轉換為 ``False``，其餘都轉換為 ``True``。一般而言這不是使用者預期的行為。"
 
 #: ../../library/argparse.rst:1020
 msgid ""
@@ -1772,6 +2002,8 @@ msgid ""
 "exceptions. Anything with more interesting error-handling or resource "
 "management should be done downstream after the arguments are parsed."
 msgstr ""
+"一般來說，``type`` 關鍵字只應被用在能簡單轉換（也就是只會引發上開那三種例外）的應用場景中。"
+"其餘更複雜的錯誤處裡或資源管理需求的應用應該在剖析完後、更下游的程式中進行。"
 
 #: ../../library/argparse.rst:1025
 msgid ""
@@ -1780,6 +2012,8 @@ msgid ""
 "JSONDecodeError` would not be well formatted and a :exc:`FileNotFoundError` "
 "exception would not be handled at all."
 msgstr ""
+"舉例來說，JSON、YAML 的轉換就有著超出 ``type`` 所能應付範圍的更複雜的錯誤處裡。:exc:`~json."
+"JSONDecodeError` 錯誤的回報格式會出錯，而 :exc:`FileNotFoundError` 則是根本不會被處裡。"
 
 #: ../../library/argparse.rst:1030
 msgid ""
@@ -1790,12 +2024,15 @@ msgid ""
 "the parser has run and then use the :keyword:`with`-statement to manage the "
 "files."
 msgstr ""
+"就算是 :class:`~argparse.FileType` 在使用於 ``type`` 關鍵字時也有不少限制。例如有個引數使用了 :class:`~argparse.FileType` 而該引數的剖析出錯，錯誤會被回報但該檔案不會被自動關閉。"
+"在這個情況下，建議的寫法會是讓程式在剖析器跑完後，再用 :keyword:`with` 的情境管理去做檔案的存取。"
 
 #: ../../library/argparse.rst:1037
 msgid ""
 "For type checkers that simply check against a fixed set of values, consider "
 "using the choices_ keyword instead."
 msgstr ""
+"若檢查器只是檢查輸入值是否符合某幾個確定的值，請考慮改用 choices_ 關鍵字的功能來進行。"
 
 #: ../../library/argparse.rst:1044
 msgid "choices"
@@ -1809,6 +2046,8 @@ msgid ""
 "line is parsed, argument values will be checked, and an error message will "
 "be displayed if the argument was not one of the acceptable values::"
 msgstr ""
+"若有命令引數只接受從幾個特定的值之中挑一個，你可以透過將些可接受的選項編入一個序列物件，並傳入 :meth:`~ArgumentParser.add_argument` 的 *choices* 關鍵字引數來處裡。"
+"當在剖析命令時，引數的值就會依照要求被檢查，如果引數值不是其中一個可接受值的話便會顯示一個錯誤訊息，如範例：::"
 
 #: ../../library/argparse.rst:1052
 msgid ""
@@ -1836,18 +2075,22 @@ msgid ""
 "conversions have been performed, so the type of the objects in the *choices* "
 "sequence should match the type_ specified."
 msgstr ""
+"請注意，針對「輸入是否包含在 *choices* 序列裡」的檢查發生在型別轉換後，所以 *choices* 裡面的資料型別要符合你在 type_ 所指定的型別。"
 
 #: ../../library/argparse.rst:1065
 msgid ""
 "Any sequence can be passed as the *choices* value, so :class:`list` "
 "objects, :class:`tuple` objects, and custom sequences are all supported."
 msgstr ""
+"任意的型別都能傳入 *choices*，也就是說 :class:`list`、"
+"objects、:class:`tuple` 和其他自訂的序列型物件都是可行的。"
 
 #: ../../library/argparse.rst:1068
 msgid ""
 "Use of :class:`enum.Enum` is not recommended because it is difficult to "
 "control its appearance in usage, help, and error messages."
 msgstr ""
+"不建議使用 :class:`enum.Enum`，因為它出現在使用說明、幫助和錯誤訊息的樣貌難以控制。"
 
 #: ../../library/argparse.rst:1071
 msgid ""
@@ -1856,6 +2099,9 @@ msgid ""
 "*dest* parameter.  If this display isn't desirable (perhaps because there "
 "are many choices), just specify an explicit metavar_."
 msgstr ""
+"預設由 *dest* 導出的 *metavar* 會被格式化的多選選項覆寫。"
+"一般來說這會是個理想的行為，因為使用者永遠不會看見 *dest* 參數。"
+"如果這樣導致的顯示輸出並不理想（例如因為有太多選項），你可以直接顯式地指定 metavar_ 。"
 
 #: ../../library/argparse.rst:1080
 msgid "required"
@@ -1868,6 +2114,8 @@ msgid ""
 "command line. To make an option *required*, ``True`` can be specified for "
 "the ``required=`` keyword argument to :meth:`~ArgumentParser.add_argument`::"
 msgstr ""
+"一般而言，:mod:`!argparse` 自動認定如 ``-f``、``--bar`` 等具旗標的選項就代表它們是可選的引數，也就是說它們在命令列中是可不輸入的。"
+"如果想要使某個選項變成必選，你可以指定 :meth:`~ArgumentParser.add_argument` 的關鍵字引數 ``required=`` 為 ``True``：::"
 
 #: ../../library/argparse.rst:1087
 msgid ""
@@ -1893,12 +2141,15 @@ msgid ""
 "`~ArgumentParser.parse_args` will report an error if that option is not "
 "present at the command line."
 msgstr ""
+"如範例所示，如果該選項被標記為 ``required`，:meth:"
+"`~ArgumentParser.parse_args` 會在該選項不存在命令中時回報錯誤。"
 
 #: ../../library/argparse.rst:1101
 msgid ""
 "Required options are generally considered bad form because users expect "
 "*options* to be *optional*, and thus they should be avoided when possible."
 msgstr ""
+"必選選項一般而言不是個好主意，畢竟一般使用者會預期*選*項都是*可選*的，因此若非必要，請進可能避免使用這個選項。"
 
 #: ../../library/argparse.rst:1108
 msgid "help"
@@ -1911,7 +2162,10 @@ msgid ""
 "at the command line), these ``help`` descriptions will be displayed with "
 "each argument."
 msgstr ""
+"``help`` 的值是一簡短描述該引數作用的之字串。當使用者請求幫助時（一般而言透過在命令界面傳入 ``-h`` 或 ``--help`` 達成），這些 ``help`` 的內容便會被顯示在每個選項的後面。"
 
+# [T]
+# format specifiers => 格式指定字，同 298
 #: ../../library/argparse.rst:1115
 msgid ""
 "The ``help`` strings can include various format specifiers to avoid "
@@ -1920,6 +2174,9 @@ msgid ""
 "arguments to :meth:`~ArgumentParser.add_argument`, e.g. ``%(default)s``, "
 "``%(type)s``, etc.::"
 msgstr ""
+"在 ``help`` 字串中有一些格式指定字可供使用，以避免無意義的反覆輸入，例如程式名稱或該引數之預設值。"
+"可用的指定字包括程式名稱 ``%(prog)s``，以及絕大多數 :meth:`~ArgumentParser.add_argument` 的關鍵字引數，諸如 ``%(default)s``、"
+"``%(type)s``, 等等：::"
 
 #: ../../library/argparse.rst:1120
 msgid ""
@@ -1952,12 +2209,14 @@ msgid ""
 "As the help string supports %-formatting, if you want a literal ``%`` to "
 "appear in the help string, you must escape it as ``%%``."
 msgstr ""
+"因為幫助字串支援百分比符號格式化（%-formatting），若你需要字串中顯示一個 ``%`` 符號時，你需要跳脫該字元，亦即你需要使用 ``%%``。"
 
 #: ../../library/argparse.rst:1135
 msgid ""
 ":mod:`!argparse` supports silencing the help entry for certain options, by "
 "setting the ``help`` value to ``argparse.SUPPRESS``::"
 msgstr ""
+":mod:`!argparse` 支援隱藏部份選項項目的幫助訊息，可以透過將 ``help`` 的值設定為 ``argparse.SUPPRESS`` 來達成：::"
 
 #: ../../library/argparse.rst:1138
 msgid ""
@@ -1992,6 +2251,12 @@ msgid ""
 "single optional argument ``--foo`` that should be followed by a single "
 "command-line argument will be referred to as ``FOO``.  An example::"
 msgstr ""
+":class:`ArgumentParser` 生成幫助訊息時，其需要一種能指代每個輸入引數的方式。"
+":class:`!ArgumentParser` 預設使用 dest_ 的值作為指代每個輸入物件的 \"name\" 。"
+"處理位置引數時，dest_ 的值會直接被使用，處裡可選引數時 dest_ 的所有字母都會轉換成大寫。"
+"也就是說，一個 ``dest='bar'`` 的位置引數會被指代為 ``bar``。"
+"一個名為 ``--foo`` 的、並預期含有一個命令列引數的可選引數則會被指代為 ``FOO``。"
+"如下例所示：::"
 
 #: ../../library/argparse.rst:1161
 msgid ""
@@ -2027,7 +2292,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:1176
 msgid "An alternative name can be specified with ``metavar``::"
-msgstr ""
+msgstr "``metavar`` 可用於指定一個替代用的名稱：::"
 
 #: ../../library/argparse.rst:1178
 msgid ""
@@ -2701,7 +2966,7 @@ msgstr ""
 
 #: ../../library/argparse.rst:1591
 msgid "Description of parameters:"
-msgstr "參數的解釋："
+msgstr "參數的描述："
 
 #: ../../library/argparse.rst:1593
 msgid ""
